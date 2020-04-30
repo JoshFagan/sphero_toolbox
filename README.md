@@ -24,6 +24,9 @@ errors.
 
 
 #### Download Sphero Toolbox
+1. Download the zip file
+2. scp it to the Pi
+3. unzip it in the home directory
 
 
 ## Matlab Configuration
