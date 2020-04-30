@@ -21,7 +21,20 @@ errors.
 2. Under "Advanced Options", choose "Expand Space"
 
 #### Install ROS
-
+I adopted these [GitHub Instructions](https://gist.github.com/Tiryoh/76be0ac467c09667ca51b5f8d9f4b3bc#file-ros_melodic_install_raspizero-bash) but found if I 
+ran the curl command it errored out. Instead I ran the commands in the bash 
+script line by line, expluding the initial "set -eu" line and it worked. Below
+are the commands for simplicity sake.
+```
+sudo apt update
+sudo apt install -y build-essential gdebi
+mkdir -p ~/tmp && pushd ~/tmp
+wget https://github.com/nomumu/ros4raspbian/releases/download/1.0.0/ros4raspbian-melodic-armhf-1.0.0.zip
+unzip ros4raspbian-melodic-armhf-1.0.0.zip
+sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
+popd
+rosdep update
+```
 
 #### Download Sphero Toolbox
 1. Download the zip file
