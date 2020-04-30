@@ -32,7 +32,8 @@ errors.
 
 After installing the MATLAB Support Package for Raspberry Pi Hardware 
 configure your setup by:
-"Home" tab -> arrow under "Add-Ons" -> "Manage Add-Ons" -> Little Gear to the 
-right of MATLAB Support Package for Raspberry Pi Hardware
-
-Follow the steps as prompted.
+1. Clicking "Home" tab
+2. Clicking arrow under "Add-Ons"
+3. Click "Manage Add-Ons"
+4. Click little Gear to the right of MATLAB Support Package for Raspberry Pi Hardware
+5. Follow the steps as prompted.
