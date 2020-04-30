@@ -20,6 +20,12 @@ errors.
 1. Execute "raspi-config" 
 2. Under "Advanced Options", choose "Expand Space"
 
+#### Install ROS
+
+
+#### Download Sphero Toolbox
+
+
 ## Matlab Configuration
 ### Required Toolboxes
 * MATLAB Support Package for Raspberry Pi Hardware
