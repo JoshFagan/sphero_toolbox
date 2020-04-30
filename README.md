@@ -22,10 +22,10 @@ errors.
 
 ## Matlab Configuration
 ### Required Toolboxes
-- MATLAB Support Package for Raspberry Pi Hardware
-Used to connect to Pi and run commands via the "system" function
-- ROS Toolbox
-Used to send and recieve messages from the Pi
-May require Matlab 2019 or later
-- Parallel Computing Toolbox
-Needed to run roslaunch files on the Pi 
+* MATLAB Support Package for Raspberry Pi Hardware
+    - Used to connect to Pi and run commands via the "system" function
+* ROS Toolbox
+    - Used to send and recieve messages from the Pi
+    - May require Matlab 2019 or later
+* Parallel Computing Toolbox
+    - Needed to run roslaunch files on the Pi 
