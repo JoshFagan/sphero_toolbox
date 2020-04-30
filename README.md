@@ -29,3 +29,10 @@ errors.
     - May require Matlab 2019 or later
 * Parallel Computing Toolbox
     - Needed to run roslaunch files on the Pi 
+
+After installing the MATLAB Support Package for Raspberry Pi Hardware 
+configure your setup by:
+"Home" tab -> arrow under "Add-Ons" -> "Manage Add-Ons" -> Little Gear to the 
+right of MATLAB Support Package for Raspberry Pi Hardware
+
+Follow the steps as prompted.
