@@ -20,6 +20,39 @@ errors.
 1. Execute "raspi-config" 
 2. Under "Advanced Options", choose "Expand Space"
 
+#### Install ROS
+I adopted these [GitHub Instructions](https://gist.github.com/Tiryoh/76be0ac467c09667ca51b5f8d9f4b3bc#file-ros_melodic_install_raspizero-bash) but found if I 
+ran the curl command it errored out. Instead I ran the commands in the bash 
+script line by line, expluding the initial "set -eu" line and it worked. Below
+are the commands for simplicity sake.
+```
+$ sudo apt update
+$ sudo apt install -y build-essential gdebi
+$ mkdir -p ~/tmp && pushd ~/tmp
+$ wget https://github.com/nomumu/ros4raspbian/releases/download/1.0.0/ros4raspbian-melodic-armhf-1.0.0.zip
+$ unzip ros4raspbian-melodic-armhf-1.0.0.zip
+$ sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
+$ popd
+$ rosdep update
+```
+
+#### Download Sphero Toolbox
+1. Download the zip file using the above button
+2. Move the zip file to the home directory of the Pi
+3. Unzip the file
+4. `$ cd sphero_toolbox/catkin_ws`
+5. `$ catkin_make
+
+
+#### Update Bash File
+At the bottom of the ".bashrc" file in the home directory, add the following
+lines.
+```
+source /opt/ros/melodic/setup.bash
+source ~/sphero_toolbox/catkin_ws/devel/setup.bash
+export ROS_IP=<Pi's IP address>
+```
+
 ## Matlab Configuration
 ### Required Toolboxes
 * MATLAB Support Package for Raspberry Pi Hardware
@@ -37,3 +70,7 @@ configure your setup by:
 3. Click "Manage Add-Ons"
 4. Click little Gear to the right of MATLAB Support Package for Raspberry Pi Hardware
 5. Follow the steps as prompted.
+
+## To Do
+* Take commands deved in Matlab script in sphero.m class file
+* Move exporting commands from bash to Matlab
