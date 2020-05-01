@@ -37,17 +37,20 @@ $ rosdep update
 ```
 
 #### Download Sphero Toolbox
-1. Download the zip file
-2. scp it to the Pi
-3. unzip it in the home directory
+1. Download the zip file using the above button
+2. Move the zip file to the home directory of the Pi
+3. Unzip the file
+4. `$ cd sphero_toolbox/catkin_ws`
+5. `$ catkin_make
+
 
 #### Update Bash File
 At the bottom of the ".bashrc" file in the home directory, add the following
 lines.
 ```
 source /opt/ros/melodic/setup.bash
-source ~/catkin_ws/devel/setup.bash
-export ROS_IP=10.0.1.30
+source ~/sphero_toolbox/catkin_ws/devel/setup.bash
+export ROS_IP=<Pi's IP address>
 ```
 
 ## Matlab Configuration
@@ -69,7 +72,5 @@ configure your setup by:
 5. Follow the steps as prompted.
 
 ## To Do
-* Add catkmin make config steps to Pi config steps
-* Flesh out update bash file steps
 * Take commands deved in Matlab script in sphero.m class file
 * Move exporting commands from bash to Matlab
