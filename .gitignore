@@ -1,3 +1,7 @@
+# Catkin generated files
+catkin_ws/devel/*
+catkin_ws/build/*
+
 # Vim Generated Files
 *.swp
 
