@@ -10,7 +10,6 @@ classdef sphero < handle
     properties (Access=public)
         bot_id = 0;              % numeric ID of the bot
         bot_ip_address = '';
-        %bot_ip_addresses = {};  % List of IP addresses corresponding to botIDs
         matlab_ip_address = '';  % IP Address of local computer running MATLAB
     end % public properties
     
@@ -44,7 +43,7 @@ classdef sphero < handle
             this.matlab_ip_address = strtrim(ip_addess);
             
             this.connect();
-        end
+        end % sphero method
         
         function connect(this)
             % Initialize communication with robot
@@ -66,7 +65,7 @@ classdef sphero < handle
                              this.matlab_ip_address, ':11311/; ', ...
                              'export ROS_IP=', this.bot_ip_address);
             system( mypi, sys_cmd )
-        end
-    end
-end
+        end % connect method
+    end % public methods
+end % sphero class
 
