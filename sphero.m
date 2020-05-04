@@ -9,13 +9,13 @@ classdef sphero < handle
     % modifications to the object are automatically saved with the object
     properties (Access=public)
         bot_id = 0;              % numeric ID of the bot
-        bot_ip_address = '';
-        matlab_ip_address = '';  % IP Address of local computer running MATLAB
-        mypi = [];
     end % public properties
     
     properties (Access=private)
+        bot_ip_address = '';     % IP address of robot with specified ID
         bot_ip_addresses = {};  % List of IP addresses corresponding to botIDs
+        matlab_ip_address = '';  % IP Address of local computer running MATLAB
+        mypi = [];
     end % private properties
     
     methods (Access=public)
