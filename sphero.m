@@ -46,6 +46,7 @@ classdef sphero < handle
             this.matlab_ip_address = strtrim(ip_addess);
                         
             this.connect();
+            
             disp( 'Finished creating Sphero object.' );
         end % sphero method
         
@@ -88,12 +89,16 @@ classdef sphero < handle
         end % init_ros
         
         function init_topics(this)
+            % Initialize ROS topics
+            
             disp( 'Initializing ROS topics.' );
+            
             % Set ROS environment variables on Pi
             sys_cmd = strcat('export ROS_MASTER_URI=http://', ...
                              this.matlab_ip_address, ':11311/; ', ...
                              'export ROS_IP=', this.bot_ip_address );
             system( this.mypi, sys_cmd );
+            
             disp( 'Finished initializing ROS topics.' );
         end % init_topics
     end % private methods
