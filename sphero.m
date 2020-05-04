@@ -11,6 +11,7 @@ classdef sphero < handle
         bot_id = 0;              % numeric ID of the bot
         bot_ip_address = '';
         matlab_ip_address = '';  % IP Address of local computer running MATLAB
+        mypi = [];
     end % public properties
     
     properties (Access=private)
@@ -20,6 +21,8 @@ classdef sphero < handle
     methods (Access=public)
         function this = sphero(varargin)
             % Create an object used to reference the RVR Sphero
+            
+            disp('Creating Sphero object.');
             
             % Define list of IP addresses
             % (should be updated when bots are connected to EF network)
@@ -41,31 +44,58 @@ classdef sphero < handle
             % (command works for Macs, not tested on other systems)
             [~, ip_addess] = system('ipconfig getifaddr en1');
             this.matlab_ip_address = strtrim(ip_addess);
-            
+                        
             this.connect();
+            disp( 'Finished creating Sphero object.' );
         end % sphero method
         
         function connect(this)
             % Initialize communication with robot
-
-            rosshutdown; % Make sure a ROS master node is not already running
+                        
+            this.init_pi();
+            this.init_ros();
+            this.init_topics();
+        end % connect method
+    end % public methods
+    
+    methods (Access=private)
+        function init_pi(this)
+            % Create Pi object
+            
+            disp( 'Connecting to Pi.' );
+            
+            username   = 'pi';
+            password  = 'raspberry';
+            this.mypi = raspi( this.bot_ip_address, username, password );
+            
+            disp( 'Finished connecting to Pi.' );
+        end % init_pi
+        
+        function init_ros(this)
+            % Initialize ROS environment
+            
+            disp( 'Initializing ROS.' );
+            
+            % Make sure a ROS master node is not already running
+            rosshutdown;
             
             % Iitialize new ROS master node
             setenv('ROS_MASTER_URI','http://localhost:11311');
             setenv('ROS_IP',this.matlab_ip_address);
-            rosinit
-
-            % Create Pi object
-            username   = 'pi';
-            password  = 'raspberry';
-            mypi = raspi( this.bot_ip_address, username, password );
+            rosinit;
             
+            disp( 'Finished initializing ROS.' );
+        end % init_ros
+        
+        function init_topics(this)
+            disp( 'Initializing ROS topics.' );
             % Set ROS environment variables on Pi
             sys_cmd = strcat('export ROS_MASTER_URI=http://', ...
                              this.matlab_ip_address, ':11311/; ', ...
-                             'export ROS_IP=', this.bot_ip_address);
-            system( mypi, sys_cmd )
-        end % connect method
-    end % public methods
+                             'export ROS_IP=', this.bot_ip_address );
+            system( this.mypi, sys_cmd );
+            disp( 'Finished initializing ROS topics.' );
+        end % init_topics
+    end % private methods
 end % sphero class
 
