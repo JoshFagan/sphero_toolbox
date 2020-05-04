@@ -60,6 +60,12 @@ classdef sphero < handle
             username   = 'pi';
             password  = 'raspberry';
             mypi = raspi( this.bot_ip_address, username, password );
+            
+            % Set ROS environment variables on Pi
+            sys_cmd = strcat('export ROS_MASTER_URI=http://', ...
+                             this.matlab_ip_address, ':11311/; ', ...
+                             'export ROS_IP=', this.bot_ip_address);
+            system( mypi, sys_cmd )
         end
     end
 end
