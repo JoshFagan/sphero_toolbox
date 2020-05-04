@@ -36,7 +36,6 @@ classdef sphero < handle
             end
             
             this.bot_id = varargin{1};
-            
             this.bot_ip_address = this.bot_ip_addresses{this.bot_id};
             
             % Get IP address of local computer running MATLAB 
@@ -44,7 +43,7 @@ classdef sphero < handle
             [~, ip_addess] = system('ipconfig getifaddr en1');
             this.matlab_ip_address = strtrim(ip_addess);
             
-            if nargin, this.connect(); end
+            this.connect();
         end
         
         function connect(this)
