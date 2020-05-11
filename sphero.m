@@ -97,11 +97,17 @@ classdef sphero < handle
             
             disp( 'Initializing ROS topics.' );
             
-            % Set ROS environment variables on Pi
-            sys_cmd = strcat('export ROS_MASTER_URI=http://', ...
-                             this.matlab_ip_address, ':11311/; ', ...
-                             'export ROS_IP=', this.bot_ip_address );
-            system( this.mypi, sys_cmd );
+            % Launch ROS nodes on Pi
+            system( this.mypi, '~/sphero_toolbox/system_files/launch_ros_nodes &' );
+            
+            % Stall until topics have been created on Pi
+            topics = rostopic('list');
+            [num_topics, ~] = size(topics);
+            while num_topics < 2
+                pause(0.5);
+                topics = rostopic('list');
+                [num_topics, ~] = size(topics);
+            end
             
             disp( 'Finished initializing ROS topics.' );
         end % init_topics
