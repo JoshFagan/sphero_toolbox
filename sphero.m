@@ -104,7 +104,8 @@ classdef sphero < handle
             disp( 'Initializing ROS topics.' );
             
             % Launch ROS nodes on Pi
-            system( this.mypi, '~/sphero_toolbox/system_files/launch_ros_nodes &' );
+            system(this.mypi, ...
+                   'roslaunch /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > launch_ros_nodes_output.txt &');
             
             % Stall until topics have been created on Pi
             topics = rostopic('list');
