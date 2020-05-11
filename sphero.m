@@ -8,14 +8,19 @@ classdef sphero < handle
     % this object is a subclass of the handle class so that all
     % modifications to the object are automatically saved with the object
     properties (Access=public)
-        bot_id = 0;              % numeric ID of the bot
+        bot_id = 0; % numeric ID of the bot
     end % public properties
     
     properties (Access=private)
-        bot_ip_address = '';     % IP address of robot with specified ID
+        bot_ip_address = '';    % IP address of robot with specified ID
         bot_ip_addresses = {};  % List of IP addresses corresponding to botIDs
-        matlab_ip_address = '';  % IP Address of local computer running MATLAB
-        mypi = [];
+        matlab_ip_address = ''; % IP Address of local computer running MATLAB
+        
+        wheel_vel_pub = []; % ROS Publisher for wheel velocity topic
+        relay_pub = [];     % Ros Publisher for relay input topic
+        relay_sub = [];     % Ros Subscriber for relay output topic
+        
+        mypi = [];  % Connection to Raspberry Pi object
     end % private properties
     
     methods (Access=public)
@@ -56,6 +61,7 @@ classdef sphero < handle
             this.init_pi();
             this.init_ros();
             this.init_topics();
+            this.init_pubs_and_subs();
         end % connect method
     end % public methods
     
@@ -111,6 +117,21 @@ classdef sphero < handle
             
             disp( 'Finished initializing ROS topics.' );
         end % init_topics
+        
+        function init_pubs_and_subs(this)
+            % Initialize ROS Publishers and Subscribers to relevant topics
+            disp( 'Initializing ROS Publishers and Subscribers.' );
+            
+            % Publish to wheel velocity topic
+            this.wheel_vel_pub = rospublisher('/wheel_vel');
+            % Publish to relay input topic
+            this.relay_pub = rospublisher('/relay_in');
+            
+            % Subscribe to relay output topic
+            this.relay_sub = rossubscriber( '/relay_out' );
+            
+            disp( 'Finished initializing ROS Publishers and Subscribers.' );
+        end
     end % private methods
 end % sphero class
 
