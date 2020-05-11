@@ -9,7 +9,7 @@ classdef sphero < handle
     % modifications to the object are automatically saved with the object
     properties (Access=public)
         bot_id = 0; % numeric ID of the bot
-    end % public properties
+    end % Public properties
     
     properties (Access=private)
         bot_ip_address = '';    % IP address of robot with specified ID
@@ -21,11 +21,11 @@ classdef sphero < handle
         relay_sub = [];     % Ros Subscriber for relay output topic
         
         mypi = [];  % Connection to Raspberry Pi object
-    end % private properties
+    end % Private properties
     
     properties (Access=private, Constant)
         NUM_TOPICS = 4; % Total number of topics that should be created
-    end % private, constant properties
+    end % Private, constant properties
     
     methods (Access=public)
         function this = sphero(varargin)
@@ -57,7 +57,7 @@ classdef sphero < handle
             this.connect();
             
             disp( 'Finished creating Sphero object.' );
-        end % sphero method
+        end % Sphero constructor method
         
         function connect(this)
             % Initialize communication with robot
@@ -66,8 +66,8 @@ classdef sphero < handle
             this.init_ros();
             this.init_topics();
             this.init_pubs_and_subs();
-        end % connect method
-    end % public methods
+        end % Coonnect method
+    end % Public methods
     
     methods (Access=private)
         function init_pi(this)
@@ -84,7 +84,7 @@ classdef sphero < handle
                    this.matlab_ip_address, ':11311 > ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
             
             disp('Finished connecting to Pi.');
-        end % init_pi
+        end % Initialize pi method
         
         function init_ros(this)
             % Initialize ROS environment
@@ -100,7 +100,7 @@ classdef sphero < handle
             rosinit;
             
             disp( 'Finished initializing ROS.' );
-        end % init_ros
+        end % Initialize ROS method
         
         function init_topics(this)
             % Initialize ROS topics
@@ -121,12 +121,12 @@ classdef sphero < handle
             end
             
             disp( 'Finished initializing ROS topics.' );
-        end % init_topics
+        end % Initialize ROS topics method
         
         function init_pubs_and_subs(this)
             rostopic list
-            % Initialize ROS Publishers and Subscribers to relevant topics
-            disp( 'Initializing ROS Publishers and Subscribers.' );
+            % Initialize ROS publishers and subscribers to relevant topics
+            disp( 'Initializing ROS publishers and subscribers.' );
             
             % Publish to wheel velocity topic
             this.wheel_vel_pub = rospublisher('/wheel_vel');
@@ -137,7 +137,7 @@ classdef sphero < handle
             this.relay_sub = rossubscriber( '/relay_out' );
             
             disp( 'Finished initializing ROS Publishers and Subscribers.' );
-        end
-    end % private methods
-end % sphero class
+        end % Initialize ROS publishers and subscribers method
+    end % Private methods
+end % Sphero class
 
