@@ -67,9 +67,13 @@ classdef sphero < handle
             
             username   = 'pi';
             password  = 'raspberry';
-            this.mypi = raspi( this.bot_ip_address, username, password );
+            this.mypi = raspi(this.bot_ip_address, username, password);
             
-            disp( 'Finished connecting to Pi.' );
+            % Set ROS master uri on Pi to local IP address
+            system(this.mypi, strcat( 'echo export ROS_MASTER_URI=http://', ...
+                   this.matlab_ip_address, ':11311 > ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
+            
+            disp('Finished connecting to Pi.');
         end % init_pi
         
         function init_ros(this)
