@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find drive_control)/launch/drive_raw_motors.launch" />
+  <include file="$(find relay)/launch/relay.launch" />
+</launch>
