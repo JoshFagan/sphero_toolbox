@@ -23,6 +23,10 @@ classdef sphero < handle
         mypi = [];  % Connection to Raspberry Pi object
     end % private properties
     
+    properties (Access=private, Constant)
+        NUM_TOPICS = 4; % Total number of topics that should be created
+    end % private, constant properties
+    
     methods (Access=public)
         function this = sphero(varargin)
             % Create an object used to reference the RVR Sphero
@@ -110,7 +114,7 @@ classdef sphero < handle
             % Stall until topics have been created on Pi
             topics = rostopic('list');
             [num_topics, ~] = size(topics);
-            while num_topics < 2
+            while num_topics < this.NUM_TOPICS
                 pause(0.5);
                 topics = rostopic('list');
                 [num_topics, ~] = size(topics);
@@ -120,6 +124,7 @@ classdef sphero < handle
         end % init_topics
         
         function init_pubs_and_subs(this)
+            rostopic list
             % Initialize ROS Publishers and Subscribers to relevant topics
             disp( 'Initializing ROS Publishers and Subscribers.' );
             
