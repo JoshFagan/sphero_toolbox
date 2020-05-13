@@ -80,3 +80,8 @@ configure your setup by:
 * Pan/tilt camera
 * Make setDriveVelocity drive forever (currently stops after a couple seconds)
 * Account for negative velocities
+* Organize documentation
+    - One time installation performed by admin
+    - Installation performed by students
+    - Contents of directory
+    - How to run the Sphero
