@@ -68,14 +68,10 @@ classdef sphero < handle
         connect(this) % Connect to Sphero and start ROS server
         
         delete(this) % Terminate connection to Sphero and kill ROS server
-
-        function publish_message(this, message, topic)
-            % Publish supplied message on specified topic
-            
-            msg = rosmessage(topic);
-            msg.Data = message;
-            send(topic,msg);
-        end % Publish message function
     end % Private methods
+    
+    methods (Access=private, Static)
+        publish_message(message, topic)
+    end % Private, static methods
 end % Sphero class
 
