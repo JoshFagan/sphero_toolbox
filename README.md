@@ -85,3 +85,5 @@ configure your setup by:
     - Installation performed by students
     - Contents of directory
     - How to run the Sphero
+* Add more descriptive comments
+    - Especially to system calls so future devs know why I did what I did
