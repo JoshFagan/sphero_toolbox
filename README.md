@@ -72,5 +72,11 @@ configure your setup by:
 5. Follow the steps as prompted.
 
 ## To Do
-* Take commands deved in Matlab script in sphero.m class file
-* Move exporting commands from bash to Matlab
+* Input validation for each function
+* getImage functionality
+* getSensors functionality
+    - Color sensor
+    - IR sensors
+* Pan/tilt camera
+* Make setDriveVelocity drive forever (currently stops after a couple seconds)
+* Account for negative velocities
