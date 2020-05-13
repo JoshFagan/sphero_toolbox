@@ -15,7 +15,6 @@ from sphero_sdk import RawMotorModesEnum
 rvr = SpheroRvrObserver()
 
 def callback(data):
-    print( data.data )
     rvr.raw_motors(
         left_mode=RawMotorModesEnum.forward.value,
         left_speed=data.data[0],  # Valid speed values are 0-255
