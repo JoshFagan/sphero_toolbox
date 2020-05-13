@@ -84,6 +84,29 @@ classdef sphero < handle
             % Shutdown ROS master
             rosshutdown;
         end % Delete method
+        
+        function setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
+            % Specify linear velocity of left wheel and right wheel
+            
+            % Set drive velocity of both wheels to single input value
+            if nargin == 2
+                message = [left_wheel_vel, left_wheel_vel];
+            else
+                message = [left_wheel_vel, right_wheel_vel];
+            end
+            
+            this.publish_message(message, this.wheel_vel_pub);
+        end % Set drive velocity function
+        
+        function relay_message(this, message)
+            % Relay text message to Sphero
+            
+            this.publish_message(message, this.relay_pub); % Publish message
+            
+            relayed_message = receive(this.relay_sub); % Wait for responce from Sphero
+            disp('Message relayed from Sphero:');
+            disp(relayed_message.Data); 
+        end
     end % Public methods
     
     methods (Access=private)
@@ -141,8 +164,8 @@ classdef sphero < handle
         end % Initialize ROS topics method
         
         function init_pubs_and_subs(this)
-            rostopic list
             % Initialize ROS publishers and subscribers to relevant topics
+            
             disp( 'Initializing ROS publishers and subscribers.' );
             
             % Publish to wheel velocity topic
@@ -151,7 +174,7 @@ classdef sphero < handle
             this.relay_pub = rospublisher('/relay_in');
             
             % Subscribe to relay output topic
-            this.relay_sub = rossubscriber( '/relay_out' );
+            this.relay_sub = rossubscriber('/relay_out');
             
             disp( 'Finished initializing ROS Publishers and Subscribers.' );
         end % Initialize ROS publishers and subscribers method      
