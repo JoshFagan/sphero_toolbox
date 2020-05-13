@@ -154,7 +154,15 @@ classdef sphero < handle
             this.relay_sub = rossubscriber( '/relay_out' );
             
             disp( 'Finished initializing ROS Publishers and Subscribers.' );
-        end % Initialize ROS publishers and subscribers method
+        end % Initialize ROS publishers and subscribers method      
+        
+        function publish_message(this, message, topic)
+            % Publish supplied message on specified topic
+            
+            msg = rosmessage(topic);
+            msg.Data = message;
+            send(topic,msg);
+        end % Publish message function
     end % Private methods
 end % Sphero class
 
