@@ -58,24 +58,7 @@ classdef sphero < handle
             
             disp( 'Finished creating Sphero object.' );
         end % Sphero constructor method
-                
-        function delete(this)
-            % Class destructor, closes connection to Pi and terminates all running processes
-            
-            % Remove unneeded output file from Pi
-            system( this.mypi, 'rm ~/launch_ros_nodes_output.txt -f' );
-            
-            % Restart Pi, terminating all processes being run on Pi
-            try
-                system( this.mypi, 'sudo shutdown -r now' );
-            catch E
-            end
-            clear this.mypi;
-            
-            % Shutdown ROS master
-            rosshutdown;
-        end % Delete method
-        
+                        
         function setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
             % Specify linear velocity of left wheel and right wheel
             
@@ -102,6 +85,8 @@ classdef sphero < handle
     
     methods (Access=private)
         connect(this) % Connect to Sphero and start ROS server
+        
+        delete(this) % Terminate connection to Sphero and kill ROS server
 
         function publish_message(this, message, topic)
             % Publish supplied message on specified topic
