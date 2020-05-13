@@ -58,9 +58,7 @@ classdef sphero < handle
             
             disp( 'Finished creating Sphero object.' );
         end % Sphero constructor method
-        
-        connect(this)
-        
+                
         function delete(this)
             % Class destructor, closes connection to Pi and terminates all running processes
             
@@ -103,6 +101,8 @@ classdef sphero < handle
     end % Public methods
     
     methods (Access=private)
+        connect(this) % Connect to Sphero and start ROS server
+
         function publish_message(this, message, topic)
             % Publish supplied message on specified topic
             
