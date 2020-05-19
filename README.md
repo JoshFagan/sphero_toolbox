@@ -40,8 +40,9 @@ rosdep update
 2. Move the zip file to the home directory of the Pi
 3. Unzip the file
 4. Execute commands from terminal
-`cd sphero_toolbox/catkin_ws`
-`catkin_make`
+
+        `cd sphero_toolbox/catkin_ws`
+        `catkin_make`
 
 
 #### Update Bash File
