@@ -60,16 +60,6 @@ export ROS_IP=<Pi's IP address>
 * ROS Toolbox
     - Used to send and recieve messages from the Pi
     - May require Matlab 2019 or later
-* Parallel Computing Toolbox
-    - Needed to run roslaunch files on the Pi 
-
-After installing the MATLAB Support Package for Raspberry Pi Hardware 
-configure your setup by:
-1. Clicking "Home" tab
-2. Clicking arrow under "Add-Ons"
-3. Click "Manage Add-Ons"
-4. Click little Gear to the right of MATLAB Support Package for Raspberry Pi Hardware
-5. Follow the steps as prompted.
 
 ## To Do
 * Input validation for each function
