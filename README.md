@@ -41,8 +41,8 @@ rosdep update
 3. Unzip the file
 4. Execute commands from terminal
 
-        `cd sphero_toolbox/catkin_ws`
-        `catkin_make`
+        cd sphero_toolbox/catkin_ws
+        catkin_make
 
 
 #### Update Bash File
