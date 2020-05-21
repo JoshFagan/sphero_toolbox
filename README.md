@@ -78,3 +78,4 @@ export ROS_IP=<Pi's IP address>
     - How to run the Sphero
 * Add more descriptive comments
     - Especially to system calls so future devs know why I did what I did
+* Convert from ROS subscribers/publishers to ROS services/clients where applicable
