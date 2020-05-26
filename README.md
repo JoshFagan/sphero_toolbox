@@ -61,6 +61,8 @@ export ROS_IP=<Pi's IP address>
 * ROS Toolbox
     - Used to send and recieve messages from the Pi
     - May require Matlab 2019 or later
+* Robotics System Toolbox Interface for ROS Custom Messages 
+    - Supports custom messages used for action servers running on Sphero
 
 ## To Do
 * Input validation for each function
