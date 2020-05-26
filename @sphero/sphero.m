@@ -74,4 +74,3 @@ classdef sphero < handle
         publish_message(message, topic)
     end % Private, static methods
 end % Sphero class
-
