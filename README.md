@@ -23,25 +23,26 @@ errors.
 #### Install ROS
 I adopted these [GitHub Instructions](https://gist.github.com/Tiryoh/76be0ac467c09667ca51b5f8d9f4b3bc#file-ros_melodic_install_raspizero-bash) but found if I 
 ran the curl command it errored out. Instead I ran the commands in the bash 
-script line by line, expluding the initial "set -eu" line and it worked. Below
-are the commands for simplicity sake.
+script line by line (in the terminal), excluding the initial "set -eu" line and it worked. Below are the commands for simplicity sake.
 ```
-$ sudo apt update
-$ sudo apt install -y build-essential gdebi
-$ mkdir -p ~/tmp && pushd ~/tmp
-$ wget https://github.com/nomumu/ros4raspbian/releases/download/1.0.0/ros4raspbian-melodic-armhf-1.0.0.zip
-$ unzip ros4raspbian-melodic-armhf-1.0.0.zip
-$ sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
-$ popd
-$ rosdep update
+sudo apt update
+sudo apt install -y build-essential gdebi
+mkdir -p ~/tmp && pushd ~/tmp
+wget https://github.com/nomumu/ros4raspbian/releases/download/1.0.0/ros4raspbian-melodic-armhf-1.0.0.zip
+unzip ros4raspbian-melodic-armhf-1.0.0.zip
+sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
+popd
+rosdep update
 ```
 
 #### Download Sphero Toolbox
 1. Download the zip file using the above button
 2. Move the zip file to the home directory of the Pi
 3. Unzip the file
-4. `$ cd sphero_toolbox/catkin_ws`
-5. `$ catkin_make
+4. Execute commands from terminal
+
+        cd sphero_toolbox/catkin_ws
+        catkin_make
 
 
 #### Update Bash File
@@ -60,16 +61,8 @@ export ROS_IP=<Pi's IP address>
 * ROS Toolbox
     - Used to send and recieve messages from the Pi
     - May require Matlab 2019 or later
-* Parallel Computing Toolbox
-    - Needed to run roslaunch files on the Pi 
-
-After installing the MATLAB Support Package for Raspberry Pi Hardware 
-configure your setup by:
-1. Clicking "Home" tab
-2. Clicking arrow under "Add-Ons"
-3. Click "Manage Add-Ons"
-4. Click little Gear to the right of MATLAB Support Package for Raspberry Pi Hardware
-5. Follow the steps as prompted.
+* Robotics System Toolbox Interface for ROS Custom Messages 
+    - Supports custom messages used for action servers running on Sphero
 
 ## To Do
 * Input validation for each function
@@ -87,3 +80,4 @@ configure your setup by:
     - How to run the Sphero
 * Add more descriptive comments
     - Especially to system calls so future devs know why I did what I did
+* Convert from ROS subscribers/publishers to ROS services/clients where applicable
