@@ -1,3 +1,5 @@
+# Mac generated OS organization files
+*.DS_Store
 # Matlab generated save files
 *.m~
 
