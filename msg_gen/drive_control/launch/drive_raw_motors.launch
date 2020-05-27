@@ -1,0 +1,7 @@
+<launch>
+    <node
+        pkg="drive_control"
+        type="drive_raw_motors.py"
+        name="drive_motors"
+        output="log" />
+</launch>
