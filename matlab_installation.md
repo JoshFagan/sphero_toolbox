@@ -20,14 +20,14 @@
 1. Ensure the following Matlab Support Packages are installed
     * MATLAB Support Package for Raspberry Pi Hardware
     * ROS Toolbox
-    <details>
-    <summary>Instructions for Checking and Installing Support Packages</summary>
+      <details>
+      <summary>Instructions for Checking and Installing Support Packages</summary>
   
-    1. In Matlab, click on the "Home" tab
-    2. Click on the 3 stacked cubes icon above "Add-Ons"
-    3. Search for the support package of interest
-        * You will either see that it is installed, or you can click on it to install it
-    </details>
+      1. In Matlab, click on the "Home" tab
+      2. Click on the 3 stacked cubes icon above "Add-Ons"
+      3. Search for the support package of interest
+          * You will either see that it is installed, or you can click on it to install it
+      </details>
 2. Download the `sphero_toolbox`
 3. Move the `sphero_toolbox` to the folder storing the support packages
     * On windows this shoud be "C:\ProgramData\MATLAB\"
