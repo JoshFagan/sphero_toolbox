@@ -54,15 +54,19 @@ source ~/sphero_toolbox/catkin_ws/devel/setup.bash
 export ROS_IP=<Pi's IP address>
 ```
 
-## Matlab Configuration
-### Required Toolboxes
+## Local Computer Configuration
+### Matlab Configuration
+#### Required Toolboxes
 * MATLAB Support Package for Raspberry Pi Hardware
     - Used to connect to Pi and run commands via the "system" function
 * ROS Toolbox
     - Used to send and recieve messages from the Pi
     - May require Matlab 2019 or later
-* Robotics System Toolbox Interface for ROS Custom Messages 
+* Robotics System Toolbox Interface for ROS Custom Messages (ONLY NEEDED FOR DEV)
     - Supports custom messages used for action servers running on Sphero
+    
+### System Configuration
+Remote login must be enabled for the Pi to communicate with the local computer. 
 
 ## To Do
 * Input validation for each function
