@@ -40,7 +40,8 @@
       </details>
 
 ## Installation Instructions
-1. Ensure the following Matlab Support Packages are installed
+1. Remote login must be enabled for the Pi to communicate with the local computer
+2. Ensure the following Matlab Support Packages are installed
     * MATLAB Support Package for Raspberry Pi Hardware
     * ROS Toolbox
       <details>
@@ -51,14 +52,14 @@
       3. Search for the support package of interest
           * You will either see that it is installed, or you can click on it to install it
       </details>
-2. Download the `sphero_toolbox`
-3. Move the `sphero_toolbox` to the folder storing the support packages
+3. Download the `sphero_toolbox`
+4. Move the `sphero_toolbox` to the folder storing the support packages
     * On windows this shoud be "C:\ProgramData\MATLAB\"
         * So you should have "C:\ProgramData\MATLAB\sphero_toolbox"
     * On Mac this should be "/Users/<user\>/Documents/MATLAB" (where <user> is your user name on the computer)
         * So you should have "/Users/<user\>/Documents/MATLAB/sphero_toolbox"
-4. In Matlab open and run the file "configure_installation.m"
-5. Restart Matlab
+5. In Matlab open and run the file "configure_installation.m"
+6. Restart Matlab
 <details>
 <summary>Handling Potential Warnings On Future Restarts</summary>
   
