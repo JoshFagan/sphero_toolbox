@@ -58,3 +58,18 @@
         * So you should have "/Users/<user\>/Documents/MATLAB/sphero_toolbox"
 4. In Matlab open and run the file "configure_installation.m"
 5. Restart Matlab
+<details>
+<summary>Handling Potential Warnings On Future Restarts</summary>
+  
+When you restart Matlab you may recieve a warning message that states something along the lines of
+> Warning: Name is nonexistent or not a directory:
+> /private/var/folders/h4/gq3470kn2194b1jl62ws_s3h0000gn/T/Editor_vxdxq 
+
+Here is a simple fix for this:
+1. In Matlab, click the "Home" tab
+2. Click the button "Set Path" (it's icon looks like a folder ontop of another folder)
+3. Click the name of the offending folder
+4. Click "Remove"
+5. Click "Save"
+6. Click "Colse"
+</details>
