@@ -41,6 +41,19 @@
 
 ## Installation Instructions
 1. Remote login must be enabled for the Pi to communicate with the local computer
+      <details>
+      <summary>Mac and Linux</summary>
+  
+      1. Open "System Preferences"
+      2. Select "Sharing"
+      3. Check on the "Remote Login" button
+      </details>
+   
+      <details>
+      <summary>Windows</summary>
+  
+      [Instructions for enabling remote login on Windows 10](https://www.windowscentral.com/how-use-remove-desktop-app-connect-pc-windows-10-0)
+      </details>
 2. Ensure the following Matlab Support Packages are installed
     * MATLAB Support Package for Raspberry Pi Hardware
     * ROS Toolbox
@@ -54,10 +67,19 @@
       </details>
 3. Download the `sphero_toolbox`
 4. Move the `sphero_toolbox` to the folder storing the support packages
-    * On windows this shoud be "C:\ProgramData\MATLAB\"
-        * So you should have "C:\ProgramData\MATLAB\sphero_toolbox"
-    * On Mac this should be "/Users/<user\>/Documents/MATLAB" (where <user> is your user name on the computer)
-        * So you should have "/Users/<user\>/Documents/MATLAB/sphero_toolbox"
+      <details>
+      <summary>Mac and Linux</summary>
+  
+      * The location is "/Users/<user\>/Documents/MATLAB" (where <user> is your user name on the computer)
+      * So you should have "/Users/<user\>/Documents/MATLAB/sphero_toolbox"
+      </details>
+   
+      <details>
+      <summary>Windows</summary>
+  
+      * The location is "C:\ProgramData\MATLAB" (where <user> is your user name on the computer)
+      * So you should have "C:\ProgramData\MATLAB\sphero_toolbox"
+      </details>
 5. In Matlab open and run the file "configure_installation.m"
 6. Restart Matlab
 <details>
