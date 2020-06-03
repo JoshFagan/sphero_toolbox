@@ -3,11 +3,6 @@
 ***Important Notes:***
 * Do not edit any of the files in the `sphero_toolbox`
     * These files provide prebuilt functions for you to use, if you edit them they will no longer work as intended
-      <details>
-      <summary>Optional Intuition Example</summary>
-  
-      We can calculate the sine of pi by using Matlab's built in ```sin``` function and running `sin(pi)`. We can also track down and modify the built in `sin` function, but if we do this and then call `sin(pi)` we will likely get a completely incorrect answer. The same would happen if you were to open and modify any of the files in `sphero_toolbox`.
-      </details>
 * Do not give your own Matlab files the same name as any file in `sphero_toolbox`
     * If you do, Matlab will use your file instead of the files defined in `sphero_toolbox`
       <details>
