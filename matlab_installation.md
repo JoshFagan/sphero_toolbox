@@ -22,19 +22,20 @@
   
       "You live in the house that you keep" is a quote I first heard from one of my college professors and it has stuck with me and saved me from a lot of pain and suffering over the years. Simply put, a small amount of routine maintanance keeps you from being so cluttered you have a hard time being productive or from having to dedicate a whole weekend to stuff like cleaning up 10,000 unread emails...  We should take this same approach when managing the files we create for classes. Below is an example structure that I use and recommend. 
       ```
-      - Classes
-          - EF230
-              - Projects
-                  - Data_Analysis
-                  - Exploring_Exoplanets
-              - Homework
-                  - Homework_1
-                      - problem_1.m
-                      - problem_2.m
-                  - Homework_2
-              - Quiz_Prep
-          - MATH241
-          - ECON213
+      - Home
+          - Classes
+              - EF230
+                  - Projects
+                      - Data_Analysis
+                      - Exploring_Exoplanets
+                  - Homework
+                      - Homework_1
+                          - problem_1.m
+                          - problem_2.m
+                      - Homework_2
+                  - Quiz_Prep
+              - MATH241
+              - ECON213
       ```
       </details>
 
