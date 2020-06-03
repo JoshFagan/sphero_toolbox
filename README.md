@@ -1,5 +1,5 @@
 # Sphero Toolbox
-A Matlab wrapper for using the Sphero Python SKD  
+I am a GTA teaching an introductory programming course for engineering students at the University of Tennessee, Knoxville. The teaches Matlan in a project heavy curriculum. One of the projects involves the students using a mobile rover for which we have selected the RVR Sphero. This repo implements a ROS bridge to communicate between Matlab and the Raspberry Pi running on the RVR Sphero.
 
 ## To Do
 * Input validation for each function
