@@ -11,9 +11,31 @@
 * Do not give your own Matlab files the same name as any file in `sphero_toolbox`
     * If you do, Matlab will use your file instead of the files defined in `sphero_toolbox`
       <details>
-      <summary>Recommended Best Practice Example</summary>
+      <summary>Recommended Best Practices Tip</summary>
   
       Before naming a file, check to make sure a file with that name does not already exist in Matlab's environment. We can check for the existance of a file/function called `hello_world` by running the command `which hello_world`. If any result other than "'hello_world' not found." is displayed then the file/function already exists and you should choose a different name.
+      </details>
+* Do not do any developement in the `sphero_toolbox`
+    * The `sphero_toolbox` should be saved in an out of the way, appropriate location (see below instructions) and developement (creation of new files) should be done in a separate location
+      <details>
+      <summary>Recommended Best Practices Tip</summary>
+  
+      "You live in the house that you keep" is a quote I first heard from one of my college professors and it has stuck with me and saved me from a lot of pain and suffering over the years. Simply put, a small amount of routine maintanance keeps you from being so cluttered you have a hard time being productive or from having to dedicate a whole weekend to stuff like cleaning up 10,000 unread emails...  We should take this same approach when managing the files we create for classes. Below is an example structure that I use and recommend. 
+      ```
+      - Classes
+          - EF230
+              - Projects
+                  - Data_Analysis
+                  - Exploring_Exoplanets
+              - Homework
+                  - Homework_1
+                      - problem_1.m
+                      - problem_2.m
+                  - Homework_2
+              - Quiz_Prep
+          - MATH241
+          - ECON213
+      ```
       </details>
 
 ## Installation Instructions
