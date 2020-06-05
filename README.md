@@ -28,6 +28,9 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
     - [ ] IR sensors
     - [ ] Reset Locator X And Y
     - [ ] Get Ambient Light Sensor Value
+    - [ ] IMU
+    - [ ] Accelerometer
+    - [ ] Gyroscope
 - [ ] Motor Control
     - [ ] Raw Motors
         * Akin to (setDriveVelocity)
