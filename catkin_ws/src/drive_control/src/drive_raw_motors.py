@@ -3,9 +3,7 @@
 import rospy
 from std_msgs.msg import Int32MultiArray 
 
-import os
 import sys
-import time
 sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 
 from sphero_sdk import SpheroRvrObserver
