@@ -1,12 +1,29 @@
 #!/usr/bin/env python3
 
+import roslib
+roslib.load_manifest('drive_control')
+
 import rospy
 import actionlib
 
-from drive_control.msg import DriveRawMotorsAction 
+import sys
+sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
+
+from drive_control.msg import DriveRawMotorsAction, DriveRawMotorsResult 
+
+from sphero_sdk import SpheroRvrObserver
+from sphero_sdk import RawMotorModesEnum
+
+
 
 class DriveRawMotorsServer():
     def __init__(self):
+        self.rvr = SpheroRvrObserver()
+        self.rvr.wake()
+        self.rvr.reset_yaw()
+
+        self.result = DriveRawMotorsResult(10)
+
         self.server = actionlib.SimpleActionServer(
             'drive_raw_motors',
             DriveRawMotorsAction, 
@@ -16,19 +33,17 @@ class DriveRawMotorsServer():
         self.server.start()
       
     def execute_cb(self, goal):
-        rospy.loginfo('=====================')
-        rospy.loginfo(goal)
-        rospy.loginfo('=====================')
-        
-        self._action_server.set_succeeded(1)
-#            # check that preempt has not been requested by the client
-#            if self._as.is_preempt_requested():
-#                rospy.loginfo('%s: Preempted' % self._action_name)
-#                self._as.set_preempted()
-#                success = False
-#                break
+        self.rvr.raw_motors(
+            left_mode=RawMotorModesEnum.forward.value,
+            left_speed=goal.left_speed,  # Valid speed values are 0-255
+            right_mode=RawMotorModesEnum.forward.value,
+            right_speed=goal.right_speed  # Valid speed values are 0-255
+        )
+
+        self.server.set_succeeded(self.result)
         
 if __name__ == '__main__':
+    rospy.loginfo('=====================')
     rospy.init_node('drive_raw_motors_server')
     server = DriveRawMotorsServer()
     rospy.spin()
