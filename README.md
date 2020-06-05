@@ -23,3 +23,4 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
             - [Paths to update](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
 * Create Mr. Manager action server to schedule conflicting motor actions
     * E.x. going forward for N seconds, but performing a turn angle when client specifies
+* Start all actions with "sphero"
