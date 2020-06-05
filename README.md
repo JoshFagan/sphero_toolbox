@@ -21,5 +21,5 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
         * Use system calls to update paths
             - [Paths relative to sphero class](https://www.mathworks.com/matlabcentral/answers/250997-how-to-use-relative-path-to-use-matlab-file-in-another-computer)
             - [Paths to update](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
-* Create master action server to schedule conflicting motor actions
+* Create Mr. Manager action server to schedule conflicting motor actions
     * E.x. going forward for N seconds, but performing a turn angle when client specifies
