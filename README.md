@@ -30,7 +30,7 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
     - [ ] Get Ambient Light Sensor Value
 - [ ] Motor Control
     - [ ] Raw Motors
-        * Akin to setDriveVelocity)
+        * Akin to (setDriveVelocity)
     - [ ] Reset Yaw
         * Current direction is now considered forward
     - [ ] Drive With Heading
