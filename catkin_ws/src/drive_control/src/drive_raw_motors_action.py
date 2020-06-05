@@ -12,8 +12,7 @@ sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 from drive_control.msg import DriveRawMotorsAction, DriveRawMotorsResult 
 
 from sphero_sdk import SpheroRvrObserver
-from sphero_sdk import RawMotorModesEnum
-
+from sphero_sdk import RawMotorModesEnum 
 
 
 class DriveRawMotorsServer():
@@ -22,7 +21,7 @@ class DriveRawMotorsServer():
         self.rvr.wake()
         self.rvr.reset_yaw()
 
-        self.result = DriveRawMotorsResult(10)
+        self.result = DriveRawMotorsResult()
 
         self.server = actionlib.SimpleActionServer(
             'drive_raw_motors',
@@ -33,11 +32,17 @@ class DriveRawMotorsServer():
         self.server.start()
       
     def execute_cb(self, goal):
+        # Adjust for negative goal speeds
+        forward = RawMotorModesEnum.forward.value
+        reverse = RawMotorModesEnum.reverse.value
+        left_mode  = forward if goal.left_speed >= 0 else reverse
+        right_mode = forward if goal.right_speed >= 0 else reverse
+
         self.rvr.raw_motors(
-            left_mode=RawMotorModesEnum.forward.value,
-            left_speed=goal.left_speed,  # Valid speed values are 0-255
-            right_mode=RawMotorModesEnum.forward.value,
-            right_speed=goal.right_speed  # Valid speed values are 0-255
+            left_mode=left_mode,
+            left_speed=abs(goal.left_speed),  # Valid speed values are 0-255
+            right_mode=right_mode,
+            right_speed=abs(goal.right_speed)  # Valid speed values are 0-255
         )
 
         self.server.set_succeeded(self.result)
