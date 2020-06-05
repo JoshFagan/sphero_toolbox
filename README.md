@@ -3,13 +3,39 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 
 ## To Do
 ### High Level Developmental Steps
-- [ ] getImage functionality
-- [ ] getSensors functionality
+#### Port Over from Roomba
+- [ ] Sensor Readings
+    - [ ] getAllSensors
+    - [ ] getAngle
+    - [ ] getBatteryInfo
+    - [ ] getDistance	
+    - [ ] getImage
+    - [ ] showCamera
+    - [ ] testSensors
+- [ ] Motor Control
+    - [ ] setDriveVelocity
+    - [ ] setDriveVelocityRadius
+    - [ ] moveDistance
+    - [ ] setTurnVelocity
+    - [ ] stop
+    - [ ] turnAngle
+- [ ] Beep
+- [ ] songPlay
+- [ ] setLEDs
+#### Native Functionality in Sphero
+- [ ] Sensor Readins
     - [ ] Color sensor
     - [ ] IR sensors
-- [ ] Pan/tilt camera
+    - [ ] Reset Locator X And Y
+    - [ ] Get Ambient Light Sensor Value
 - [ ] Motor Control
-    - [ ] setDriveVelocity functionality
+    - [ ] Raw Motors
+        * Akin to setDriveVelocity)
+    - [ ] Reset Yaw
+        * Current direction is now considered forward
+    - [ ] Drive With Heading
+    - [ ] Drive for N seconds
+- [ ] Pan/tilt camera
 ### Mid Level Developemental Steps
 - [ ] Motor Control
     - [ ] Make setDriveVelocity drive forever (currently stops after a couple seconds)
