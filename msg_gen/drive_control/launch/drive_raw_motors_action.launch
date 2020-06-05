@@ -1,9 +1,0 @@
-<launch>
-    <rosparam param="actionlib_status_frequency">5</rosparam>
-
-    <node
-        pkg="drive_control"
-        type="drive_raw_motors_action.py"
-        name="drive_motors"
-        output="log" />
-</launch>
