@@ -1,6 +1,6 @@
 # Goal: Have the robot wheels run at specified speeds
-uint8 left_speed
-uint8 right_speed
+int16 left_speed
+int16 right_speed
 ---
 # Result:
 uint8 result 
