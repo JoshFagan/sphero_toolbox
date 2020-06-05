@@ -9,7 +9,7 @@ import actionlib
 import sys
 sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 
-from drive_control.msg import DriveRawMotorsAction, DriveRawMotorsResult 
+from sphero_msgs.msg import DriveRawMotorsAction, DriveRawMotorsResult 
 
 from sphero_sdk import SpheroRvrObserver
 from sphero_sdk import RawMotorModesEnum 

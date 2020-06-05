@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(drive_control)
+project(sphero_msgs)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -10,6 +10,8 @@ project(drive_control)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  message_generation
+  actionlib_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -55,21 +57,24 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
 # add_service_files(
 #   FILES
-#   DriveRawMotors.srv
+#   Service1.srv
+#   Service2.srv
 # )
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#  FILES
-#  Action1.action
-#  Action2.action
-#)
+add_action_files(
+  DIRECTORY
+  action
+  FILES
+  DriveRawMotors.action
+)
 
 ## Generate added messages and services with any dependencies listed here
-#generate_messages(
-#  DEPENDENCIES
-#  std_msgs
-#)
+generate_messages(
+  DEPENDENCIES
+  actionlib_msgs
+  std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -102,8 +107,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES drive_control
-#  CATKIN_DEPENDS rospy std_msgs 
+#  LIBRARIES sphero_msgs
+  CATKIN_DEPENDS rospy std_msgs message_runtime actionlib_msgs
 #  DEPENDS system_lib
 )
 
@@ -120,7 +125,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/drive_control.cpp
+#   src/${PROJECT_NAME}/sphero_msgs.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -131,7 +136,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/drive_control_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/sphero_msgs_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -188,14 +193,10 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_drive_control.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_sphero_msgs.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
-#catkin_install_python(PROGRAMS src/drive_raw_motors_service.py
-#  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-#)
