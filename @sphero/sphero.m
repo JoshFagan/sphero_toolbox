@@ -15,10 +15,15 @@ classdef sphero < handle
         bot_ip_address = '';    % IP address of robot with specified ID
         bot_ip_addresses = {};  % List of IP addresses corresponding to botIDs
         matlab_ip_address = ''; % IP Address of local computer running MATLAB
+
+        % ROS action clients
+        raw_motor_ac = [];  % Action client for driving raw motors
         
-        wheel_vel_pub = []; % ROS Publisher for wheel velocity topic
-        relay_pub = [];     % Ros Publisher for relay input topic
-        relay_sub = [];     % Ros Subscriber for relay output topic
+        % ROS publishers
+        relay_pub = [];     % Publisher for relay input topic
+        
+        % ROS subscribers
+        relay_sub = [];     % Subscriber for relay output topic
         
         mypi = [];  % Connection to Raspberry Pi object
     end % Private properties
