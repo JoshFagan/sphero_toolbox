@@ -3,8 +3,8 @@ function connect(this)
 
     init_pi(this);
     init_ros(this);
-    init_topics(this);
-    init_pubs_and_subs(this);
+    init_pi_communicators(this);
+    %init_matlab_communicators(this);
 end % Coonnect method
 
 function init_pi(this)
@@ -39,8 +39,8 @@ function init_ros(this)
     disp( 'Finished initializing ROS.' );
 end % Initialize ROS method
 
-function init_topics(this)
-    % Initialize ROS topics
+function init_pi_communicators(this)
+    % Initialize ROS action servers, publishers, and subscribers on the Pi
 
     disp( 'Initializing ROS topics.' );
 
@@ -60,8 +60,8 @@ function init_topics(this)
     disp( 'Finished initializing ROS topics.' );
 end % Initialize ROS topics method
 
-function init_pubs_and_subs(this)
-    % Initialize ROS publishers and subscribers to relevant topics
+function init_matlab_communicators(this)
+    % Initialize ROS action servers, publishers, and subscribers in Matlab
 
     disp( 'Initializing ROS publishers and subscribers.' );
 
