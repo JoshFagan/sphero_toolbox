@@ -17,6 +17,7 @@ Perform the instructions from Sphero's [Setting Up Raspberry Pi](https://sdk.sph
 2. Under "Advanced Options", choose "Expand Space"
 
 ## Install Python Packages
+```
 pip3 install aiohttp
 pip3 install requests
 pip3 install websocket-client
@@ -27,6 +28,7 @@ pip3 install pyserial
 pip3 install pyserial-asyncio
 sudo apt-get update
 sudo apt-get upgrade
+```
 
 ## Install ROS
 I adopted these [GitHub Instructions](https://gist.github.com/Tiryoh/76be0ac467c09667ca51b5f8d9f4b3bc#file-ros_melodic_install_raspizero-bash) but found if I 
