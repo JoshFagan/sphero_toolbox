@@ -48,7 +48,6 @@ class DriveRawMotorsServer():
         self.server.set_succeeded(self.result)
         
 if __name__ == '__main__':
-    rospy.loginfo('=====================')
     rospy.init_node('drive_raw_motors_server')
     server = DriveRawMotorsServer()
     rospy.spin()

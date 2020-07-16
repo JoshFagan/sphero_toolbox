@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="sensor_control"
+          type="publish_sphero_sensors.py"
+          name="publish_sphero_sensors"
+          output="screen" />
+</launch>

@@ -3,5 +3,5 @@
         pkg="relay"
         type="relay.py"
         name="relay"
-        output="log" />
+        output="screen" /> 
 </launch>
