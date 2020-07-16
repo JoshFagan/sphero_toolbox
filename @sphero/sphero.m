@@ -23,13 +23,17 @@ classdef sphero < handle
         relay_pub = [];     % Publisher for relay input topic
         
         % ROS subscribers
-        relay_sub = [];     % Subscriber for relay output topic
+        relay_sub = [];         % Subscriber for relay output topic
+        color_detect_sub = [];  % Subscriber for color detection topic
+        
+        % Misc ROS properties
+        rate = 4;   % Frequency of communications in Hz
         
         mypi = [];  % Connection to Raspberry Pi object
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 8; % Total number of topics that should be created
+        NUM_TOPICS = 9; % Total number of topics that should be created
     end % Private, constant properties
     
     methods (Access=public)
