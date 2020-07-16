@@ -1,8 +1,11 @@
 <launch>
-    <rosparam param="drive_raw_motors/status_frequency">5.0</rosparam>
-    <node
-        pkg="drive_control"
-        type="drive_raw_motors_action.py"
-        name="drive_motors"
-        output="log" />
+    <arg name="rate" />
+
+    <param name="drive_raw_motors/status_frequency"
+           value="$(arg rate)" />
+
+    <node pkg="drive_control"
+          type="drive_raw_motors_action.py"
+          name="drive_motors"
+          output="screen" />
 </launch>
