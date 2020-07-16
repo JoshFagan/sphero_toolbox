@@ -70,6 +70,8 @@ classdef sphero < handle
         
         setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
         
+        getDetectedColor()
+        
         [message_received] = relay_message(this, message_sent)
     end % Public methods
     
