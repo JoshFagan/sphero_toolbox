@@ -4,7 +4,7 @@ function connect(this)
     init_pi(this);
     init_ros(this);
     init_pi_communicators(this);
-    %init_matlab_communicators(this);
+    init_matlab_communicators(this);
 end % Coonnect method
 
 function init_pi(this)
@@ -65,8 +65,6 @@ function init_matlab_communicators(this)
 
     disp( 'Initializing ROS publishers and subscribers.' );
 
-    % Publish to wheel velocity topic
-    this.wheel_vel_pub = rospublisher('/wheel_vel');
     % Publish to relay input topic
     this.relay_pub = rospublisher('/relay_in');
 
