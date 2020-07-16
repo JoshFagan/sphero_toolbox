@@ -1,4 +1,9 @@
 <launch>
-  <include file="$(find drive_control)/launch/drive_raw_motors_action.launch" />
-  <include file="$(find relay)/launch/relay.launch" />
+    <arg name="rate" value="5.0"/>
+
+    <include file="$(find drive_control)/launch/drive_raw_motors_action.launch">
+        <arg name="rate" value="$(arg rate)"/>
+    </include>
+    <include file="$(find sensor_control)/launch/publish_sphero_sensors.launch"/>
+    <include file="$(find relay)/launch/relay.launch"/>
 </launch>
