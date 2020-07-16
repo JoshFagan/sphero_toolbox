@@ -70,6 +70,8 @@ function init_matlab_communicators(this)
 
     % Subscribe to relay output topic
     this.relay_sub = rossubscriber('/relay_out');
+    % Subscribe to color detection topic
+    this.color_detect_sub = rossubscriber('/sphero_sensors/color_detected');
 
     disp( 'Finished initializing ROS Publishers and Subscribers.' );
 end % Initialize ROS publishers and subscribers method
