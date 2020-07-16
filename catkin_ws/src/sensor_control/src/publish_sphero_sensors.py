@@ -12,11 +12,22 @@ sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 from sphero_sdk import SpheroRvrObserver
 from sphero_sdk import RvrStreamingServices
 
+from std_msgs.msg import ColorRGBA
+
 
 rvr = SpheroRvrObserver()
 
+# Publishers
+color_pub = rospy.Publisher('/sphero_sensors/color_detected', 
+                            ColorRGBA, queue_size=1)
+
 
 def color_detected_handler(color_detected_data):
+    color_msg = ColorRGBA(color_detected_data['ColorDetection']['R'],
+                          color_detected_data['ColorDetection']['G'],
+                          color_detected_data['ColorDetection']['B'],
+                          color_detected_data['ColorDetection']['Confidence'])
+    color_pub.publish(color_msg)
     print('Color detection data response: ', color_detected_data)
 
 
@@ -49,16 +60,15 @@ def speed_handler(speed_data):
 
 
 def main():
-    """ This program demonstrates how to enable multiple sensors to stream.
-    """
-
     try:
+        rospy.init_node('sphero_sensors', anonymous=True)
         rvr.wake()
 
         # Give RVR time to wake up
         time.sleep(2)
 
         # Color detection
+        rvr.enable_color_detection(is_enabled=True)
         rvr.sensor_control.add_sensor_data_handler(
             service=RvrStreamingServices.color_detection,
             handler=color_detected_handler
@@ -99,15 +109,12 @@ def main():
             handler=speed_handler
         )
 
-        rvr.sensor_control.start(interval=250)
+        rvr.sensor_control.start(interval=1000)
 
-        while True:
-            # Delay to allow RVR to stream sensor data
-            time.sleep(1)
+        rospy.spin()
 
-    except KeyboardInterrupt:
-        print('\nProgram terminated with keyboard interrupt.')
-
+    except rospy.ROSInterruptException:
+        pass
     finally:
         rvr.sensor_control.clear()
 
