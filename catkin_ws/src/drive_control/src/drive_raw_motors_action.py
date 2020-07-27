@@ -16,10 +16,8 @@ from sphero_sdk import RawMotorModesEnum
 
 
 class DriveRawMotorsServer():
-    def __init__(self):
-        self.rvr = SpheroRvrObserver()
-        self.rvr.wake()
-        self.rvr.reset_yaw()
+    def __init__(self, rvr):
+        self.rvr = rvr
 
         self.result = DriveRawMotorsResult()
 
@@ -30,6 +28,7 @@ class DriveRawMotorsServer():
             auto_start=False)
 
         self.server.start()
+        
       
     def execute_cb(self, goal):
         # Adjust for negative goal speeds
@@ -48,6 +47,19 @@ class DriveRawMotorsServer():
         self.server.set_succeeded(self.result)
         
 if __name__ == '__main__':
-    rospy.init_node('drive_raw_motors_server')
-    server = DriveRawMotorsServer()
-    rospy.spin()
+    try:
+        rospy.init_node('drive_raw_motors_server')
+    
+        rvr = SpheroRvrObserver()
+        rvr.wake()
+
+        # Give RVR time to wake up
+        rospy.sleep(2)
+
+        rvr.reset_yaw()
+        server = DriveRawMotorsServer(rvr)
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
+    finally:
+        rvr.close()
