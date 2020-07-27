@@ -74,7 +74,6 @@ class SensorPublisher():
                               color_data['ColorDetection']['B'],
                               color_data['ColorDetection']['Confidence'])
         self.color_pub.publish(color_msg)
-        print('Color detection data response: ', color_data)
     
     
     def ambient_light_handler(self, ambient_light_data):
