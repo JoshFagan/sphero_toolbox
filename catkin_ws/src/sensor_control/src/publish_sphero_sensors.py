@@ -12,7 +12,7 @@ sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 from sphero_sdk import SpheroRvrObserver
 from sphero_sdk import RvrStreamingServices
 
-from std_msgs.msg import ColorRGBA
+from std_msgs.msg import ColorRGBA, Float64
 
 
 class SensorPublisher():
@@ -22,6 +22,8 @@ class SensorPublisher():
         # Publishers
         self.color_pub = rospy.Publisher('/sphero_sensors/color_detected',
                                          ColorRGBA, queue_size=1)
+        self.amb_light_pub = rospy.Publisher('/sphero_sensors/ambient_light',
+                                         Float64, queue_size=1)
 
         # Color detection
         self.rvr.enable_color_detection(is_enabled=True)
@@ -34,36 +36,36 @@ class SensorPublisher():
             service=RvrStreamingServices.ambient_light,
             handler=self.ambient_light_handler
         )
-        # IMU
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.imu,
-            handler=self.imu_handler
-        )
-        # Accelerometer
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.accelerometer,
-            handler=self.accelerometer_handler
-        )
-        # Gyroscope
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.gyroscope,
-            handler=self.gyroscope_handler
-        )
-        # Locator
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.locator,
-            handler=self.locator_handler
-        )
-        # Velocity
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.velocity,
-            handler=self.velocity_handler
-        )
-        # Speed
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.speed,
-            handler=self.speed_handler
-        )
+#        # IMU
+#        self.rvr.sensor_control.add_sensor_data_handler(
+#            service=RvrStreamingServices.imu,
+#            handler=self.imu_handler
+#        )
+#        # Accelerometer
+#        self.rvr.sensor_control.add_sensor_data_handler(
+#            service=RvrStreamingServices.accelerometer,
+#            handler=self.accelerometer_handler
+#        )
+#        # Gyroscope
+#        self.rvr.sensor_control.add_sensor_data_handler(
+#            service=RvrStreamingServices.gyroscope,
+#            handler=self.gyroscope_handler
+#        )
+#        # Locator
+#        self.rvr.sensor_control.add_sensor_data_handler(
+#            service=RvrStreamingServices.locator,
+#            handler=self.locator_handler
+#        )
+#        # Velocity
+#        self.rvr.sensor_control.add_sensor_data_handler(
+#            service=RvrStreamingServices.velocity,
+#            handler=self.velocity_handler
+#        )
+#        # Speed
+#        self.rvr.sensor_control.add_sensor_data_handler(
+#            service=RvrStreamingServices.speed,
+#            handler=self.speed_handler
+#        )
 
         self.rvr.sensor_control.start(interval=1000)
 
@@ -77,7 +79,8 @@ class SensorPublisher():
     
     
     def ambient_light_handler(self, ambient_light_data):
-        print('Ambient light data response: ', ambient_light_data)
+        light_msg = Float64(ambient_light_data['AmbientLight']['Light'])
+        self.amb_light_pub.publish(light_msg)
     
     
     def imu_handler(self, imu_data):
