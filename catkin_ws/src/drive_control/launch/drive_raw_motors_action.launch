@@ -1,5 +1,5 @@
 <launch>
-    <arg name="rate" />
+    <arg name="rate" default="5.0"/>
 
     <param name="drive_raw_motors/status_frequency"
            value="$(arg rate)" />
