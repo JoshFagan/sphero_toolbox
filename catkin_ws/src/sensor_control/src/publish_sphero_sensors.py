@@ -36,35 +36,15 @@ class SensorPublisher():
             service=RvrStreamingServices.ambient_light,
             handler=self.ambient_light_handler
         )
-#        # IMU
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.imu,
-#            handler=self.imu_handler
-#        )
-#        # Accelerometer
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.accelerometer,
-#            handler=self.accelerometer_handler
-#        )
-#        # Gyroscope
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.gyroscope,
-#            handler=self.gyroscope_handler
-#        )
+        # IMU
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.imu,
+            handler=self.imu_handler
+        )
 #        # Locator
 #        self.rvr.sensor_control.add_sensor_data_handler(
 #            service=RvrStreamingServices.locator,
 #            handler=self.locator_handler
-#        )
-#        # Velocity
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.velocity,
-#            handler=self.velocity_handler
-#        )
-#        # Speed
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.speed,
-#            handler=self.speed_handler
 #        )
 
         self.rvr.sensor_control.start(interval=1000)
@@ -87,24 +67,9 @@ class SensorPublisher():
         print('IMU data response: ', imu_data)
     
     
-    def accelerometer_handler(self, accelerometer_data):
-        print('Accelerometer data response: ', accelerometer_data)
-    
-    
-    def gyroscope_handler(self, gyroscope_data):
-        print('Gyroscope data response: ', gyroscope_data)
-    
-    
     def locator_handler(self, locator_data):
         print('Locator data response: ', locator_data)
     
-    
-    def velocity_handler(self, velocity_data):
-        print('Velocity data response: ', velocity_data)
-    
-    
-    def speed_handler(self, speed_data):
-        print('Speed data response: ', speed_data)
 
 if __name__ == '__main__':
     try:
