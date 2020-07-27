@@ -15,104 +15,108 @@ from sphero_sdk import RvrStreamingServices
 from std_msgs.msg import ColorRGBA
 
 
-rvr = SpheroRvrObserver()
+class SensorPublisher():
+    def __init__(self, rvr):
+        self.rvr = rvr
 
-# Publishers
-color_pub = rospy.Publisher('/sphero_sensors/color_detected', 
-                            ColorRGBA, queue_size=1)
+        # Publishers
+        self.color_pub = rospy.Publisher('/sphero_sensors/color_detected',
+                                         ColorRGBA, queue_size=1)
+
+        # Color detection
+        self.rvr.enable_color_detection(is_enabled=True)
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.color_detection,
+            handler=self.color_detected_handler
+        )
+        # Ambient light
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.ambient_light,
+            handler=self.ambient_light_handler
+        )
+        # IMU
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.imu,
+            handler=self.imu_handler
+        )
+        # Accelerometer
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.accelerometer,
+            handler=self.accelerometer_handler
+        )
+        # Gyroscope
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.gyroscope,
+            handler=self.gyroscope_handler
+        )
+        # Locator
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.locator,
+            handler=self.locator_handler
+        )
+        # Velocity
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.velocity,
+            handler=self.velocity_handler
+        )
+        # Speed
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.speed,
+            handler=self.speed_handler
+        )
+
+        self.rvr.sensor_control.start(interval=1000)
 
 
-def color_detected_handler(color_detected_data):
-    color_msg = ColorRGBA(color_detected_data['ColorDetection']['R'],
-                          color_detected_data['ColorDetection']['G'],
-                          color_detected_data['ColorDetection']['B'],
-                          color_detected_data['ColorDetection']['Confidence'])
-    color_pub.publish(color_msg)
-    print('Color detection data response: ', color_detected_data)
+    def color_detected_handler(self, color_data):
+        color_msg = ColorRGBA(color_data['ColorDetection']['R'],
+                              color_data['ColorDetection']['G'],
+                              color_data['ColorDetection']['B'],
+                              color_data['ColorDetection']['Confidence'])
+        self.color_pub.publish(color_msg)
+        print('Color detection data response: ', color_data)
+    
+    
+    def ambient_light_handler(self, ambient_light_data):
+        print('Ambient light data response: ', ambient_light_data)
+    
+    
+    def imu_handler(self, imu_data):
+        print('IMU data response: ', imu_data)
+    
+    
+    def accelerometer_handler(self, accelerometer_data):
+        print('Accelerometer data response: ', accelerometer_data)
+    
+    
+    def gyroscope_handler(self, gyroscope_data):
+        print('Gyroscope data response: ', gyroscope_data)
+    
+    
+    def locator_handler(self, locator_data):
+        print('Locator data response: ', locator_data)
+    
+    
+    def velocity_handler(self, velocity_data):
+        print('Velocity data response: ', velocity_data)
+    
+    
+    def speed_handler(self, speed_data):
+        print('Speed data response: ', speed_data)
 
-
-def ambient_light_handler(ambient_light_data):
-    print('Ambient light data response: ', ambient_light_data)
-
-
-def imu_handler(imu_data):
-    print('IMU data response: ', imu_data)
-
-
-def accelerometer_handler(accelerometer_data):
-    print('Accelerometer data response: ', accelerometer_data)
-
-
-def gyroscope_handler(gyroscope_data):
-    print('Gyroscope data response: ', gyroscope_data)
-
-
-def locator_handler(locator_data):
-    print('Locator data response: ', locator_data)
-
-
-def velocity_handler(velocity_data):
-    print('Velocity data response: ', velocity_data)
-
-
-def speed_handler(speed_data):
-    print('Speed data response: ', speed_data)
-
-
-def main():
+if __name__ == '__main__':
     try:
-        rospy.init_node('sphero_sensors', anonymous=True)
+        rospy.init_node('sensor_publisher')
+    
+        rvr = SpheroRvrObserver()
         rvr.wake()
 
         # Give RVR time to wake up
-        time.sleep(2)
+        rospy.sleep(2)
 
-        # Color detection
-        rvr.enable_color_detection(is_enabled=True)
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.color_detection,
-            handler=color_detected_handler
-        )
-        # Ambient light
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.ambient_light,
-            handler=ambient_light_handler
-        )
-        # IMU
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.imu,
-            handler=imu_handler
-        )
-        # Accelerometer
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.accelerometer,
-            handler=accelerometer_handler
-        )
-        # Gyroscope
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.gyroscope,
-            handler=gyroscope_handler
-        )
-        # Locator
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.locator,
-            handler=locator_handler
-        )
-        # Velocity
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.velocity,
-            handler=velocity_handler
-        )
-        # Speed
-        rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.speed,
-            handler=speed_handler
-        )
-
-        rvr.sensor_control.start(interval=1000)
-
+        rvr.reset_yaw()
+        sensor_pub = SensorPublisher(rvr)
         rospy.spin()
-
     except rospy.ROSInterruptException:
         pass
     finally:
@@ -122,7 +126,3 @@ def main():
         time.sleep(.5)
         
         rvr.close()
-
-
-if __name__ == '__main__':
-    main()
