@@ -4,8 +4,8 @@
     <param name="drive_raw_motors/status_frequency"
            value="$(arg rate)" />
 
-    <node pkg="drive_control"
-          type="drive_raw_motors_action.py"
-          name="drive_motors"
+    <node pkg="rvr_control"
+          type="rvr_control.py"
+          name="rvr_control"
           output="screen" />
 </launch>
