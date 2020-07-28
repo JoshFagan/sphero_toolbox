@@ -23,7 +23,8 @@ classdef sphero < handle
         
         
         % ROS subscribers
-        color_detect_sub = [];  % Subscriber for color detection topic
+        color_detect_sub  = []; % Subscriber for color detection topic
+        ambient_light_sub = []; % Subscriber for ambient light level detection topic
         
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
@@ -65,6 +66,7 @@ classdef sphero < handle
         
         setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
         
+        [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
     end % Public methods
     

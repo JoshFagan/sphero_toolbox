@@ -66,7 +66,8 @@ function init_matlab_communicators(this)
     disp( 'Initializing ROS publishers and subscribers.' );
 
     % Subscribe to color detection topic
-    this.color_detect_sub = rossubscriber('/sphero_sensors/color_detected');
+    this.color_detect_sub  = rossubscriber('/sphero_sensors/color_detected');
+    this.ambient_light_sub = rossubscriber('/sphero_sensors/ambient_light');
 
     disp( 'Finished initializing ROS Publishers and Subscribers.' );
 end % Initialize ROS publishers and subscribers method
