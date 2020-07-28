@@ -1,8 +1,7 @@
 <launch>
     <arg name="rate" value="5.0"/>
 
-    <include file="$(find drive_control)/launch/drive_raw_motors_action.launch">
+    <include file="$(find rvr_control)/launch/rvr_control.launch">
         <arg name="rate" value="$(arg rate)"/>
     </include>
-    <include file="$(find sensor_control)/launch/publish_sphero_sensors.launch"/>
 </launch>
