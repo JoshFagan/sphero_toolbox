@@ -65,7 +65,7 @@ classdef sphero < handle
         
         setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
         
-        getDetectedColor()
+        [color, confidence] = getDetectedColor(this)
     end % Public methods
     
     methods (Access=private)

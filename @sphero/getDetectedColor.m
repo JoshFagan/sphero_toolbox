@@ -1,4 +1,4 @@
-function [color,confidence] = getDetectedColor()
+function [color, confidence] = getDetectedColor(this)
 % GETDETECTEDCOLOR  Retrieves the latest color detected onboard the Sphero RVR
 %   color = GETDETECTEDCOLOR() retrieves the latest color detected
 %   color, confidence = GETDETECTEDCOLOR() retrieves the latests color
