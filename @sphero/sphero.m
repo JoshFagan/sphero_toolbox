@@ -33,7 +33,7 @@ classdef sphero < handle
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 9; % Total number of topics that should be created
+        NUM_TOPICS = 13; % Total number of topics that should be created
     end % Private, constant properties
     
     methods (Access=public)
