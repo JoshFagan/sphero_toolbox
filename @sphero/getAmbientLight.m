@@ -6,4 +6,3 @@ function [light_level] = getAmbientLight(this)
     msg = receive(this.ambient_light_sub); % Wait for responce from Sphero
     light_level = msg.Data;
 end
-
