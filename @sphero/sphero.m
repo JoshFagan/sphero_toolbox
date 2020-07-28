@@ -37,7 +37,7 @@ classdef sphero < handle
     
     methods (Access=public)
         function this = sphero(varargin)
-            % Create an object used to reference the RVR Sphero
+            % s = SPHERO(robot_id) Create an object used to reference the RVR Sphero
             
             disp('Creating Sphero object.');            
             
