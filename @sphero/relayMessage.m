@@ -1,4 +1,4 @@
-function [message_received] = relay_message(this, message_sent)
+function [message_received] = relayMessage(this, message_sent)
     % Relay text message to Sphero
 
     this.publish_message(message_sent, this.relay_pub); % Publish message
