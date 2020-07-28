@@ -13,7 +13,9 @@ classdef sphero < handle
     
     properties (Access=private)
         bot_ip_address = '';    % IP address of robot with specified ID
-        bot_ip_addresses = {};  % List of IP addresses corresponding to botIDs
+        % List of IP addresses corresponding to botIDs
+        % (should be updated when bots are connected to EF network)
+        bot_ip_addresses = {'10.0.1.30'}; 
         matlab_ip_address = ''; % IP Address of local computer running MATLAB
 
         % ROS action clients
@@ -30,22 +32,18 @@ classdef sphero < handle
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 9; % Total number of topics that should be created
+        NUM_TOPICS = 13; % Total number of topics that should be created
     end % Private, constant properties
     
     methods (Access=public)
         function this = sphero(varargin)
             % Create an object used to reference the RVR Sphero
             
-            disp('Creating Sphero object.');
-            
-            % Define list of IP addresses
-            % (should be updated when bots are connected to EF network)
-            this.bot_ip_addresses{1} = '10.0.1.30';
-            [~, num_bots] = size(this.bot_ip_addresses);
+            disp('Creating Sphero object.');            
             
             % Input validation: expecting one integer greater than zero and
-            % less than or equal to the number of bots            
+            % less than or equal to the number of bots   
+            [~, num_bots] = size(this.bot_ip_addresses);
             if nargin ~= 1 || ~isnumeric(varargin{1})
                 error( 'Please supply one integer as robot ID' );
             elseif varargin{1} < 1 || varargin{1} > num_bots

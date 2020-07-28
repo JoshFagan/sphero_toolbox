@@ -1,4 +1,4 @@
-function publish_message(message, topic)
+function publishMessage(message, topic)
     % Publish supplied message on specified topic
 
     msg = rosmessage(topic);
