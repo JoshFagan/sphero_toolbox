@@ -1,0 +1,11 @@
+<launch>
+    <arg name="rate" default="5.0"/>
+
+    <param name="drive_raw_motors/status_frequency"
+           value="$(arg rate)" />
+
+    <node pkg="rvr_control"
+          type="rvr_control.py"
+          name="rvr_control"
+          output="screen" />
+</launch>
