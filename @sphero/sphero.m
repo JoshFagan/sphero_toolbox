@@ -23,8 +23,9 @@ classdef sphero < handle
         
         
         % ROS subscribers
-        color_detect_sub  = []; % Subscriber for color detection topic
-        ambient_light_sub = []; % Subscriber for ambient light level detection topic
+        ambient_light_sub = [];
+        color_detect_sub  = [];
+        position_sub      = [];
         
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
@@ -68,6 +69,7 @@ classdef sphero < handle
         
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
+        [position]          = getPosition(this)
     end % Public methods
     
     methods (Access=private)
