@@ -21,11 +21,11 @@ classdef sphero < handle
         % ROS action clients
         raw_motor_ac = [];  % Action client for driving raw motors
         
-        
         % ROS subscribers
         ambient_light_sub = [];
         color_detect_sub  = [];
         position_sub      = [];
+        velocity_sub      = [];
         
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
@@ -70,6 +70,7 @@ classdef sphero < handle
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
         [position]          = getPosition(this)
+        [velocity]          = getVelocity(this)
     end % Public methods
     
     methods (Access=private)
