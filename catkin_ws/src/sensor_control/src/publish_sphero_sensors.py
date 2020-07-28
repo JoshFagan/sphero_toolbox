@@ -28,6 +28,12 @@ class SensorPublisher():
                                          Float64, queue_size=1)
         self.imu_pub = rospy.Publisher('/sphero_sensors/imu',
                                          Imu, queue_size=1)
+        self.pos_pub = rospy.Publisher('/sphero_sensors/position',
+                                         Vector3, queue_size=1)
+        self.vel_pub = rospy.Publisher('/sphero_sensors/velocity',
+                                         Vector3, queue_size=1)
+        self.speed_pub = rospy.Publisher('/sphero_sensors/speed',
+                                         Float64, queue_size=1)
 
         # Color detection
         self.rvr.enable_color_detection(is_enabled=True)
@@ -55,23 +61,23 @@ class SensorPublisher():
             service=RvrStreamingServices.gyroscope,
             handler=self.empty_handler
         )
-#        # Locator
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.locator,
-#            handler=self.locator_handler
-#        )
-#        # Velocity
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.velocity,
-#            handler=self.velocity_handler
-#        )
-#        # Speed
-#        self.rvr.sensor_control.add_sensor_data_handler(
-#            service=RvrStreamingServices.speed,
-#            handler=self.speed_handler
-#        )
+        # Locator
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.locator,
+            handler=self.locator_handler
+        )
+        # Velocity
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.velocity,
+            handler=self.velocity_handler
+        )
+        # Speed
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.speed,
+            handler=self.speed_handler
+        )
 
-        self.rvr.sensor_control.start(interval=10000)
+        self.rvr.sensor_control.start(interval=1000)
 
 
     def color_detected_handler(self, color_data):
@@ -107,21 +113,29 @@ class SensorPublisher():
         self.imu_pub.publish(imu_msg)
     
     
-    def empty_handler(self, accelerometer_data):
-        pass
-    
-    
     def locator_handler(self, locator_data):
-        print('Locator data response: ', locator_data)
+        pos_msg = Vector3(locator_data['Locator']['X'],
+                          locator_data['Locator']['Y'],
+                          0) 
+        self.pos_pub.publish(pos_msg)
     
     
     def velocity_handler(self, velocity_data):
-        print('Velocity data response: ', velocity_data)
+        vel_msg = Vector3(velocity_data['Velocity']['X'],
+                          velocity_data['Velocity']['Y'],
+                          0) 
+        self.vel_pub.publish(vel_msg)
     
     
     def speed_handler(self, speed_data):
-        print('Speed data response: ', speed_data)
+        speed_msg = Float64(speed_data['Speed']['Speed'])
+        self.speed_pub.publish(speed_msg)
 
+
+    def empty_handler(self, data):
+        pass
+    
+    
 if __name__ == '__main__':
     try:
         rospy.init_node('sensor_publisher')
