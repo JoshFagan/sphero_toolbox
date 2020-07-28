@@ -70,6 +70,7 @@ function init_matlab_communicators(this)
     this.ambient_light_sub = rossubscriber('/sphero_sensors/ambient_light');
     this.position_sub      = rossubscriber('/sphero_sensors/position');
     this.velocity_sub      = rossubscriber('/sphero_sensors/velocity');
+    this.speed_sub         = rossubscriber('/sphero_sensors/speed');
 
     disp( 'Finished initializing ROS Publishers and Subscribers.' );
 end % Initialize ROS publishers and subscribers method

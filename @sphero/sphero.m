@@ -25,6 +25,7 @@ classdef sphero < handle
         ambient_light_sub = [];
         color_detect_sub  = [];
         position_sub      = [];
+        speed_sub         = [];
         velocity_sub      = [];
         
         % Misc ROS properties
@@ -71,6 +72,7 @@ classdef sphero < handle
         [color, confidence] = getDetectedColor(this)
         [position]          = getPosition(this)
         [velocity]          = getVelocity(this)
+        [speed]             = getSpeed(this)
     end % Public methods
     
     methods (Access=private)
