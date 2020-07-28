@@ -1,7 +1,0 @@
-<launch>
-    <node
-        pkg="relay"
-        type="relay.py"
-        name="relay"
-        output="screen" /> 
-</launch>

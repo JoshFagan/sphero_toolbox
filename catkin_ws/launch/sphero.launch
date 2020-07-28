@@ -5,5 +5,4 @@
         <arg name="rate" value="$(arg rate)"/>
     </include>
     <include file="$(find sensor_control)/launch/publish_sphero_sensors.launch"/>
-    <include file="$(find relay)/launch/relay.launch"/>
 </launch>

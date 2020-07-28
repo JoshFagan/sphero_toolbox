@@ -65,11 +65,6 @@ function init_matlab_communicators(this)
 
     disp( 'Initializing ROS publishers and subscribers.' );
 
-    % Publish to relay input topic
-    this.relay_pub = rospublisher('/relay_in');
-
-    % Subscribe to relay output topic
-    this.relay_sub = rossubscriber('/relay_out');
     % Subscribe to color detection topic
     this.color_detect_sub = rossubscriber('/sphero_sensors/color_detected');
 

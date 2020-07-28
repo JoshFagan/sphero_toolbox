@@ -19,11 +19,8 @@ classdef sphero < handle
         % ROS action clients
         raw_motor_ac = [];  % Action client for driving raw motors
         
-        % ROS publishers
-        relay_pub = [];     % Publisher for relay input topic
         
         % ROS subscribers
-        relay_sub = [];         % Subscriber for relay output topic
         color_detect_sub = [];  % Subscriber for color detection topic
         
         % Misc ROS properties
@@ -71,8 +68,6 @@ classdef sphero < handle
         setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
         
         getDetectedColor()
-        
-        [message_received] = relay_message(this, message_sent)
     end % Public methods
     
     methods (Access=private)
