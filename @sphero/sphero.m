@@ -27,6 +27,7 @@ classdef sphero < handle
         position_sub      = [];
         speed_sub         = [];
         velocity_sub      = [];
+        imu_sub           = [];
         
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
@@ -73,6 +74,7 @@ classdef sphero < handle
         [position]          = getPosition(this)
         [velocity]          = getVelocity(this)
         [speed]             = getSpeed(this)
+        [orientation]       = getOrientation(this)
     end % Public methods
     
     methods (Access=private)
