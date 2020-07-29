@@ -75,6 +75,8 @@ classdef sphero < handle
         [velocity]          = getVelocity(this)
         [speed]             = getSpeed(this)
         [orientation]       = getOrientation(this)
+        [angular_vel]       = getAngularVelocity(this)
+        [acceleration]      = getAcceleration(this)
     end % Public methods
     
     methods (Access=private)
