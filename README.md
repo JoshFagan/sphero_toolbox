@@ -24,13 +24,12 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 - [ ] setLEDs
 #### Native Functionality in Sphero
 - [ ] Sensor Readins
-    - [ ] Color sensor
-    - [ ] IR sensors
+    - [x] Color sensor
     - [ ] Reset Locator X And Y
-    - [ ] Get Ambient Light Sensor Value
-    - [ ] IMU
-    - [ ] Accelerometer
-    - [ ] Gyroscope
+    - [x] Get Ambient Light Sensor Value
+    - [x] IMU
+    - [x] Accelerometer
+    - [x] Gyroscope
 - [ ] Motor Control
     - [ ] Raw Motors
         * Akin to (setDriveVelocity)
