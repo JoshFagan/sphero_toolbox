@@ -10,6 +10,7 @@ sys.path.append('/home/pi/sphero_toolbox/catkin_ws/src/drive_control/src')
 sys.path.append('/home/pi/sphero_toolbox/catkin_ws/src/sensor_control/src')
 
 from drive_raw_motors_action import DriveRawMotorsServer
+from turn_angle_action import TurnAngleServer
 from publish_sphero_sensors import SensorPublisher 
 
 from sphero_sdk import SpheroRvrObserver
@@ -20,4 +21,5 @@ if __name__ == '__main__':
     rvr = SpheroRvrObserver()
     sensor_pub = SensorPublisher(rvr)
     drive_control = DriveRawMotorsServer(rvr)
+    turn_angle = TurnAngleServer(rvr)
     rospy.spin()
