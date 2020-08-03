@@ -77,7 +77,7 @@ class SensorPublisher():
             handler=self.speed_handler
         )
 
-        self.rvr.sensor_control.start(interval=1000)
+        self.rvr.sensor_control.start(interval=250)
 
 
     def color_detected_handler(self, color_data):
