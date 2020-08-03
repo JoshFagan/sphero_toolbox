@@ -86,6 +86,6 @@ classdef sphero < handle
     end % Private methods
     
     methods (Access=private, Static)
-        publish_message(message, topic)
+        publishMessage(message, topic)
     end % Private, static methods
 end % Sphero class

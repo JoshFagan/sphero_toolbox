@@ -64,8 +64,11 @@ function init_matlab_communicators(this)
     % Initialize ROS action servers, publishers, and subscribers in Matlab
 
     disp( 'Initializing ROS publishers and subscribers.' );
+    
+    % ROS action clients
+    this.raw_motor_ac = rosactionclient('/drive_raw_motors');
 
-    % Subscribe to color detection topic
+    % ROS subscribers
     this.color_detect_sub  = rossubscriber('/sphero_sensors/color_detected');
     this.ambient_light_sub = rossubscriber('/sphero_sensors/ambient_light');
     this.position_sub      = rossubscriber('/sphero_sensors/position');

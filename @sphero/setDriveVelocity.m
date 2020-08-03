@@ -3,10 +3,12 @@ function setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
 
     % Set drive velocity of both wheels to single input value
     if nargin == 2
-        message = [left_wheel_vel, left_wheel_vel];
-    else
-        message = [left_wheel_vel, right_wheel_vel];
+        right_wheel_vel = left_wheel_vel;
     end
+    
+    m = rosmessage(strcat(this.raw_motor_ac.ActionType, 'Goal'));
+    m.LeftSpeed  = left_wheel_vel;
+    m.RightSpeed = right_wheel_vel;
 
-    this.publish_message(message, this.wheel_vel_pub);
+    sendGoal(this.raw_motor_ac, m);
 end % Set drive velocity function
