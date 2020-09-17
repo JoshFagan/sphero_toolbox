@@ -46,7 +46,7 @@ rosdep update
 ```
 
 ## Download Sphero Toolbox
-1. Download the zip file using the above button
+1. Download the zip file using the "Code" button on the [main project page](https://github.com/JoshFagan/sphero_toolbox)
 2. Move the zip file to the home directory of the Pi
 3. Unzip the file
 4. Execute commands from terminal
