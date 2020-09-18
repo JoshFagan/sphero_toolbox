@@ -17,6 +17,28 @@ Perform the instructions from Sphero's [Setting Up Raspberry Pi](https://sdk.sph
 2. Under "Advanced Options", choose "Expand Space"
 
 ## Install Python Packages
+Run the commands 
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+<details>
+<summary>If you get an error</summary>
+  
+If these commands error out with some messages involving "files list file for package \'\<package\>\' is missing final newline" then you will need to do the following steps to clean up the corrupted files.
+1. `rm /var/lib/dpkg/info/<package>.list`
+2. `sudo apt-get remove <package> --purge`
+3. `sudo apt-get install <package>` (Not required if you do not intend on using \<package\>)
+
+The common culprit files are 
+* libreoffice-common.list
+* libreoffice-help-en-gb.list
+* libreoffice-help-common.list
+
+You can preemptively perform the above steps for each one of the packages to save time. You also do not really need these packages, so performing step 3 is not necessary.
+
+</details>
+
 ```
 pip3 install aiohttp
 pip3 install requests
