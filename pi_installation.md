@@ -6,14 +6,14 @@ Perform the instructions from Sphero's [Setting Up Raspberry Pi](https://sdk.sph
 ### Additional Configuration that May Need to be Performed
 
 #### Configure the UART 
-1. Execute "raspi-config" 
+1. Execute "sudo raspi-config" 
 2. Under "Interfacing Options", choose "Serial".
 3. Say "No" when it asks if you want a login shell over serial.
 4. Say "Yes" when asked if you want the hardware enabled.
 5. Finish, then accept the offer to reboot.
 
 #### Expand Free Space
-1. Execute "raspi-config" 
+1. Execute "sudo raspi-config" 
 2. Under "Advanced Options", choose "Expand Space"
 
 ## Install Python Packages
