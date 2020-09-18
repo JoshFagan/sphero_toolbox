@@ -87,7 +87,7 @@ When you restart Matlab you may recieve a warning message that states something 
 Here is a simple fix for this:
 1. In Matlab, click the "Home" tab
 2. Click the button "Set Path" (it's icon looks like a folder ontop of another folder)
-3. Click the name of the offending folder
+3. Click the name of the offending folder/item
 4. Click "Remove"
 5. Click "Save"
 6. Click "Colse"
