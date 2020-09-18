@@ -66,8 +66,7 @@ sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
 popd
 rosdep update
 ```
-At the bottom of the ".bashrc" file in the home directory, add the following
-lines:
+At the bottom of the file `~/.bashrc`, add the following lines:
 ```
 source /opt/ros/melodic/setup.bash
 export ROS_IP=<Pi's IP address>
@@ -88,8 +87,7 @@ At the command line execute the command:
 cd sphero_toolbox/catkin_ws
 catkin_make
 ```
-At the bottom of the ".bashrc" file in the home directory, add the following
-line:
+At the bottom of the file `~/.bashrc`, add the following line:
 
 ```source ~/sphero_toolbox/catkin_ws/devel/setup.bash```
 
