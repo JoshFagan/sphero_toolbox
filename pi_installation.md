@@ -66,6 +66,17 @@ sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
 popd
 rosdep update
 ```
+At the bottom of the ".bashrc" file in the home directory, add the following
+lines:
+```
+source /opt/ros/melodic/setup.bash
+export ROS_IP=<Pi's IP address>
+```
+
+At the command line execute the command:
+
+```source ~/.bashrc```
+
 
 ## Download Sphero Toolbox
 1. Download the zip file using the "Code" button on the [main project page](https://github.com/JoshFagan/sphero_toolbox)
@@ -77,12 +88,11 @@ rosdep update
 cd sphero_toolbox/catkin_ws
 catkin_make
 ```
-
-## Update Bash File
 At the bottom of the ".bashrc" file in the home directory, add the following
-lines.
-```
-source /opt/ros/melodic/setup.bash
-source ~/sphero_toolbox/catkin_ws/devel/setup.bash
-export ROS_IP=<Pi's IP address>
-```
+line:
+
+```source ~/sphero_toolbox/catkin_ws/devel/setup.bash```
+
+At the command line execute the command:
+
+```source ~/.bashrc```
