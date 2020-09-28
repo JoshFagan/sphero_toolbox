@@ -1,7 +1,7 @@
 <launch>
     <arg name="rate" default="5.0"/>
 
-    <param name="drive_raw_motors/status_frequency"
+    <param name="drive_control/status_frequency"
            value="$(arg rate)" />
 
     <node pkg="rvr_control"
