@@ -15,7 +15,7 @@ ROS Action Server.
 
 ### Generating Matlab Messages from Custom ROS Action Messages 
 This step did not work on my mac, but did work on my linux machine. It still works to copy the generated files over to my Mac system and use them there. 
-* Link to simple instructions
+* [Instructions for importing custom messages into Matlab](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
 * Ensure you have the "ROS Toolbox Interface for ROS Custom Messages"
 * `rosgenmsg('msg_gen')`
 

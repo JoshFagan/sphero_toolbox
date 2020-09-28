@@ -6,17 +6,39 @@ Perform the instructions from Sphero's [Setting Up Raspberry Pi](https://sdk.sph
 ### Additional Configuration that May Need to be Performed
 
 #### Configure the UART 
-1. Execute "raspi-config" 
+1. Execute "sudo raspi-config" 
 2. Under "Interfacing Options", choose "Serial".
 3. Say "No" when it asks if you want a login shell over serial.
 4. Say "Yes" when asked if you want the hardware enabled.
 5. Finish, then accept the offer to reboot.
 
 #### Expand Free Space
-1. Execute "raspi-config" 
+1. Execute "sudo raspi-config" 
 2. Under "Advanced Options", choose "Expand Space"
 
 ## Install Python Packages
+Run the commands 
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+<details>
+<summary>If you get an error</summary>
+  
+If these commands error out with some messages involving "files list file for package \'\<package\>\' is missing final newline" then you will need to do the following steps to clean up the corrupted files.
+1. `rm /var/lib/dpkg/info/<package>.list`
+2. `sudo apt-get remove <package> --purge`
+3. `sudo apt-get install <package>` (Not required if you do not intend on using \<package\>)
+
+The common culprit files are 
+* libreoffice-common.list
+* libreoffice-help-en-gb.list
+* libreoffice-help-common.list
+
+You can preemptively perform the above steps for each one of the packages to save time. You also do not really need these packages, so performing step 3 is not necessary.
+
+</details>
+
 ```
 pip3 install aiohttp
 pip3 install requests
@@ -44,9 +66,19 @@ sudo gdebi ros4raspbian-melodic-armhf-1.0.0.deb
 popd
 rosdep update
 ```
+At the bottom of the file `~/.bashrc`, add the following lines:
+```
+source /opt/ros/melodic/setup.bash
+export ROS_IP=<Pi's IP address>
+```
+
+At the command line execute the command:
+
+```source ~/.bashrc```
+
 
 ## Download Sphero Toolbox
-1. Download the zip file using the above button
+1. Download the zip file using the "Code" button on the [main project page](https://github.com/JoshFagan/sphero_toolbox)
 2. Move the zip file to the home directory of the Pi
 3. Unzip the file
 4. Execute commands from terminal
@@ -55,12 +87,10 @@ rosdep update
 cd sphero_toolbox/catkin_ws
 catkin_make
 ```
+At the bottom of the file `~/.bashrc`, add the following line:
 
-## Update Bash File
-At the bottom of the ".bashrc" file in the home directory, add the following
-lines.
-```
-source /opt/ros/melodic/setup.bash
-source ~/sphero_toolbox/catkin_ws/devel/setup.bash
-export ROS_IP=<Pi's IP address>
-```
+```source ~/sphero_toolbox/catkin_ws/devel/setup.bash```
+
+At the command line execute the command:
+
+```source ~/.bashrc```
