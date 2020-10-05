@@ -15,7 +15,8 @@ classdef sphero < handle
         bot_ip_address = '';    % IP address of robot with specified ID
         % List of IP addresses corresponding to botIDs
         % (should be updated when bots are connected to EF network)
-        bot_ip_addresses = {'10.0.1.30'}; 
+        % bot_ip_addresses = {'10.0.1.30'}; % IP for planet_express
+        bot_ip_addresses = {'10.128.207.201'}; % IP for eduroam
         matlab_ip_address = ''; % IP Address of local computer running MATLAB
 
         % ROS action clients
