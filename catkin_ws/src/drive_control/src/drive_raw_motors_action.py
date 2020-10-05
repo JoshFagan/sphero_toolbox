@@ -37,12 +37,19 @@ class DriveRawMotorsServer():
         left_mode  = forward if goal.left_speed >= 0 else reverse
         right_mode = forward if goal.right_speed >= 0 else reverse
 
-        self.rvr.raw_motors(
-            left_mode=left_mode,
-            left_speed=abs(goal.left_speed),  # Valid speed values are 0-255
-            right_mode=right_mode,
-            right_speed=abs(goal.right_speed)  # Valid speed values are 0-255
-        )
+        while True:
+            if self.server.is_preempt_requested():
+                    rospy.loginfo('%s: Preempted' % self._action_name)
+                    self.server.set_preempted()
+                    break
+            self.rvr.raw_motors(
+                left_mode=left_mode,
+                left_speed=abs(goal.left_speed),  
+                right_mode=right_mode,
+                right_speed=abs(goal.right_speed)  
+            )
+
+            rospy.sleep(1)
 
         self.server.set_succeeded(self.result)
         

@@ -15,8 +15,15 @@ ROS Action Server.
 
 ### Generating Matlab Messages from Custom ROS Action Messages 
 This step did not work on my mac, but did work on my linux machine. It still works to copy the generated files over to my Mac system and use them there. 
-* Link to simple instructions
-* Ensure you have the "ROS Toolbox Interface for ROS Custom Messages"
-* `rosgenmsg('msg_gen')`
+* [Instructions for importing custom messages into Matlab](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
+1. Ensure you have the "ROS Toolbox Interface for ROS Custom Messages"
+2. Make sure the most recent version of `sphero_msgs` is in the directory `msg_gen`
+    1. In the terminal, navigate to `sphero_toolbox/catkin_ws/src`
+    2. `cp -r sphero_msgs ../../msg_gen`
+3. Remove old Matlab generated messages
+    1. In the terminal, navigate to `sphero_toolbox/msg_gen`
+    2. Execute the command: `rm -r matlab_gen`
+3. In Matlab, navigate to `sphero_toolbox`
+4. In the Matlab command window execute the command: `rosgenmsg('msg_gen')`
 
 ### Creating Matlab Action Client

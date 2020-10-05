@@ -1,3 +1,5 @@
+system_files/set_ros_master_uri.bash
+
 # Mac generated OS organization files
 *.DS_Store
 # Matlab generated save files
