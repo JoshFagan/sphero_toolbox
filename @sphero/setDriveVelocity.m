@@ -6,9 +6,9 @@ function setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
         right_wheel_vel = left_wheel_vel;
     end
     
-    m = rosmessage(strcat(this.raw_motor_ac.ActionType, 'Goal'));
-    m.LeftSpeed  = left_wheel_vel;
-    m.RightSpeed = right_wheel_vel;
+    this.drive_control_m.Command    = 'drive_raw_motors';
+    this.drive_control_m.LeftSpeed  = left_wheel_vel;
+    this.drive_control_m.RightSpeed = right_wheel_vel;
 
-    sendGoal(this.raw_motor_ac, m);
+    sendGoal(this.drive_control_ac, this.drive_control_m);
 end % Set drive velocity function
