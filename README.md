@@ -13,11 +13,11 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
     - [ ] showCamera
     - [ ] testSensors
 - [ ] Motor Control
-    - [ ] setDriveVelocity
+    - [x] setDriveVelocity
     - [ ] setDriveVelocityRadius
     - [ ] moveDistance
     - [ ] setTurnVelocity
-    - [ ] stop
+    - [x] stop
     - [ ] turnAngle
 - [ ] Beep
 - [ ] songPlay
@@ -31,7 +31,7 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
     - [x] Accelerometer
     - [x] Gyroscope
 - [ ] Motor Control
-    - [ ] Raw Motors
+    - [x] Raw Motors
         * Akin to (setDriveVelocity)
     - [ ] Reset Yaw
         * Current direction is now considered forward

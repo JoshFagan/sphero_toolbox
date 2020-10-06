@@ -31,13 +31,32 @@ class DriveControlServer():
         
       
     def execute_cb(self, goal):
-        # Adjust for negative goal speeds
-
-        rospy.logdebug( goal.command )
-
-
+        if goal.command == 'stop':
+            self.rvr.roll_stop()
+        elif goal.command == 'drive_raw_motors':
+            self.drive_raw_motors(goal.left_speed, goal.right_speed)
 
         self.server.set_succeeded(self.result)
+
+    def drive_raw_motors(self, left_speed, right_speed):
+        # Adjust for negative goal speeds
+        forward = RawMotorModesEnum.forward.value
+        reverse = RawMotorModesEnum.reverse.value
+        left_mode  = forward if left_speed >= 0 else reverse
+        right_mode = forward if right_speed >= 0 else reverse
+
+        while True:
+            if self.server.is_preempt_requested():
+                    self.server.set_preempted()
+                    break
+            self.rvr.raw_motors(
+                left_mode=left_mode,
+                left_speed=abs(left_speed),
+                right_mode=right_mode,
+                right_speed=abs(right_speed)
+            )
+
+            rospy.sleep(1)
         
 if __name__ == '__main__':
     try:
