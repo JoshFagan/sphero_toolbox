@@ -12,7 +12,7 @@ classdef DriveControlAction < ros.Message
     end
     
     properties (Constant, Hidden)
-        MD5Checksum = '593a62569f965f077dcc23c8bce9858e' % The MD5 Checksum of the message definition
+        MD5Checksum = '8328bd1ba8c67de453f0e5006aa6f603' % The MD5 Checksum of the message definition
     end
     
     properties (Access = protected)

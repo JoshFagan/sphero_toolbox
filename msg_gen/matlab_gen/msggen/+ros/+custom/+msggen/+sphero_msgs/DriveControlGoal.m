@@ -12,7 +12,7 @@ classdef DriveControlGoal < ros.Message
     end
     
     properties (Constant, Hidden)
-        MD5Checksum = 'f28171cdf4fbf73791dc7b4f63ddff38' % The MD5 Checksum of the message definition
+        MD5Checksum = '66618f06c1b5b5fc25a0a4afeb739383' % The MD5 Checksum of the message definition
     end
     
     properties (Access = protected)
@@ -23,11 +23,12 @@ classdef DriveControlGoal < ros.Message
         Command
         LeftSpeed
         RightSpeed
+        Degrees
     end
     
     properties (Constant, Hidden)
-        PropertyList = {'Command', 'LeftSpeed', 'RightSpeed'} % List of non-constant message properties
-        ROSPropertyList = {'command', 'left_speed', 'right_speed'} % List of non-constant ROS message properties
+        PropertyList = {'Command', 'Degrees', 'LeftSpeed', 'RightSpeed'} % List of non-constant message properties
+        ROSPropertyList = {'command', 'degrees', 'left_speed', 'right_speed'} % List of non-constant ROS message properties
     end
     
     methods
@@ -113,6 +114,18 @@ classdef DriveControlGoal < ros.Message
             
             obj.JavaMessage.setRightSpeed(rightspeed);
         end
+        
+        function degrees = get.Degrees(obj)
+            %get.Degrees Get the value for property Degrees
+            degrees = int16(obj.JavaMessage.getDegrees);
+        end
+        
+        function set.Degrees(obj, degrees)
+            %set.Degrees Set the value for property Degrees
+            validateattributes(degrees, {'numeric'}, {'nonempty', 'scalar'}, 'DriveControlGoal', 'Degrees');
+            
+            obj.JavaMessage.setDegrees(degrees);
+        end
     end
     
     methods (Access = protected)
@@ -129,6 +142,7 @@ classdef DriveControlGoal < ros.Message
             cpObj.Command = obj.Command;
             cpObj.LeftSpeed = obj.LeftSpeed;
             cpObj.RightSpeed = obj.RightSpeed;
+            cpObj.Degrees = obj.Degrees;
         end
         
         function reload(obj, strObj)
@@ -136,6 +150,7 @@ classdef DriveControlGoal < ros.Message
             obj.Command = strObj.Command;
             obj.LeftSpeed = strObj.LeftSpeed;
             obj.RightSpeed = strObj.RightSpeed;
+            obj.Degrees = strObj.Degrees;
         end
     end
     
@@ -152,6 +167,7 @@ classdef DriveControlGoal < ros.Message
             strObj.Command = obj.Command;
             strObj.LeftSpeed = obj.LeftSpeed;
             strObj.RightSpeed = obj.RightSpeed;
+            strObj.Degrees = obj.Degrees;
         end
     end
     

@@ -1,9 +1,0 @@
-# Goal: Have the robot wheels run at specified speeds
-int16 left_speed
-int16 right_speed
----
-# Result:
-uint8 result 
----
-# Feedback: 
-uint8 feedback 
