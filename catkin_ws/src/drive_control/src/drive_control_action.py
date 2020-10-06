@@ -35,6 +35,8 @@ class DriveControlServer():
             self.rvr.roll_stop()
         elif goal.command == 'drive_raw_motors':
             self.drive_raw_motors(goal.left_speed, goal.right_speed)
+        elif goal.command == 'turn_angle':
+            this.rvr.turn_right_degrees(0, goal.degrees)
 
         self.server.set_succeeded(self.result)
 
