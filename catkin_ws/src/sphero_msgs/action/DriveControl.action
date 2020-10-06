@@ -5,6 +5,7 @@ string command
 # Left and right speeds used in DriveRawMotors
 int16 left_speed
 int16 right_speed
+int16 degrees
 ---
 
 # Result: Success of completing the drive command
