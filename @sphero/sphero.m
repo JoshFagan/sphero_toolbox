@@ -20,7 +20,10 @@ classdef sphero < handle
         matlab_ip_address = ''; % IP Address of local computer running MATLAB
 
         % ROS action clients
-        raw_motor_ac = [];  % Action client for driving raw motors
+        drive_control_ac = [];  % Action client for driving raw motors
+        
+        % ROS messages
+        drive_control_m = []; % Message for drive control action client
         
         % ROS subscribers
         ambient_light_sub = [];
@@ -75,6 +78,7 @@ classdef sphero < handle
         end % Sphero constructor method
         
         setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
+        stop(this)
         
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
