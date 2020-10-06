@@ -1,8 +1,0 @@
-# Goal: Have the robot wheels run at specified speeds
-int16 degrees 
----
-# Result:
-uint8 result 
----
-# Feedback: 
-int16 current_degrees 
