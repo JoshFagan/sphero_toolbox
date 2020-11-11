@@ -59,7 +59,7 @@ class DriveControlServer():
                 right_speed=abs(right_speed)
             )
 
-            rospy.sleep(1)
+            rospy.sleep(0.25)
         
 if __name__ == '__main__':
     try:
