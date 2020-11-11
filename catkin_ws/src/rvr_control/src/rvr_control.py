@@ -18,6 +18,7 @@ from sphero_sdk import SpheroRvrObserver
 if __name__ == '__main__':
     rospy.init_node('rvr_controller')
     rvr = SpheroRvrObserver()
+    rvr.wake()
     sensor_pub = SensorPublisher(rvr)
     drive_control = DriveControlServer(rvr)
     rospy.spin()
