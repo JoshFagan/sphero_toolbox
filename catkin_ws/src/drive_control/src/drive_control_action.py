@@ -31,13 +31,17 @@ class DriveControlServer():
         
       
     def execute_cb(self, goal):
-        if goal.command == 'stop':
+        command = goal.command;
+        if command == 'stop':
             self.rvr.roll_stop()
-        elif goal.command == 'drive_raw_motors':
+        elif command == 'drive_raw_motors':
             self.drive_raw_motors(goal.left_speed, goal.right_speed)
-        elif goal.command == 'turn_angle':
+        elif command == 'turn_angle':
+            self.rvr.drive_control.reset_heading()
             self.rvr.drive_control.turn_left_degrees(heading=0, 
                                                      amount=goal.degrees)
+        elif command == 'reset_heading':
+            self.rvr.drive_control.reset_heading()
 
         self.server.set_succeeded(self.result)
 
