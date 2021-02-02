@@ -79,6 +79,7 @@ classdef sphero < handle
         
         setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
         stop(this)
+        turnAngle(this, degrees)
         
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
