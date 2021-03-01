@@ -1,4 +1,4 @@
-classdef sphero < handle
+classdef sphero
     % A MATLAB class file containing all necessary functions to communicate
     % with and control the RVR Sphero.
     %
