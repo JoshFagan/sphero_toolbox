@@ -2,8 +2,10 @@
 A document dedicated to important and helpful information related to adding functionality to this toolbox.
 
 ## Adding a Physical Control Element
-Anything that controls a physical element of the robot (e.g. wheel motors, on board servos) should be implemented with a 
-ROS Action Server. 
+Anything that controls a physical element of the robot (e.g. wheel motors, on board servos) should be implemented as a ROS action service. Actions that interfere with each other (drive forward, turn left, etc.) should be implemented as multiple actions on one action service. This allows for new actions to preempt old actions (stop moving forward if I am now telling you to turn left).
+
+Currently implemented ROS action services:
+* Drive Control Service
 
 ### Writing a ROS Action Service
 * Link to simple instructions online
