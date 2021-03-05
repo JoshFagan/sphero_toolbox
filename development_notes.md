@@ -2,12 +2,14 @@
 A document dedicated to important and helpful information related to adding functionality to this toolbox.
 
 ## Adding a Physical Control Element
-Anything that controls a physical element of the robot (e.g. wheel motors, on board servos) should be implemented as a ROS action service. Actions that interfere with each other (drive forward, turn left, etc.) should be implemented as multiple actions on one action service. This allows for new actions to preempt old actions (stop moving forward if I am now telling you to turn left).
+Anything that controls a physical element of the robot (e.g. wheel motors, on board servos) should be implemented as a ROS action service. Actions that interfere with each other (drive forward, turn left, etc.) should be implemented as multiple actions on one action service. This allows for new actions to preempt old actions (stop moving forward if I am now telling you to turn left). If the physical control element should belong to an already existing ROS action service, then add it to that service, following the instructions in [Adding a New Action to an Existing ROS Action Service](## Adding a New Action to an Existing ROS Action Service). If there is no existing section suitable for the action you want to implement, follow the instructions in [## Writing a ROS Action Service](## Writing a ROS Action Service).
 
 Currently implemented ROS action services:
 * Drive Control Service
 
-### Writing a ROS Action Service
+## Adding a New Action to an Existing ROS Action Service
+
+## Writing a ROS Action Service
 * Link to simple instructions online
 * Make sure to include message file like so `from sphero_msgs.msg import DriveRawMotorsAction`
 
