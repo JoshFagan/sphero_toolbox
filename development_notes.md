@@ -11,7 +11,7 @@ ROS Action Server.
 
 ### Writing Custom ROS Aciton Messages
 * Link to simple example
-* Project convension means this file should be in 'sphero_toolbox/catkin_ws/src/sphero_msgs/action'
+* Project convention means this file should be in 'sphero_toolbox/catkin_ws/src/sphero_msgs/action'
 
 ### Generating Matlab Messages from Custom ROS Action Messages 
 This step did not work on my mac, but did work on my linux machine. It still works to copy the generated files over to my Mac system and use them there. 
