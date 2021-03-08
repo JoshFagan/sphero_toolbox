@@ -30,5 +30,8 @@ This step did not work on my mac, but did work on my linux machine. It still wor
     2. Execute the command: `rm -r matlab_gen`
 3. In Matlab, navigate to `sphero_toolbox`
 4. In the Matlab command window execute the command: `rosgenmsg('msg_gen')`
+5. Rerun the script "configure_installation.m"
+6. Restart Matlab
+7. You can use `rosmsg list` and `rosmsg info <new or altered message>` to make sure the new or changed messages are recognized
 
 ### Creating Matlab Action Client
