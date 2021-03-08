@@ -24,7 +24,7 @@ This step did not work on my mac, but did work on my linux machine. It still wor
 1. Ensure you have the "ROS Toolbox Interface for ROS Custom Messages"
 2. Make sure the most recent version of `sphero_msgs` is in the directory `msg_gen`
     1. In the terminal, navigate to `sphero_toolbox/catkin_ws/src`
-    2. `cp -r sphero_msgs ../../msg_gen`
+    2. `cp -r sphero_msgs ../../msg_gen/`
 3. Remove old Matlab generated messages
     1. In the terminal, navigate to `sphero_toolbox/msg_gen`
     2. Execute the command: `rm -r matlab_gen`
