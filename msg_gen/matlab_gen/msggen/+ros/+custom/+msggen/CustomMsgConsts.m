@@ -3,7 +3,7 @@ classdef CustomMsgConsts
     %   The message types are constant properties, which in turn resolve
     %   to the strings of the actual types.
     
-    %   Copyright 2014-2020 The MathWorks, Inc.
+    %   Copyright 2014-2021 The MathWorks, Inc.
     
     properties (Constant)
         sphero_msgs_DriveControlAction = 'sphero_msgs/DriveControlAction'

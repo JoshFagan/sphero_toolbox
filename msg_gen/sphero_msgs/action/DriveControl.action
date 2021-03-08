@@ -5,7 +5,9 @@ string command
 # Left and right speeds used in DriveRawMotors
 int16 left_speed
 int16 right_speed
-int16 degrees
+int16 angle     # Angle used in turning commands
+int16 heading   # Heading used in heading dependent commands
+int16 time      # Time used in drive for a time amount commands
 ---
 
 # Result: Success of completing the drive command
