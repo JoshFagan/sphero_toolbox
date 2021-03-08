@@ -10,11 +10,12 @@ Currently implemented ROS action services:
 ## Adding a New Action to an Existing ROS Action Service
 
 ## Writing a ROS Action Service
-* Link to simple instructions online
+* Link to [instructions online](http://wiki.ros.org/actionlib_tutorials/Tutorials/Writing%20a%20Simple%20Action%20Server%20using%20the%20Execute%20Callback%20%28Python%29)
+* I would use the above example to gain insite into what each part does, and use the Drive Control Service as a template for new action servers
 * Make sure to include message file like so `from sphero_msgs.msg import DriveRawMotorsAction`
 
 ### Writing Custom ROS Aciton Messages
-* Link to simple example
+* Link to [instructions online](https://roboticsbackend.com/ros-create-custom-action/)
 * Project convention means this file should be in 'sphero_toolbox/catkin_ws/src/sphero_msgs/action'
 
 ### Generating Matlab Messages from Custom ROS Action Messages 
