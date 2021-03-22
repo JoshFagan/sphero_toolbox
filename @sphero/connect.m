@@ -12,7 +12,7 @@ function init_pi(this)
 
     disp( 'Connecting to Pi.' );
 
-    username   = 'pi';
+    username  = 'pi';
     password  = 'EF230SpheroRVR';
     this.mypi = raspi(this.bot_ip_address, username, password);
 
