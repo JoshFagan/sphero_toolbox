@@ -1,4 +1,4 @@
-classdef sphero
+classdef sphero < handle
     % A MATLAB class file containing all necessary functions to communicate
     % with and control the RVR Sphero.
     %
@@ -36,7 +36,7 @@ classdef sphero
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
         
-        mypi = [];  % Connection to Raspberry Pi object
+        mypi;  % Connection to Raspberry Pi object
     end % Private properties
     
     properties (Access=private, Constant)
