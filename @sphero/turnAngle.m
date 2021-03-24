@@ -1,5 +1,6 @@
 function turnAngle(this, angle)
 % TURNANGLE Turn robot in place to angle specified in degrees.
+%
 %   Robot will turn in whichever direction will result in the shortest
 %   path to the desired angle.
 %   Input:
@@ -7,7 +8,7 @@ function turnAngle(this, angle)
 %   Output:
 %       none
 %   Examples:
-%       s.turnAngle(-180) % rotate half turn clockwise
+%       s.turnAngle(-180) % rotate half of a full rotation
 
     if nargin ~= 2
         warning('Angle required to turn');

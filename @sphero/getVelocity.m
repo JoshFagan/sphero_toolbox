@@ -4,12 +4,12 @@ function [velocity] = getVelocity(this)
 %   Input:
 %       none
 %   Output:
-%       velocity: A structure with fields X, Y, and Z indicating the
-%       velocity in each direction
+%       velocity: A structure with fields "X", "Y", and "Z" indicating the
+%                 velocity in each direction.
 %   Examples:
 %       v = s.getVelocity()
 
-    msg = receive(this.velocity_sub); % Wait for responce from Sphero
+    msg = receive(this.velocity_sub); % Wait for response from Sphero
     velocity.X = msg.X;
     velocity.Y = msg.Y;
     velocity.Z = msg.Z;
