@@ -12,7 +12,15 @@ function setDriveSpeed(this, left_wheel_speed, right_wheel_speed)
 
     if nargin == 2
         right_wheel_speed = left_wheel_speed;
-    end % nargin check
+    elseif nargin < 2
+        warning('Wheel speed required.');
+        return
+    end
+    
+    if ~isnumeric(left_wheel_speed) || ~isnumeric(right_wheel_speed)
+        warning('Numeric wheel speeds required.');
+        return
+    end
     
     this.drive_control_m.Command    = 'drive_raw_motors';
     this.drive_control_m.LeftSpeed  = left_wheel_speed;
