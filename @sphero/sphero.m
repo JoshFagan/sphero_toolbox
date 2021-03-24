@@ -77,7 +77,7 @@ classdef sphero < handle
             disp( 'Finished creating Sphero object.' );
         end % Sphero constructor method
         
-        setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
+        setDriveSpeed(this, left_wheel_vel, right_wheel_vel)
         stop(this)
         turnAngle(this, degrees)
         
