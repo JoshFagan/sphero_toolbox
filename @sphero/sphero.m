@@ -97,8 +97,4 @@ classdef sphero < handle
         
         delete(this) % Terminate connection to Sphero and kill ROS server
     end % Private methods
-    
-    methods (Access=private, Static)
-        publishMessage(message, topic)
-    end % Private, static methods
 end % Sphero class
