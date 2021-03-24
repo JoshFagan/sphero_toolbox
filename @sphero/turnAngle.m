@@ -12,15 +12,15 @@ function turnAngle(this, angle)
     if nargin ~= 2
         warning('Angle required to turn');
         return
-    end
+    end % nargin check
 
     if ~isnumeric(angle)
         warning('Angle must be a numeric value')
         return
-    end
+    end % isnumeric check
 
     this.drive_control_m.Command = 'turn_angle';
     this.drive_control_m.Angle = angle;
 
     sendGoal(this.drive_control_ac, this.drive_control_m);
-end % Set drive velocity function
+end % Turn angle function
