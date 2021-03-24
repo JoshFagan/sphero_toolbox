@@ -1,5 +1,5 @@
 function stop(this)
-% STOP Stop robot's forward or angular movement.
+% STOP  Stop robot's forward or angular movement.
 %   Input:
 %       none
 %   Output:
@@ -10,4 +10,4 @@ function stop(this)
     this.drive_control_m.Command = 'stop';
 
     sendGoal(this.drive_control_ac, this.drive_control_m);
-end % Stop function
+end
