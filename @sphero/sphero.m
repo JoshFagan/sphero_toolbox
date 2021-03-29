@@ -1,4 +1,4 @@
-classdef sphero
+classdef sphero < handle
     % A MATLAB class file containing all necessary functions to communicate
     % with and control the RVR Sphero.
     %
@@ -36,7 +36,7 @@ classdef sphero
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
         
-        mypi = [];  % Connection to Raspberry Pi object
+        mypi;  % Connection to Raspberry Pi object
     end % Private properties
     
     properties (Access=private, Constant)
@@ -77,9 +77,10 @@ classdef sphero
             disp( 'Finished creating Sphero object.' );
         end % Sphero constructor method
         
-        setDriveVelocity(this, left_wheel_vel, right_wheel_vel)
+        setDriveSpeed(this, left_wheel_vel, right_wheel_vel)
         stop(this)
         turnAngle(this, degrees)
+        resetHeading(this)
         
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
@@ -96,8 +97,4 @@ classdef sphero
         
         delete(this) % Terminate connection to Sphero and kill ROS server
     end % Private methods
-    
-    methods (Access=private, Static)
-        publishMessage(message, topic)
-    end % Private, static methods
 end % Sphero class

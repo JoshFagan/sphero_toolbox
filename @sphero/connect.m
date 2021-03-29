@@ -12,7 +12,7 @@ function init_pi(this)
 
     disp( 'Connecting to Pi.' );
 
-    username   = 'pi';
+    username  = 'pi';
     password  = 'EF230SpheroRVR';
     this.mypi = raspi(this.bot_ip_address, username, password);
 
@@ -36,7 +36,7 @@ function init_ros(this)
     setenv('ROS_IP',this.matlab_ip_address);
     rosinit;
 
-    disp( 'Finished initializing ROS.' );
+    disp('Finished initializing ROS.');
 end % Initialize ROS method
 
 function init_pi_communicators(this)
