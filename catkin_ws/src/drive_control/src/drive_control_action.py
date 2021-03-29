@@ -34,6 +34,11 @@ class DriveControlServer():
         command = goal.command;
         if command == 'stop':
             self.rvr.roll_stop()
+        elif command == 'drive_backward_seconds':
+            self.rvr.drive_control.drive_backward_seconds(
+                speed=goal.left_speed,
+                heading=0, 
+                time_to_drive=goal.time)
         elif command == 'drive_raw_motors':
             self.drive_raw_motors(goal.left_speed, goal.right_speed)
         elif command == 'turn_angle':
