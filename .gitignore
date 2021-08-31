@@ -8,6 +8,8 @@ system_files/set_ros_master_uri.bash
 # Catkin generated files
 catkin_ws/devel/*
 catkin_ws/build/*
+catkin_ws/devel_isolated/*
+catkin_ws/build_isolated/*
 
 # Vim Generated Files
 *.swp
