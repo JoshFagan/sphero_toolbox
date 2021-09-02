@@ -67,14 +67,16 @@ classdef sphero < handle
                 [~, ip_address] = system('ipconfig | findstr /i "ipv4"');
                 ip_address = split(ip_address,':');
                 ip_address = ip_address{2};
+            else
+                [~, ip_address] = system('hostname -I');
             end
             this.matlab_ip_address = strtrim(ip_address);
-                        
+
             this.connect();
-            
+
             disp( 'Finished creating Sphero object.' );
         end % Sphero constructor method
-        
+
         setDriveSpeed(this, left_wheel_vel, right_wheel_vel)
         stop(this)
         turnAngle(this, degrees)
