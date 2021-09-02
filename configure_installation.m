@@ -14,7 +14,7 @@ end
 %system(cmd);
 
 % Add current directory to the path and save it
-%path(path, pwd);
+addpath(pwd);
 %path(path, msg_path);
 addpath(msg_path);
 savepath;
