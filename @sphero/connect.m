@@ -13,7 +13,7 @@ function init_pi(this)
     disp( 'Connecting to Pi.' );
 
     username  = 'pi';
-    password  = 'EF230SpheroRVR';
+    password  = 'raspberry';%'EF230SpheroRVR';
     this.mypi = raspi(this.bot_ip_address, username, password);
 
     % Set ROS master uri on Pi to local IP address
