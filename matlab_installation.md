@@ -76,19 +76,38 @@
       * So you should have "C:\ProgramData\MATLAB\sphero_toolbox"
       </details>
 5. In Matlab open and run the file "configure_installation.m"
-6. Restart Matlab
-<details>
-<summary>Handling Potential Warnings On Future Restarts</summary>
+      <details>
+      <summary>Troubleshooting Mac</summary>
   
-When you restart Matlab you may recieve a warning message that states something along the lines of
-> Warning: Name is nonexistent or not a directory:
-> /private/var/folders/h4/gq3470kn2194b1jl62ws_s3h0000gn/T/Editor_vxdxq 
-
-Here is a simple fix for this:
-1. In Matlab, click the "Home" tab
-2. Click the button "Set Path" (it's icon looks like a folder ontop of another folder)
-3. Click the name of the offending folder/item
-4. Click "Remove"
-5. Click "Save"
-6. Click "Colse"
-</details>
+      If you get an error that states:
+      > Could not find CMake in your system. Please install CMake version 3.15.5 or higher and rerun the command.
+         
+      Check that CMake is installed on your computer by opening the `Terminal` application and executing the following command:
+      ```
+      which cmake
+      ```
+      If there is no output then you do not have CMake installed and you need to follow the instructions to do that. 
+      If you do have output, it usually means MATLAB's system path and your computer's system path are different.
+      To fix this, perform the following steps:
+      1. In the terminal, execute the command 
+         
+         `printf "\nsetenv('PATH', [getenv('PATH') '$PATH'])\n\n"`
+      2. Paste and run the resulting output in the MATLAB command window
+      3. Rerun the configuration script
+      </details>
+6. Restart Matlab
+      <details>
+      <summary>Handling Potential Warnings On Future Restarts</summary>
+        
+      When you restart Matlab you may recieve a warning message that states something along the lines of
+      > Warning: Name is nonexistent or not a directory:
+      > /private/var/folders/h4/gq3470kn2194b1jl62ws_s3h0000gn/T/Editor_vxdxq 
+      
+      Here is a simple fix for this:
+      1. In Matlab, click the "Home" tab
+      2. Click the button "Set Path" (it's icon looks like a folder ontop of another folder)
+      3. Click the name of the offending folder/item
+      4. Click "Remove"
+      5. Click "Save"
+      6. Click "Colse"
+      </details>
