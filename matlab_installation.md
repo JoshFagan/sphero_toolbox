@@ -65,7 +65,29 @@
    Visit the above link and make sure you have all of the software installed that is specified for your operating system under the heading "ROS 1 Requirements". Do not install any software specified under any other heading.
    
    Specifically, make sure you have:
+      
+   <details>
+   <summary>Linux</summary>
    
+      
+   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   
+      This should come already installed on your system. To ensure that it is, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX".
+   
+      If something is wrong and you do not have Python 2.7 you can follow [this tutorial](https://tecadmin.net/install-python-2-7-on-ubuntu-and-linuxmint/) to install Python 2.7. During installation, if you are asked if you want to add Python to your path, indicate yes. 
+
+   * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
+   
+      You can check to see if you already satisfy this requirement by executing the command `!cmake --version` in MATLAB's command window. 
+   
+      If you need to install CMake, use the above link to download and run the .sh file listed beside "Linux x86_64". During installation, if you are asked if you want to add CMake to your path, indicate yes.
+   
+   * [GNU Compiler Collection (GCC)](https://gcc.gnu.org/) version 6.3+
+   
+      You can check to see if you already satisfy this requirement by executing the command `!gcc --version` in MATLAB's command window.
+   
+      If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it. During installation, if you are asked if you want to add Python to your path, indicate yes. 
+   </details>
    <details>
    <summary>Mac</summary>
    
@@ -100,29 +122,6 @@
    * Download and install [Visual Studio](https://www.mathworks.com/matlabcentral/answers/443349-how-do-i-install-visual-studio-2017-or-2019-for-use-with-matlab-simulink) 2017 or 2019.
    
       While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.
-   </details>
-         
-   <details>
-   <summary>Linux</summary>
-   
-      
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
-   
-      This should come already installed on your system. To ensure that it is, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX".
-   
-      If something is wrong and you do not have Python 2.7 you can follow [this tutorial](https://tecadmin.net/install-python-2-7-on-ubuntu-and-linuxmint/) to install Python 2.7. During installation, if you are asked if you want to add Python to your path, indicate yes. 
-
-   * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
-   
-      You can check to see if you already satisfy this requirement by executing the command `!cmake --version` in MATLAB's command window. 
-   
-      If you need to install CMake, use the above link to download and run the .sh file listed beside "Linux x86_64". During installation, if you are asked if you want to add CMake to your path, indicate yes.
-   
-   * [GNU Compiler Collection (GCC)](https://gcc.gnu.org/) version 6.3+
-   
-      You can check to see if you already satisfy this requirement by executing the command `!gcc --version` in MATLAB's command window.
-   
-      If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it. During installation, if you are asked if you want to add Python to your path, indicate yes. 
    </details>
 4. Download the `sphero_toolbox`
 
