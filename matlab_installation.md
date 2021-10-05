@@ -89,7 +89,7 @@
    
    * [Python](https://www.python.org/download/releases/2.7/) version 2.7
    
-      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. Make sure when selecting which version of Python to download that you download a version that starts with 2.7. The latest 2.7 version is Python 2.7.18. During installation, if you are asked if you want to add Python to your path, indicate yes. 
    
    * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
    
