@@ -97,7 +97,9 @@
    
       If you need to install CMake, use the above link to download and run the .msi file listed beside "Windows x64 Installer". During installation, if you are asked if you want to add CMake to your path, indicate yes.
    
-   * Download and install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 or 2019
+   * Download and install [Visual Studio](https://www.mathworks.com/matlabcentral/answers/443349-how-do-i-install-visual-studio-2017-or-2019-for-use-with-matlab-simulink) 2017 or 2019.
+   
+      While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.
    </details>
          
    <details>
