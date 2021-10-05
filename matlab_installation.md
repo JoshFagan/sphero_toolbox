@@ -128,7 +128,7 @@
    1. Go to the [sphero_toolbox GitHub Repo](https://github.com/JoshFagan/sphero_toolbox)
    2. Click the green "Code" button
    3. Click "Download ZIP"
-   4. Decompress .zip file on your computer
+   4. Exctract the .zip file on your computer
 
 6. Move the `sphero_toolbox` to the folder storing the support packages
       <details>
