@@ -151,7 +151,7 @@
       If there is no output then you do not have CMake installed and you need to follow the instructions to do that. 
       If you do have output, it usually means MATLAB's system path and your computer's system path are different.
       To fix this, perform the following steps:
-      1. In the terminal, execute the command 
+      1. In the `Terminal` application, execute the command 
          
          `printf "\nsetenv('PATH', [getenv('PATH') '$PATH'])\n\n"`
       2. Paste and run the resulting output in the MATLAB command window
