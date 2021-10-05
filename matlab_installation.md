@@ -123,7 +123,13 @@
       If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it. During installation, if you are asked if you want to add Python to your path, indicate yes. 
    </details>
 4. Download the `sphero_toolbox`
-5. Move the `sphero_toolbox` to the folder storing the support packages
+
+   1. Go to the [sphero_toolbox GitHub Repo](https://github.com/JoshFagan/sphero_toolbox)
+   2. Click the green "Code" button
+   3. Click "Download ZIP"
+   4. Decompress .zip file on your computer
+
+6. Move the `sphero_toolbox` to the folder storing the support packages
       <details>
       <summary>Mac and Linux</summary>
   
