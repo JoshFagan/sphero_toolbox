@@ -177,7 +177,7 @@
       If there is no output then you do not have CMake installed and you need to follow the instructions to do that. 
       If you do have output, it means there is an internal error with one of MATLAB's files and you need to add a file in the toolbox to your system path to help out MATLAB.
          
-      Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` directory in the `sphero_toolbox` to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` directory, instead of having the type the path out by hand.
+      Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` directory, instead of having the type the path out by hand.
       </details>
 7. Restart Matlab
       <details>
@@ -193,5 +193,5 @@
       3. Click the name of the offending folder/item
       4. Click "Remove"
       5. Click "Save"
-      6. Click "Colse"
+      6. Click "Close"
       </details>
