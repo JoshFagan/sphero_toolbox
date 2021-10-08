@@ -79,15 +79,18 @@ classdef sphero < handle
             
             % Input validation: expecting one integer greater than zero and
             % less than or equal to the number of bots   
-            [~, num_bots] = size(this.bot_ip_addresses);
             if nargin ~= 1
                 error('Please supply one robot ID');
             end
             
             this.bot_id = varargin{1};
             this.bot_id(this.bot_id == '-') = '_';
-            
-            this.bot_ip_address = this.bot_ip_addresses{this.bot_id};
+
+            try
+                this.bot_ip_address = this.bot_ip_addresses.(this.bot_id);
+            catch E
+                error('Unrecognized robot ID');
+            end
             
             % Get IP address of local computer running MATLAB 
             % (command works for Macs, not tested on other systems)
