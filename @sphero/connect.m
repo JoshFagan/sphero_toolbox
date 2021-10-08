@@ -11,15 +11,19 @@ function init_pi(this)
     % Create Pi object
 
     disp( 'Connecting to Pi.' );
+    disp( 'This can take 1-2 minutes.' );
 
     username  = 'pi';
     password  = 'raspberry';%'EF230SpheroRVR';
     this.mypi = raspi(this.bot_ip_address, username, password);
 
     % Set ROS master uri on Pi to local IP address
-    system(this.mypi, strcat( 'echo export ROS_MASTER_URI=http://', ...
-           this.matlab_ip_address, ':11311 > ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
 
+    system(this.mypi, strcat('echo export ROS_MASTER_URI=http://', ...
+           this.matlab_ip_address, ':11311 > ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
+    system(this.mypi, strcat('export ROS_IP=', this.bot_ip_address));
+    system(this.mypi, strcat('echo export ROS_IP=', ...
+           this.bot_ip_address, ' >> ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
     disp('Finished connecting to Pi.');
 end % Initialize pi method
 
@@ -27,6 +31,7 @@ function init_ros(this)
     % Initialize ROS environment
 
     disp( 'Initializing ROS.' );
+    disp( 'This should take less than 1 minute.' );
 
     % Make sure a ROS master node is not already running
     rosshutdown;
@@ -43,6 +48,7 @@ function init_pi_communicators(this)
     % Initialize ROS action servers, publishers, and subscribers on the Pi
 
     disp( 'Initializing ROS topics.' );
+    disp( 'This can take 1-2 minutes.' );
 
     % Launch ROS nodes on Pi
     system(this.mypi, ...
@@ -64,7 +70,8 @@ function init_matlab_communicators(this)
     % Initialize ROS action servers, publishers, and subscribers in Matlab
 
     disp( 'Initializing ROS publishers and subscribers.' );
-    
+    disp( 'This should take less than 1 minute.' );
+
     % ROS action clients
     [this.drive_control_ac, this.drive_control_m] = rosactionclient('/drive_control');
     this.drive_control_ac.ActivationFcn = [];
