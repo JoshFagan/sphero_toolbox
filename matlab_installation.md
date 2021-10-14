@@ -179,19 +179,4 @@
          
       Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` directory, instead of having the type the path out by hand.
       </details>
-7. Restart Matlab
-      <details>
-      <summary>Handling Potential Warnings On Future Restarts</summary>
-        
-      When you restart Matlab you may recieve a warning message that states something along the lines of
-      > Warning: Name is nonexistent or not a directory:
-      > /private/var/folders/h4/gq3470kn2194b1jl62ws_s3h0000gn/T/Editor_vxdxq 
-      
-      Here is a simple fix for this:
-      1. In Matlab, click the "Home" tab
-      2. Click the button "Set Path" (it's icon looks like a folder ontop of another folder)
-      3. Click the name of the offending folder/item
-      4. Click "Remove"
-      5. Click "Save"
-      6. Click "Close"
-      </details>
+7. Run the commands indicated by Matlab
