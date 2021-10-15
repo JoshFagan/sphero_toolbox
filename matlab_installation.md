@@ -86,7 +86,7 @@
    
    * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
-      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. **Make sure when selecting which version of Python to download that you download a version that starts with 2.7**. Here is a link to the latest 2.7 version which is [Python 2.7.18](https://www.python.org/downloads/release/python-2718/). I suggest you use that version. During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. **Make sure when selecting which version of Python to download that you download a version that starts with 2.7**. Here is a link to the latest 2.7 version which is [Python 2.7.18](https://www.python.org/downloads/release/python-2718/). I suggest you use that version. **Make sure you indicate yes where asked if you want to add Python to your path.** 
    
    * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
    
@@ -98,7 +98,8 @@
    
       **While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.**
    </details>
-2. Ensure the following Matlab Support Packages are installed
+2. Restart Matlab if you already have it open
+3. Ensure the following Matlab Support Packages are installed
     * MATLAB Support Package for Raspberry Pi Hardware
     * ROS Toolbox
       <details>
@@ -109,14 +110,14 @@
       3. Search for the support package of interest
           * You will either see that it is installed, or you can click on it to install it
       </details>
-3. Download the `sphero_toolbox`
+4. Download the `sphero_toolbox`
 
    1. Go to the [sphero_toolbox GitHub Repo](https://github.com/JoshFagan/sphero_toolbox)
    2. Click the green "Code" button
    3. Click "Download ZIP"
    4. Exctract the .zip file on your computer
 
-4. Move the `sphero_toolbox` to the folder storing the support packages
+5. Move the `sphero_toolbox` to the folder storing the support packages
       <details>
       <summary>Mac and Linux</summary>
   
@@ -130,7 +131,7 @@
       * The location is "C:\ProgramData\MATLAB"
       * So you should have "C:\ProgramData\MATLAB\sphero_toolbox"
       </details>
-5. In Matlab open and run the file "configure_installation.m"
+6. In Matlab open and run the file "configure_installation.m"
       <details>
       <summary>Troubleshooting Mac</summary>
   
@@ -165,9 +166,9 @@
          
       Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` folder, instead of having the type the path out by hand.
       </details>
-6. Run the commands indicated by Matlab
+7. Run the commands indicated by Matlab
    
-7. Test to make sure everything worked properly by executing the following command in the matlab command window:
+8. Test to make sure everything worked properly by executing the following command in the matlab command window:
    
    `m = rosmessage('sphero_msgs/DriveControlAction')`
    
