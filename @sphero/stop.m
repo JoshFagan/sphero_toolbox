@@ -7,7 +7,15 @@ function stop(this)
 %   Examples:
 %       s.stop() % Stops robot's movement
 
-    this.drive_control_m.Command = 'stop';
+    % Send a command to set speed to zero as this stops the robot the
+    % fastest
+    this.drive_control_m.Command    = 'drive_raw_motors';
+    this.drive_control_m.LeftSpeed  = 0;
+    this.drive_control_m.RightSpeed = 0;
+    sendGoal(this.drive_control_ac, this.drive_control_m);
 
+    % Send a command to stop as this stops the internal while loop on the
+    % pi
+    this.drive_control_m.Command = 'stop';
     sendGoal(this.drive_control_ac, this.drive_control_m);
 end
