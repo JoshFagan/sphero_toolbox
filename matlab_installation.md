@@ -37,7 +37,7 @@
 ## Installation Instructions
 1. Ensure you meet [ROS System Requirements](https://www.mathworks.com/help/ros/gs/ros-system-requirements.html)
 
-   Visit the above link and make sure you have all of the software installed that is specified for your operating system under the heading "ROS 1 Requirements". Do not install any software specified under any other heading.
+   Visit the above link and make sure you have all of the software installed that is specified for your operating system under the heading "ROS 1 Requirements". Do not install any software specified under any other heading. **The pieces of software are independent; if you have trouble installing one of them, make sure you install the others and we can help fix the issue in class.**
    
    Specifically, make sure you have:
       
