@@ -49,18 +49,7 @@
   
       [Instructions for enabling remote login on Windows 10](https://www.windowscentral.com/how-use-remove-desktop-app-connect-pc-windows-10-0)
       </details>
-2. Ensure the following Matlab Support Packages are installed
-    * MATLAB Support Package for Raspberry Pi Hardware
-    * ROS Toolbox
-      <details>
-      <summary>Instructions for Checking and Installing Support Packages</summary>
-  
-      1. In Matlab, click on the "Home" tab
-      2. Click on the 3 stacked cubes icon above "Add-Ons"
-      3. Search for the support package of interest
-          * You will either see that it is installed, or you can click on it to install it
-      </details>
-3. Ensure you meet [ROS System Requirements](https://www.mathworks.com/help/ros/gs/ros-system-requirements.html)
+2. Ensure you meet [ROS System Requirements](https://www.mathworks.com/help/ros/gs/ros-system-requirements.html)
 
    Visit the above link and make sure you have all of the software installed that is specified for your operating system under the heading "ROS 1 Requirements". Do not install any software specified under any other heading.
    
@@ -123,6 +112,17 @@
    
       While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.
    </details>
+3. Ensure the following Matlab Support Packages are installed
+    * MATLAB Support Package for Raspberry Pi Hardware
+    * ROS Toolbox
+      <details>
+      <summary>Instructions for Checking and Installing Support Packages</summary>
+  
+      1. In Matlab, click on the "Home" tab
+      2. Click on the 3 stacked cubes icon above "Add-Ons"
+      3. Search for the support package of interest
+          * You will either see that it is installed, or you can click on it to install it
+      </details>
 4. Download the `sphero_toolbox`
 
    1. Go to the [sphero_toolbox GitHub Repo](https://github.com/JoshFagan/sphero_toolbox)
