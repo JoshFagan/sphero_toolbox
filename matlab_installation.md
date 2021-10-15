@@ -155,7 +155,7 @@
       2. Paste and run the resulting output in the MATLAB command window
       3. Rerun the configuration script
       </details>
-7. Run the commands indicated by Matlab
+7. Run the commands indicated by Matlab in the command window
    
 8. Test to make sure everything worked properly by executing the following command in the matlab command window:
    
