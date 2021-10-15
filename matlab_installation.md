@@ -1,6 +1,6 @@
 # Toolbox Installation for Matlab 
 
-***Important Notes:***
+## ***Important Notes:***
 * Do not edit any of the files in the `sphero_toolbox`
     * These files provide prebuilt functions for you to use, if you edit them they will no longer work as intended
 * Do not give your own Matlab files the same name as any file in `sphero_toolbox`
@@ -11,11 +11,11 @@
       Before naming a file, check to make sure a file with that name does not already exist in Matlab's environment. We can check for the existance of a file/function called `hello_world` by running the command `which hello_world`. If any result other than "'hello_world' not found." is displayed then the file/function already exists and you should choose a different name.
       </details>
 * Do not do any developement in the `sphero_toolbox`
-    * The `sphero_toolbox` should be saved in an out of the way, appropriate location (see below instructions) and developement (creation of new files) should be done in a separate location
+    * The `sphero_toolbox` should be saved in an out of the way, appropriate location (see below instructions) and developement (creation of new files) should be done in a separate location. **You should not be creating files for your EF230 projects in the sphero_toolbox folder.**
       <details>
       <summary>Recommended Best Practices Tip</summary>
   
-      "You live in the house that you keep" is a quote I first heard from one of my college professors and it has stuck with me and saved me from a lot of pain and suffering over the years. Simply put, a small amount of routine maintanance keeps you from being so cluttered you have a hard time being productive or from having to dedicate a whole weekend to stuff like cleaning up 10,000 unread emails...  We should take this same approach when managing the files we create for classes. Below is an example structure that I use and recommend. 
+      "You live in the house that you keep" is a quote I first heard from one of my college professors and it has stuck with me and saved me from a lot of pain and suffering over the years. Simply put, a small amount of routine maintanance keeps you from being so cluttered you have a hard time being productive or from having to dedicate a whole weekend to stuff like cleaning up 10,000 unread emails... We should take this same approach when managing the files we create for classes. Below is an example structure that I use and recommend. 
       ```
       - Home
           - Classes
@@ -177,7 +177,7 @@
       If there is no output then you do not have CMake installed and you need to follow the instructions to do that. 
       If you do have output, it means there is an internal error with one of MATLAB's files and you need to add a file in the toolbox to your system path to help out MATLAB.
          
-      Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` directory, instead of having the type the path out by hand.
+      Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` folder, instead of having the type the path out by hand.
       </details>
 7. Run the commands indicated by Matlab
    
