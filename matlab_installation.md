@@ -116,8 +116,9 @@
    2. Click the green "Code" button
    3. Click "Download ZIP"
    4. Exctract the .zip file on your computer
+   5. If the name of the extracted folder is `sphero_toolbox-master` then change the name to be `sphero_toolbox`
 
-5. Move the `sphero_toolbox` to the folder storing the support packages
+5. Move the `sphero_toolbox` to the specified location. **It is very important to make sure you store the `sphero_toolbox` folder where directed.**
       <details>
       <summary>Mac and Linux</summary>
   
@@ -134,7 +135,7 @@
 5. **For PCs only** (Mac and Linux users can skip to step 6)
    
    Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` folder, instead of having the type the path out by hand.
-6. In Matlab open and run the file "configure_installation.m"
+6. In Matlab open and run the file "configure_installation.m". **If you run into errors, check the troubleshooting tabs below to see if there is a solution already.**
       <details>
       <summary>Troubleshooting Mac</summary>
   
