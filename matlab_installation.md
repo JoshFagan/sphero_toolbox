@@ -1,6 +1,6 @@
 # Toolbox Installation for Matlab 
 
-***Important Notes:***
+## ***Important Notes:***
 * Do not edit any of the files in the `sphero_toolbox`
     * These files provide prebuilt functions for you to use, if you edit them they will no longer work as intended
 * Do not give your own Matlab files the same name as any file in `sphero_toolbox`
@@ -11,11 +11,11 @@
       Before naming a file, check to make sure a file with that name does not already exist in Matlab's environment. We can check for the existance of a file/function called `hello_world` by running the command `which hello_world`. If any result other than "'hello_world' not found." is displayed then the file/function already exists and you should choose a different name.
       </details>
 * Do not do any developement in the `sphero_toolbox`
-    * The `sphero_toolbox` should be saved in an out of the way, appropriate location (see below instructions) and developement (creation of new files) should be done in a separate location
+    * The `sphero_toolbox` should be saved in an out of the way, appropriate location (see below instructions) and developement (creation of new files) should be done in a separate location. **You should not be creating files for your EF230 projects in the sphero_toolbox folder.**
       <details>
       <summary>Recommended Best Practices Tip</summary>
   
-      "You live in the house that you keep" is a quote I first heard from one of my college professors and it has stuck with me and saved me from a lot of pain and suffering over the years. Simply put, a small amount of routine maintanance keeps you from being so cluttered you have a hard time being productive or from having to dedicate a whole weekend to stuff like cleaning up 10,000 unread emails...  We should take this same approach when managing the files we create for classes. Below is an example structure that I use and recommend. 
+      "You live in the house that you keep" is a quote I first heard from one of my college professors and it has stuck with me and saved me from a lot of pain and suffering over the years. Simply put, a small amount of routine maintanance keeps you from being so cluttered you have a hard time being productive or from having to dedicate a whole weekend to stuff like cleaning up 10,000 unread emails... We should take this same approach when managing the files we create for classes. Below is an example structure that I use and recommend. 
       ```
       - Home
           - Classes
@@ -35,34 +35,9 @@
       </details>
 
 ## Installation Instructions
-1. Remote login must be enabled for the Pi to communicate with the local computer
-      <details>
-      <summary>Mac and Linux</summary>
-  
-      1. Open "System Preferences"
-      2. Select "Sharing"
-      3. Check on the "Remote Login" button
-      </details>
-   
-      <details>
-      <summary>Windows</summary>
-  
-      [Instructions for enabling remote login on Windows 10](https://www.windowscentral.com/how-use-remove-desktop-app-connect-pc-windows-10-0)
-      </details>
-2. Ensure the following Matlab Support Packages are installed
-    * MATLAB Support Package for Raspberry Pi Hardware
-    * ROS Toolbox
-      <details>
-      <summary>Instructions for Checking and Installing Support Packages</summary>
-  
-      1. In Matlab, click on the "Home" tab
-      2. Click on the 3 stacked cubes icon above "Add-Ons"
-      3. Search for the support package of interest
-          * You will either see that it is installed, or you can click on it to install it
-      </details>
-3. Ensure you meet [ROS System Requirements](https://www.mathworks.com/help/ros/gs/ros-system-requirements.html)
+1. Ensure you meet [ROS System Requirements](https://www.mathworks.com/help/ros/gs/ros-system-requirements.html)
 
-   Visit the above link and make sure you have all of the software installed that is specified for your operating system under the heading "ROS 1 Requirements". Do not install any software specified under any other heading.
+   Visit the above link and make sure you have all of the software installed that is specified for your operating system under the heading "ROS 1 Requirements". Do not install any software specified under any other heading. **The pieces of software are independent; if you have trouble installing one of them, make sure you install the others and we can help fix the issue in class.**
    
    Specifically, make sure you have:
       
@@ -70,7 +45,7 @@
    <summary>Linux</summary>
    
       
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
       This should come already installed on your system. To ensure that it is, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX".
    
@@ -86,16 +61,16 @@
    
       You can check to see if you already satisfy this requirement by executing the command `!gcc --version` in MATLAB's command window.
    
-      If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it. During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it.
    </details>
    <details>
    <summary>Mac</summary>
    
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
       This should come already installed on your system. To ensure that it is, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX".
    
-      If something is wrong and you do not have Python 2.7 you can download and install it from [Python's website](https://www.python.org/downloads/release/python-2718/). During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      If something is wrong and you do not have Python 2.7 you can download and install it from the above link, selecting the file `macOS 64-bit installer`. During installation, if you are asked if you want to add Python to your path, indicate yes. 
 
    * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
    
@@ -109,9 +84,9 @@
    <details>
    <summary>PC</summary>
    
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
-      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. Make sure when selecting which version of Python to download that you download a version that starts with 2.7. The latest 2.7 version is [Python 2.7.18](https://www.python.org/downloads/release/python-2718/). During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. **Make sure when selecting which version of Python to download that you download a version that starts with 2.7**. Here is a link to the latest 2.7 version which is [Python 2.7.18](https://www.python.org/downloads/release/python-2718/). I suggest you use that version. **Make sure you indicate yes where asked if you want to add Python to your path.** 
    
    * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
    
@@ -121,8 +96,20 @@
    
    * Download and install [Visual Studio](https://www.mathworks.com/matlabcentral/answers/443349-how-do-i-install-visual-studio-2017-or-2019-for-use-with-matlab-simulink) 2017 or 2019.
    
-      While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.
+      **While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.**
    </details>
+2. Restart Matlab if you already have it open
+3. Ensure the following Matlab Support Packages are installed
+    * MATLAB Support Package for Raspberry Pi Hardware
+    * ROS Toolbox
+      <details>
+      <summary>Instructions for Checking and Installing Support Packages</summary>
+  
+      1. In Matlab, click on the "Home" tab
+      2. Click on the 3 stacked cubes icon above "Add-Ons"
+      3. Search for the support package of interest
+          * You will either see that it is installed, or you can click on it to install it
+      </details>
 4. Download the `sphero_toolbox`
 
    1. Go to the [sphero_toolbox GitHub Repo](https://github.com/JoshFagan/sphero_toolbox)
@@ -130,7 +117,7 @@
    3. Click "Download ZIP"
    4. Exctract the .zip file on your computer
 
-6. Move the `sphero_toolbox` to the folder storing the support packages
+5. Move the `sphero_toolbox` to the folder storing the support packages
       <details>
       <summary>Mac and Linux</summary>
   
@@ -144,6 +131,9 @@
       * The location is "C:\ProgramData\MATLAB"
       * So you should have "C:\ProgramData\MATLAB\sphero_toolbox"
       </details>
+5. **For PCs only** (Mac and Linux users can skip to step 6)
+   
+   Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` folder, instead of having the type the path out by hand.
 6. In Matlab open and run the file "configure_installation.m"
       <details>
       <summary>Troubleshooting Mac</summary>
@@ -164,34 +154,11 @@
       2. Paste and run the resulting output in the MATLAB command window
       3. Rerun the configuration script
       </details>
-      <details>
-      <summary>Troubleshooting Windows</summary>
-  
-      If you get an error that states:
-      > Could not find CMake in your system. Please install CMake version 3.15.5 or higher and rerun the command.
-         
-      Check that CMake is installed on your computer by running the following command in MATLAB's command window
-      ```
-      !where cmake
-      ```
-      If there is no output then you do not have CMake installed and you need to follow the instructions to do that. 
-      If you do have output, it means there is an internal error with one of MATLAB's files and you need to add a file in the toolbox to your system path to help out MATLAB.
-         
-      Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` directory, instead of having the type the path out by hand.
-      </details>
-7. Restart Matlab
-      <details>
-      <summary>Handling Potential Warnings On Future Restarts</summary>
-        
-      When you restart Matlab you may recieve a warning message that states something along the lines of
-      > Warning: Name is nonexistent or not a directory:
-      > /private/var/folders/h4/gq3470kn2194b1jl62ws_s3h0000gn/T/Editor_vxdxq 
+7. Run the commands indicated by Matlab
+   
+8. Test to make sure everything worked properly by executing the following command in the matlab command window:
+   
+   `m = rosmessage('sphero_msgs/DriveControlAction')`
+   
+   If it gives you an error, then something has gone wrong and you need to check in with a TA
       
-      Here is a simple fix for this:
-      1. In Matlab, click the "Home" tab
-      2. Click the button "Set Path" (it's icon looks like a folder ontop of another folder)
-      3. Click the name of the offending folder/item
-      4. Click "Remove"
-      5. Click "Save"
-      6. Click "Close"
-      </details>
