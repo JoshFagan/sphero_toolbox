@@ -45,7 +45,7 @@
    <summary>Linux</summary>
    
       
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
       This should come already installed on your system. To ensure that it is, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX".
    
@@ -61,16 +61,16 @@
    
       You can check to see if you already satisfy this requirement by executing the command `!gcc --version` in MATLAB's command window.
    
-      If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it. During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      If you need to install gcc you can follow [this tutorial](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/) to install it.
    </details>
    <details>
    <summary>Mac</summary>
    
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
       This should come already installed on your system. To ensure that it is, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX".
    
-      If something is wrong and you do not have Python 2.7 you can download and install it from [Python's website](https://www.python.org/downloads/release/python-2718/). During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      If something is wrong and you do not have Python 2.7 you can download and install it from the above link, selecting the file `macOS 64-bit installer`. During installation, if you are asked if you want to add Python to your path, indicate yes. 
 
    * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
    
@@ -84,9 +84,9 @@
    <details>
    <summary>PC</summary>
    
-   * [Python](https://www.python.org/download/releases/2.7/) version 2.7
+   * [Python](https://www.python.org/downloads/release/python-2718/) version 2.7
    
-      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. Make sure when selecting which version of Python to download that you download a version that starts with 2.7. The latest 2.7 version is [Python 2.7.18](https://www.python.org/downloads/release/python-2718/). During installation, if you are asked if you want to add Python to your path, indicate yes. 
+      To check that it is installed, execute the command `!python --version` in the MATLAB command window. You should see an output similar to "Python 2.7.XX". If you do not have any output, then you need to follow [this tutorial](https://www.pythontutorial.net/getting-started/install-python/) to install Python 2.7. **Make sure when selecting which version of Python to download that you download a version that starts with 2.7**. Here is a link to the latest 2.7 version which is [Python 2.7.18](https://www.python.org/downloads/release/python-2718/). I suggest you use that version. During installation, if you are asked if you want to add Python to your path, indicate yes. 
    
    * [CMake](https://cmake.org/download/) version 3.15.5 or higher. 
    
@@ -96,7 +96,7 @@
    
    * Download and install [Visual Studio](https://www.mathworks.com/matlabcentral/answers/443349-how-do-i-install-visual-studio-2017-or-2019-for-use-with-matlab-simulink) 2017 or 2019.
    
-      While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.
+      **While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.**
    </details>
 2. Ensure the following Matlab Support Packages are installed
     * MATLAB Support Package for Raspberry Pi Hardware
