@@ -13,6 +13,7 @@ function stop(this)
     this.drive_control_m.LeftSpeed  = 0;
     this.drive_control_m.RightSpeed = 0;
     sendGoal(this.drive_control_ac, this.drive_control_m);
+    pause(0.5)
 
     % Send a command to stop as this stops the internal while loop on the
     % pi
