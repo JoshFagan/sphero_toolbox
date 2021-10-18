@@ -1,9 +1,6 @@
 function delete(this)
     % Class destructor, closes connection to Pi and terminates all running processes
     
-    % Shutdown ROS master
-    rosshutdown;
-    
     % Remove unneeded output file from Pi
     if ~isempty(this.mypi)
         system( this.mypi, 'rm ~/launch_ros_nodes_output.txt -f' );
@@ -15,4 +12,7 @@ function delete(this)
         end
         clear this.mypi;
     end
+    
+    % Shutdown ROS master
+    rosshutdown;
 end % Delete method
