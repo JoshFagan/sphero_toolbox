@@ -31,6 +31,9 @@ class DriveControlServer():
         
       
     def execute_cb(self, goal):
+        print('=================')
+        print('Goal Sent to RVR:')
+        print(goal)
         command = goal.command;
         if command == 'stop':
             self.rvr.roll_stop()
@@ -44,7 +47,7 @@ class DriveControlServer():
         elif command == 'turn_angle':
             self.rvr.drive_control.reset_heading()
             self.rvr.drive_control.turn_left_degrees(heading=0, 
-                                                     amount=goal.degrees)
+                                                     amount=goal.angle)
         elif command == 'reset_heading':
             self.rvr.drive_control.reset_heading()
 
@@ -68,7 +71,7 @@ class DriveControlServer():
                 right_speed=abs(right_speed)
             )
 
-            rospy.sleep(0.25)
+            rospy.sleep(0.1)
         
 if __name__ == '__main__':
     try:
