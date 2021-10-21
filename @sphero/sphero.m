@@ -95,11 +95,13 @@ classdef sphero < handle
             
             % Get IP address of local computer running MATLAB 
             % (command works for Macs, not tested on other systems)
-            if ismac || ispc
-                [~, ip_address] = system('curl -s http://checkip.dyndns.org/');
-                ip_address = split(ip_address,':');
-                ip_address = split(ip_address{2}, '<');
-                ip_address = ip_address{1};
+            if ismac
+                [~, ip_address] = system('ipconfig getifaddr en1');
+                if ~ip_address
+                    [~, ip_address] = system('ipconfig getifaddr en0');
+                end
+            elseif ispc
+                [~, ip_address] = system('ipconfig | findstr /i "ipv4"');
             else
                 [~, ip_address] = system('hostname -I');
             end
