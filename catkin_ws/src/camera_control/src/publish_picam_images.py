@@ -10,7 +10,7 @@ import sys
 
 import picamera
 import numpy as np
-from sensor_msgs.msg import CompressedImage
+from sensor_msgs.msg import Image
 
 
 def image_publisher():
@@ -25,13 +25,17 @@ def image_publisher():
     camera.resolution = (res_w, res_h)
     camera.framerate = framerate
     output = np.empty((res_h, res_w, 3), dtype=np.uint8)
-    msg = CompressedImage()
-    msg.format = "jpeg"
+    msg = Image()
+    msg.height = res_h 
+    msg.width  = res_w 
+    msg.encoding = "rgb8"
+    msg.is_bigendian = False
+    msg.step = 3 * res_w
     time.sleep(2)
 
     # Create publisher
     image_pub = rospy.Publisher('/sphero_sensors/image',
-                                CompressedImage, queue_size=1)
+                                Image, queue_size=1)
 
     rospy.init_node('image_publisher', anonymous=True)
     rate = rospy.Rate(pub_rate) # 10hz
@@ -39,10 +43,12 @@ def image_publisher():
         camera.capture(output, 'rgb')
 
         msg.header.stamp = rospy.Time.now()
-        msg.data = output.tostring()
+        msg.data = output.tobytes()
 
         image_pub.publish(msg)
         rate.sleep()
+
+    camera.close()
 
 if __name__ == '__main__':
     try:
