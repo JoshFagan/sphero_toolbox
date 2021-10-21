@@ -102,6 +102,8 @@ classdef sphero < handle
                 end
             elseif ispc
                 [~, ip_address] = system('ipconfig | findstr /i "ipv4"');
+                ip_address = split(ip_address,':');
+                ip_address = ip_address{2};
             else
                 [~, ip_address] = system('hostname -I');
             end
