@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="camera_control"
+          type="publish_picam_images.py"
+          name="camera_control"
+          output="screen" >
+        <param name="publish_rate"      value="10.0"/>
+        <param name="framerate"         value="10.0"/>
+        <param name="resolution_width"  value="320"/>
+        <param name="resolution_height" value="240"/>
+    </node>
+</launch>
