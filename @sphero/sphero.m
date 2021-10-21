@@ -60,6 +60,7 @@ classdef sphero < handle
         speed_sub         = [];
         velocity_sub      = [];
         imu_sub           = [];
+        image_sub         = [];
         
         % Misc ROS properties
         rate = 4;   % Frequency of communications in Hz
@@ -68,7 +69,7 @@ classdef sphero < handle
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 12; % Total number of topics that should be created
+        NUM_TOPICS = 13; % Total number of topics that should be created
     end % Private, constant properties
     
     methods (Access=public)
@@ -122,6 +123,7 @@ classdef sphero < handle
         [orientation]       = getOrientation(this)
         [angular_vel]       = getAngularVelocity(this)
         [acceleration]      = getAcceleration(this)
+        [pi_image]             = getImage(this)
     end % Public methods
     
     methods (Access=private)
