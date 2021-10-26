@@ -1,4 +1,4 @@
-function [] = getDetectedColor(this)
+function [] = getImage(this)
 % GETIMAGE Retrieves the latest image from the Pi Camera 
 % RVR.
 %   Input:
