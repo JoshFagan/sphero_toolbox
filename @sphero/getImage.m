@@ -1,4 +1,4 @@
-function [pi_image] = getDetectedColor(this)
+function [] = getDetectedColor(this)
 % GETIMAGE Retrieves the latest image from the Pi Camera 
 % RVR.
 %   Input:
@@ -8,7 +8,7 @@ function [pi_image] = getDetectedColor(this)
 %   Examples:
 %       my_image = s.getImage()
 
-    msg = receive(this.image_sub); % Wait for response from Sphero
-    pi_image = readImage(msg); 
+ %   msg = receive(this.image_sub); % Wait for response from Sphero
+ %   pi_image = readImage(msg); 
 end
 
