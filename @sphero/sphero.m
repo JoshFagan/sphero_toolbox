@@ -97,7 +97,7 @@ classdef sphero < handle
             % (command works for Macs, not tested on other systems)
             if ismac
                 [~, ip_address] = system('ipconfig getifaddr en1');
-                if ~ip_address
+                if isempty(ip_address)
                     [~, ip_address] = system('ipconfig getifaddr en0');
                 end
             elseif ispc
