@@ -52,7 +52,7 @@ function init_pi_communicators(this)
 
     % Launch ROS nodes on Pi
     system(this.mypi, ...
-           'roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch &');
+           'roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > .ros/log/temp.log &');
 
     % Stall until topics have been created on Pi
     topics = rostopic('list');
