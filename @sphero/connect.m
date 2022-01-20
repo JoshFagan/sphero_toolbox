@@ -52,7 +52,7 @@ function init_pi_communicators(this)
 
     % Launch ROS nodes on Pi
     system(this.mypi, ...
-           'roslaunch /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > launch_ros_nodes_output.txt &');
+           'roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch &');
 
     % Stall until topics have been created on Pi
     topics = rostopic('list');
@@ -73,7 +73,7 @@ function init_matlab_communicators(this)
     disp( 'This should take less than 1 minute.' );
 
     % ROS action clients
-    [this.drive_control_ac, this.drive_control_m] = rosactionclient('/drive_control');
+    [this.drive_control_ac, this.drive_control_m] = rosactionclient('/drive_control', "DataFormat","struct");
     this.drive_control_ac.ActivationFcn = [];
     this.drive_control_ac.FeedbackFcn   = [];
     this.drive_control_ac.ResultFcn     = [];
