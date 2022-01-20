@@ -54,6 +54,7 @@ class DriveControlServer():
             self.drive_raw_motors(0, 0)
             self.rvr.roll_stop()
         elif args.command == 'drive_backward_seconds':
+            self.rvr.drive_control.reset_heading()
             self.rvr.drive_control.drive_backward_seconds(
                 speed=args.left_speed,
                 heading=0, 
