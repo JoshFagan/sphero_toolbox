@@ -11,8 +11,7 @@ function resetHeading(this)
 %   Examples:
 %       s.resetHeading()
 
-    this.drive_control_m.Command    = 'reset_heading';
-    
+    this.drive_control_m.MotionName = '--command reset_heading';
     sendGoal(this.drive_control_ac, this.drive_control_m);
 end
 

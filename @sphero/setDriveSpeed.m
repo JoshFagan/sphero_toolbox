@@ -26,5 +26,9 @@ function setDriveSpeed(this, left_wheel_speed, right_wheel_speed)
     this.drive_control_m.LeftSpeed  = left_wheel_speed;
     this.drive_control_m.RightSpeed = right_wheel_speed;
 
+
+    args = sprintf('--command drive_raw_motors --left_speed %d --right_speed %d', ...
+                   left_wheel_speed, right_wheel_speed);
+    this.drive_control_m.MotionName = args;
     sendGoal(this.drive_control_ac, this.drive_control_m);
 end
