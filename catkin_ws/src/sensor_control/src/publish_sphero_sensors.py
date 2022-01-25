@@ -12,7 +12,7 @@ sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 from sphero_sdk import SpheroRvrObserver
 from sphero_sdk import RvrStreamingServices
 
-from std_msgs.msg import ColorRGBA, Float64
+from std_msgs.msg import ColorRGBA, Float64, String
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Quaternion, Vector3
 
@@ -21,50 +21,69 @@ class SensorPublisher():
     def __init__(self, rvr):
         self.rvr = rvr
 
+#        self.acc_msg   = TBD
+        self.color_msg = ColorRGBA()
+#        self.gyro_msg  = TBD
+        self.imu_msg   = Imu()
+        self.light_msg = Float64()
+        self.pos_msg   = Vector3()
+        self.speed_msg = Float64()
+        self.vel_msg   = Vector3()
+
+
         # Publishers
         self.color_pub = rospy.Publisher('/sphero_sensors/color_detected',
                                          ColorRGBA, queue_size=1)
-        self.amb_light_pub = rospy.Publisher('/sphero_sensors/ambient_light',
-                                         Float64, queue_size=1)
         self.imu_pub = rospy.Publisher('/sphero_sensors/imu',
                                          Imu, queue_size=1)
+        self.light_pub = rospy.Publisher('/sphero_sensors/ambient_light',
+                                         Float64, queue_size=1)
         self.pos_pub = rospy.Publisher('/sphero_sensors/position',
-                                         Vector3, queue_size=1)
-        self.vel_pub = rospy.Publisher('/sphero_sensors/velocity',
                                          Vector3, queue_size=1)
         self.speed_pub = rospy.Publisher('/sphero_sensors/speed',
                                          Float64, queue_size=1)
+        self.vel_pub = rospy.Publisher('/sphero_sensors/velocity',
+                                         Vector3, queue_size=1)
 
+        # Subscribers
+        rospy.Subscriber("/sphero_sensors/request_data", 
+                         String, self.request_handler)
+
+        # Set up RVR data streams 
+        # Accelerometer
+        # Uses an empty handler as accelerometer data is added to IMU data
+        # response when accelerometer is activated
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.accelerometer,
+            handler=self.empty_handler
+        )
         # Color detection
         self.rvr.enable_color_detection(is_enabled=True)
         self.rvr.sensor_control.add_sensor_data_handler(
             service=RvrStreamingServices.color_detection,
             handler=self.color_detected_handler
         )
-        # Ambient light
+        # Gyroscope
+        # Uses an empty handler as gyroscope data is added to IMU data
+        # response when gyroscope is activated
         self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.ambient_light,
-            handler=self.ambient_light_handler
+            service=RvrStreamingServices.gyroscope,
+            handler=self.empty_handler
         )
         # IMU
         self.rvr.sensor_control.add_sensor_data_handler(
             service=RvrStreamingServices.imu,
             handler=self.imu_handler
         )
-        # Accelerometer
+        # Light
         self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.accelerometer,
-            handler=self.empty_handler
+            service=RvrStreamingServices.ambient_light,
+            handler=self.light_handler
         )
-        # Gyroscope
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.gyroscope,
-            handler=self.empty_handler
-        )
-        # Locator
+        # Position 
         self.rvr.sensor_control.add_sensor_data_handler(
             service=RvrStreamingServices.locator,
-            handler=self.locator_handler
+            handler=self.position_handler
         )
         # Velocity
         self.rvr.sensor_control.add_sensor_data_handler(
@@ -77,22 +96,31 @@ class SensorPublisher():
             handler=self.speed_handler
         )
 
-        self.rvr.sensor_control.start(interval=250)
+        self.rvr.sensor_control.start(interval=500)
+
+
+    def request_handler(self, request):
+        if request.data == 'get_color_detected':
+            self.color_pub.publish(self.color_msg)
+        elif request.data == 'get_imu':
+            self.imu_pub.publish(self.imu_msg)
+        elif request.data == 'get_ambient_light':
+            self.light_pub.publish(self.light_msg)
+        elif request.data == 'get_position':
+            self.pos_pub.publish(self.pos_msg)
+        elif request.data == 'get_velocity':
+            self.vel_pub.publish(vel_msg)
+        elif request.data == 'get_speed':
+            self.speed_pub.publish(self.speed_msg)
 
 
     def color_detected_handler(self, color_data):
-        color_msg = ColorRGBA(color_data['ColorDetection']['R'],
-                              color_data['ColorDetection']['G'],
-                              color_data['ColorDetection']['B'],
-                              color_data['ColorDetection']['Confidence'])
-        self.color_pub.publish(color_msg)
+        self.color_msg = ColorRGBA(color_data['ColorDetection']['R'],
+                                   color_data['ColorDetection']['G'],
+                                   color_data['ColorDetection']['B'],
+                                   color_data['ColorDetection']['Confidence'])
     
-    
-    def ambient_light_handler(self, ambient_light_data):
-        light_msg = Float64(ambient_light_data['AmbientLight']['Light'])
-        self.amb_light_pub.publish(light_msg)
-    
-    
+
     def imu_handler(self, imu_data):
         orientation = Quaternion(imu_data['IMU']['Roll'],
                                  imu_data['IMU']['Pitch'],
@@ -107,29 +135,31 @@ class SensorPublisher():
                                       imu_data['Accelerometer']['Y'], 
                                       imu_data['Accelerometer']['Z'])
 
-        imu_msg = Imu(orientation=orientation, 
-                      angular_velocity=angular_velocity, 
-                      linear_acceleration=linear_acceleration)
-        self.imu_pub.publish(imu_msg)
+        self.imu_msg = Imu(orientation=orientation, 
+                           angular_velocity=angular_velocity, 
+                           linear_acceleration=linear_acceleration)
     
     
-    def locator_handler(self, locator_data):
-        pos_msg = Vector3(locator_data['Locator']['X'],
-                          locator_data['Locator']['Y'],
-                          0) 
-        self.pos_pub.publish(pos_msg)
+    def light_handler(self, ambient_light_data):
+        self.light_msg = Float64(ambient_light_data['AmbientLight']['Light'])
+    
+    
+    def position_handler(self, locator_data):
+        print('Position data response:', locator_data)
+
+        self.pos_msg = Vector3(locator_data['Locator']['X'],
+                               locator_data['Locator']['Y'], 0) 
     
     
     def velocity_handler(self, velocity_data):
-        vel_msg = Vector3(velocity_data['Velocity']['X'],
-                          velocity_data['Velocity']['Y'],
-                          0) 
-        self.vel_pub.publish(vel_msg)
+        print('Velocity data response:', velocity_data)
+
+        self.vel_msg = Vector3(velocity_data['Velocity']['X'],
+                               velocity_data['Velocity']['Y'], 0) 
     
     
     def speed_handler(self, speed_data):
-        speed_msg = Float64(speed_data['Speed']['Speed'])
-        self.speed_pub.publish(speed_msg)
+        self.speed_msg = Float64(speed_data['Speed']['Speed'])
 
 
     def empty_handler(self, data):
