@@ -50,13 +50,6 @@ class SensorPublisher():
                          String, self.request_handler)
 
         # Set up RVR data streams 
-        # Accelerometer
-        # Uses an empty handler as accelerometer data is added to IMU data
-        # response when accelerometer is activated
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.accelerometer,
-            handler=self.empty_handler
-        )
         # Color detection
         self.rvr.enable_color_detection(is_enabled=True)
         self.rvr.sensor_control.add_sensor_data_handler(
