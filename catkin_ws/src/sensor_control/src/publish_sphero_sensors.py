@@ -90,11 +90,6 @@ class SensorPublisher():
             service=RvrStreamingServices.velocity,
             handler=self.velocity_handler
         )
-        # Speed
-        self.rvr.sensor_control.add_sensor_data_handler(
-            service=RvrStreamingServices.speed,
-            handler=self.speed_handler
-        )
 
         self.rvr.sensor_control.start(interval=500)
 
@@ -171,8 +166,8 @@ if __name__ == '__main__':
         rospy.init_node('sensor_publisher')
     
         rvr = SpheroRvrObserver()
-        print( rvr.sensor_control.supported_sensors())
-        print( rvr.sensor_control.enabled_sensors())
+#        print( rvr.sensor_control.supported_sensors())
+#        print( rvr.sensor_control.enabled_sensors())
         rvr.wake()
 
         # Give RVR time to wake up
