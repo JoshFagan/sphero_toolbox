@@ -138,15 +138,11 @@ class SensorPublisher():
     
     
     def position_handler(self, locator_data):
-        print('Position data response:', locator_data)
-
         self.pos_msg = Vector3(locator_data['Locator']['X'],
                                locator_data['Locator']['Y'], 0) 
     
     
     def velocity_handler(self, velocity_data):
-        print('Velocity data response:', velocity_data)
-
         self.vel_msg = Vector3(velocity_data['Velocity']['X'],
                                velocity_data['Velocity']['Y'], 0) 
         # TODO: Add code to update speed message
