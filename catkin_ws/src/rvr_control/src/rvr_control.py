@@ -16,11 +16,14 @@ from sphero_sdk import SpheroRvrObserver
 
         
 if __name__ == '__main__':
-    rospy.init_node('rvr_controller')
-    rvr = SpheroRvrObserver()
-    rvr.wake()
-    rospy.sleep(2)
-
-    sensor_pub = SensorPublisher(rvr)
-    drive_control = DriveControlServer(rvr)
-    rospy.spin()
+    try:
+        rospy.init_node('rvr_controller')
+        rvr = SpheroRvrObserver()
+        rvr.wake()
+        rospy.sleep(2)
+    
+        sensor_pub = SensorPublisher(rvr)
+        drive_control = DriveControlServer(rvr)
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
