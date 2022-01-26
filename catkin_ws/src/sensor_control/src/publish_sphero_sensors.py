@@ -32,15 +32,15 @@ class SensorPublisher():
         # Publishers
         self.color_pub = rospy.Publisher('/sphero_sensors/color_detected',
                                          ColorRGBA, queue_size=1)
-        self.imu_pub = rospy.Publisher('/sphero_sensors/imu',
+        self.imu_pub   = rospy.Publisher('/sphero_sensors/imu',
                                          Imu, queue_size=1)
         self.light_pub = rospy.Publisher('/sphero_sensors/ambient_light',
                                          Float64, queue_size=1)
-        self.pos_pub = rospy.Publisher('/sphero_sensors/position',
+        self.pos_pub   = rospy.Publisher('/sphero_sensors/position',
                                          Vector3, queue_size=1)
         self.speed_pub = rospy.Publisher('/sphero_sensors/speed',
                                          Float64, queue_size=1)
-        self.vel_pub = rospy.Publisher('/sphero_sensors/velocity',
+        self.vel_pub   = rospy.Publisher('/sphero_sensors/velocity',
                                          Vector3, queue_size=1)
 
         # Subscribers
@@ -48,6 +48,13 @@ class SensorPublisher():
                          String, self.request_handler)
 
         # Set up RVR data streams 
+        # Accelerometer 
+        # Uses an empty handler as accelerometer data is added to IMU data
+        # response when accelerometer is activated
+        self.rvr.sensor_control.add_sensor_data_handler(
+            service=RvrStreamingServices.accelerometer,
+            handler=self.empty_handler
+        )
         # Color detection
         self.rvr.enable_color_detection(is_enabled=True)
         self.rvr.sensor_control.add_sensor_data_handler(
@@ -142,11 +149,8 @@ class SensorPublisher():
 
         self.vel_msg = Vector3(velocity_data['Velocity']['X'],
                                velocity_data['Velocity']['Y'], 0) 
+        # TODO: Add code to update speed message
     
-    
-    def speed_handler(self, speed_data):
-        self.speed_msg = Float64(speed_data['Speed']['Speed'])
-
 
     def empty_handler(self, data):
         pass
