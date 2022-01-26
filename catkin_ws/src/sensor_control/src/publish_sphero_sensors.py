@@ -21,9 +21,7 @@ class SensorPublisher():
     def __init__(self, rvr):
         self.rvr = rvr
 
-#        self.acc_msg   = TBD
         self.color_msg = ColorRGBA()
-#        self.gyro_msg  = TBD
         self.imu_msg   = Imu()
         self.light_msg = Float64()
         self.pos_msg   = Vector3()
@@ -159,8 +157,6 @@ if __name__ == '__main__':
         rospy.init_node('sensor_publisher')
     
         rvr = SpheroRvrObserver()
-#        print( rvr.sensor_control.supported_sensors())
-#        print( rvr.sensor_control.enabled_sensors())
         rvr.wake()
 
         # Give RVR time to wake up
