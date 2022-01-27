@@ -102,7 +102,7 @@ class SensorPublisher():
         elif request.data == 'get_position':
             self.pos_pub.publish(self.pos_msg)
         elif request.data == 'get_velocity':
-            self.vel_pub.publish(vel_msg)
+            self.vel_pub.publish(self.vel_msg)
         elif request.data == 'get_speed':
             self.speed_pub.publish(self.speed_msg)
 
