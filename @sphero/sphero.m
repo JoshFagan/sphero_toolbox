@@ -54,6 +54,10 @@ classdef sphero < handle
         
         % ROS messages
         drive_control_m = []; % Message for drive control action client
+        request_data_m  = [];
+
+        % ROS publishers
+        request_data_pub = [];
         
         % ROS subscribers
         ambient_light_sub = [];
@@ -71,7 +75,7 @@ classdef sphero < handle
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 13; % Total number of topics that should be created
+        NUM_TOPICS = 15; % Total number of ROS nodes that should be created
     end % Private, constant properties
     
     methods (Access=public)
@@ -129,7 +133,7 @@ classdef sphero < handle
         [orientation]       = getOrientation(this)
         [angular_vel]       = getAngularVelocity(this)
         [acceleration]      = getAcceleration(this)
-        []             = getImage(this)
+        [pi_image]          = getImage(this)
     end % Public methods
     
     methods (Access=private)
