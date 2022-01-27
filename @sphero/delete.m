@@ -1,6 +1,7 @@
 function delete(this)
     % Class destructor, closes connection to Pi and terminates all running processes
-    system( this.mypi, 'rosnode kill /rvr_control');
+    system(this.mypi, 'rosnode kill /rvr_control');
+    system(this.mypi, 'rosnode kill /camera_control');
     pause(1)
     % Shutdown ROS master
     rosshutdown;
