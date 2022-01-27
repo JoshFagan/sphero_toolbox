@@ -3,8 +3,7 @@
           type="publish_picam_images.py"
           name="camera_control"
           output="screen" >
-        <param name="publish_rate"      value="10.0"/>
-        <param name="framerate"         value="10.0"/>
+        <param name="framerate"         value="5.0"/>
         <param name="resolution_width"  value="640"/>
         <param name="resolution_height" value="480"/>
     </node>
