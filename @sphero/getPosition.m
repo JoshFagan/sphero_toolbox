@@ -9,6 +9,11 @@ function [position] = getPosition(this)
 %   Examples:
 %       position = s.getPosition()
 
+    % Send request
+    this.request_data_m.Data = 'get_position';
+    send(this.request_data_pub, this.request_data_m);
+
+    % Get responce
     msg = receive(this.position_sub); % Wait for response from Sphero
     position.X = msg.X;
     position.Y = msg.Y;
