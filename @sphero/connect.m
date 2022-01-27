@@ -54,7 +54,7 @@ function init_pi_communicators(this)
     system(this.mypi, ...
            'roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > .ros/log/temp.log &');
 
-    % Stall until topics have been created on Pi
+     % Stall until topics have been created on Pi
     topics = rostopic('list');
     [num_topics, ~] = size(topics);
     while num_topics < this.NUM_TOPICS
@@ -77,6 +77,9 @@ function init_matlab_communicators(this)
     this.drive_control_ac.ActivationFcn = [];
     this.drive_control_ac.FeedbackFcn   = [];
     this.drive_control_ac.ResultFcn     = [];
+
+    % ROS publishers
+    [this.request_data_pub, this.request_data_m] = rospublisher('/sphero_sensors/request_data');
     
     % ROS subscribers
     this.color_detect_sub  = rossubscriber('/sphero_sensors/color_detected');
@@ -85,7 +88,7 @@ function init_matlab_communicators(this)
     this.velocity_sub      = rossubscriber('/sphero_sensors/velocity');
     this.speed_sub         = rossubscriber('/sphero_sensors/speed');
     this.imu_sub           = rossubscriber('/sphero_sensors/imu');
-    %this.image_sub         = rossubscriber('/sphero_sensors/image');
+    this.image_sub         = rossubscriber('/sphero_sensors/image');
 
     disp( 'Finished initializing ROS Publishers and Subscribers.' );
 end % Initialize ROS publishers and subscribers method
