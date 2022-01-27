@@ -9,6 +9,11 @@ function [orientation] = getOrientation(this)
 %   Examples:
 %       orientation = s.getOrientation()
 
+    % Send request
+    this.request_data_m.Data = 'get_imu';
+    send(this.request_data_pub, this.request_data_m);
+
+    % Get responce
     msg = receive(this.imu_sub); % Wait for response from Sphero
     orientation.Roll  = msg.Orientation.X;
     orientation.Pitch = msg.Orientation.Y;
