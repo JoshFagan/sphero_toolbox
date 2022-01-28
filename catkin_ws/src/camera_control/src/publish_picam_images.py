@@ -4,10 +4,6 @@ import rospy
 import roslib
 roslib.load_manifest('camera_control')
 
-import os
-import time
-import sys
-
 import picamera
 import numpy as np
 from std_msgs.msg import String
