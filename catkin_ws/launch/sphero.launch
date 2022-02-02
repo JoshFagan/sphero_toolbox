@@ -5,5 +5,6 @@
         <arg name="rate" value="$(arg rate)"/>
     </include>
 
-    <include file="$(find camera_control)/launch/publish_picam_images.launch"/>
+    <include file="$(find sensor_control)/launch/publish_rpi_sensors.launch"/>
+    <include file="$(find matlab_interface)/launch/matlab_interface.launch"/>
 </launch>
