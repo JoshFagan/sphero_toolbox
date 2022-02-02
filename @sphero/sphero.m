@@ -8,11 +8,12 @@ classdef sphero < handle
     % this object is a subclass of the handle class so that all
     % modifications to the object are automatically saved with the object
     properties (Access=public)
-        bot_id = ''; % Alphanumeric ID of the bot
+        bot_id; % Alphanumeric ID of the bot
     end % Public properties
     
     properties (Access=private)
-        bot_ip_address = '';    % IP address of robot with specified ID
+        bot_ip_address;    % IP address of robot with specified ID
+
         % List of IP addresses corresponding to botIDs
         bot_ip_addresses = struct('RV_14A8', '192.168.1.243', ...
                                   'RV_1A61', '192.168.1.202', ...
@@ -47,27 +48,28 @@ classdef sphero < handle
                                   'RV_C9F2', '192.168.1.241', ...
                                   'RV_D5C2', '192.168.1.249', ...
                                   'RV_83BA', '192.168.1.242'); % IP for EFD Roomba Linksys
-        matlab_ip_address = ''; % IP Address of local computer running MATLAB
+
+        matlab_ip_address; % IP Address of local computer running MATLAB
         
         % ROS messages
-        drive_control_m = []; % Message for drive control action client
-        request_sphero_data_m  = [];
-        request_rpi_data_m  = [];
+        drive_control_m; % Message for drive control action client
+        request_sphero_data_m;
+        request_rpi_data_m;
 
         % ROS publishers
-        drive_control_pub        = [];
-        request_rpi_data_pub     = [];
-        request_sphero_data_pub  = [];
+        drive_control_pub;
+        request_rpi_data_pub;
+        request_sphero_data_pub;
         
         % ROS subscribers
-        ambient_light_sub = [];
-        distance_sub      = [];
-        color_detect_sub  = [];
-        position_sub      = [];
-        speed_sub         = [];
-        velocity_sub      = [];
-        imu_sub           = [];
-        image_sub         = [];
+        ambient_light_sub;
+        distance_sub;
+        color_detect_sub;
+        position_sub;
+        speed_sub;
+        velocity_sub;
+        imu_sub;
+        image_sub;
         
         mypi;  % Connection to Raspberry Pi object
     end % Private properties
