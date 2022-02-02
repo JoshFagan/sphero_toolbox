@@ -21,6 +21,6 @@ function turnAngle(this, angle)
     end
 
     args = sprintf('--command turn_angle --angle %d', angle);
-    this.drive_control_m.MotionName = args;
-    sendGoal(this.drive_control_ac, this.drive_control_m);
+    this.drive_control_m.Data = args;
+    send(this.drive_control_pub, this.drive_control_m);
 end

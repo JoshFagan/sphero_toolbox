@@ -9,6 +9,6 @@ function stop(this)
 
     % Send a command to stop as this stops the internal while loop on the
     % pi
-    this.drive_control_m.MotionName = '--command stop';
-    sendGoal(this.drive_control_ac, this.drive_control_m);
+    this.drive_control_m.Data = '--command stop';
+    send(this.drive_control_pub, this.drive_control_m);
 end

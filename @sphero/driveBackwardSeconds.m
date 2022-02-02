@@ -28,6 +28,6 @@ function driveBackwardSeconds(this, speed, time_to_drive)
     
     args = sprintf('--command drive_backward_seconds --left_speed %d --time %d', ...
                    speed, time_to_drive);
-    this.drive_control_m.MotionName = args;
-    sendGoal(this.drive_control_ac, this.drive_control_m);
+    this.drive_control_m.Data = args;
+    send(this.drive_control_pub, this.drive_control_m);
 end
