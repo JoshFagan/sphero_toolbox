@@ -51,11 +51,13 @@ classdef sphero < handle
         
         % ROS messages
         drive_control_m = []; % Message for drive control action client
-        request_data_m  = [];
+        request_sphero_data_m  = [];
+        request_rpi_data_m  = [];
 
         % ROS publishers
-        request_data_pub = [];
         drive_control_pub        = [];
+        request_rpi_data_pub     = [];
+        request_sphero_data_pub  = [];
         
         % ROS subscribers
         ambient_light_sub = [];
