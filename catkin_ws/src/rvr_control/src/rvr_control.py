@@ -10,7 +10,7 @@ sys.path.append('/home/pi/sphero_toolbox/catkin_ws/src/drive_control/src')
 sys.path.append('/home/pi/sphero_toolbox/catkin_ws/src/sensor_control/src')
 
 from drive_control_action import DriveControlServer
-from publish_sphero_sensors import SensorPublisher 
+from publish_sphero_sensors import SpheroSensorPublisher 
 
 from sphero_sdk import SpheroRvrObserver
 
@@ -22,8 +22,11 @@ if __name__ == '__main__':
         rvr.wake()
         rospy.sleep(2)
     
-        sensor_pub = SensorPublisher(rvr)
-        drive_control = DriveControlServer(rvr)
+        sphero_sensor_pub = SpheroSensorPublisher(rvr)
+        drive_control     = DriveControlServer(rvr)
+
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
+    finally:
+        rvr.close()

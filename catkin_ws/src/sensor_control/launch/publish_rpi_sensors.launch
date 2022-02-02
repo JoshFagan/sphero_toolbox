@@ -1,0 +1,16 @@
+<launch>
+    <node pkg="sensor_control"
+          type="publish_rpi_images.py"
+          name="picamera_control"
+          output="screen" >
+        <param name="framerate"         value="5.0"/>
+        <param name="resolution_width"  value="640"/>
+        <param name="resolution_height" value="480"/>
+    </node>
+
+    <node pkg="sensor_control"
+          type="publish_rpi_distance.py"
+          name="tof_distance_control"
+          output="screen" >
+    </node>
+</launch>

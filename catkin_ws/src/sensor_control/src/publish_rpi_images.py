@@ -2,11 +2,7 @@
 
 import rospy
 import roslib
-roslib.load_manifest('camera_control')
-
-import os
-import time
-import sys
+roslib.load_manifest('sensor_control')
 
 import picamera
 import numpy as np
@@ -30,11 +26,11 @@ class ImagePublisher():
         self.image_msg.step = 3 * res_w
     
         # Create publisher
-        self.image_pub = rospy.Publisher('/sphero_sensors/image',
+        self.image_pub = rospy.Publisher('/rpi_sensors/image',
                                     Image, queue_size=1)
     
         # Create subscriber
-        rospy.Subscriber("/sphero_sensors/request_data",
+        rospy.Subscriber("/rpi_sensors/request_data",
                          String, self.request_handler)
 
 
@@ -50,13 +46,17 @@ class ImagePublisher():
             self.image_pub.publish(self.image_msg)
 
 
+    def __del__(self):
+        self.camera.close()
+
+
 if __name__ == '__main__':
     rospy.init_node('picam_image_publisher')
 
     # Get setting parameters
-    framerate = float(rospy.get_param('/camera_control/framerate')) 
-    res_w     = int(rospy.get_param('/camera_control/resolution_width')) 
-    res_h     = int(rospy.get_param('/camera_control/resolution_height')) 
+    framerate = float(rospy.get_param('/picamera_control/framerate')) 
+    res_w     = int(rospy.get_param('/picamera_control/resolution_width')) 
+    res_h     = int(rospy.get_param('/picamera_control/resolution_height')) 
 
     image_pub = ImagePublisher(framerate, res_w, res_h)
 

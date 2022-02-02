@@ -1,33 +1,31 @@
 #!/usr/bin/env python3
 
-import rospy
-import roslib
-roslib.load_manifest('sensor_control')
-
-import os
 import time
 import sys
 sys.path.append('/home/pi/sphero-sdk-raspberrypi-python/' )
 
-from sphero_sdk import SpheroRvrObserver
-from sphero_sdk import RvrStreamingServices
-
+import rospy
+import roslib
+roslib.load_manifest('sensor_control')
 from std_msgs.msg import ColorRGBA, Float64, String
 from sensor_msgs.msg import Imu
 from geometry_msgs.msg import Quaternion, Vector3
 
+from sphero_sdk import SpheroRvrObserver
+from sphero_sdk import RvrStreamingServices
 
-class SensorPublisher():
+
+class SpheroSensorPublisher():
     def __init__(self, rvr):
         self.rvr = rvr
 
+        # ROS Messages
         self.color_msg = ColorRGBA()
         self.imu_msg   = Imu()
         self.light_msg = Float64()
         self.pos_msg   = Vector3()
         self.speed_msg = Float64()
         self.vel_msg   = Vector3()
-
 
         # Publishers
         self.color_pub = rospy.Publisher('/sphero_sensors/color_detected',
@@ -150,11 +148,15 @@ class SensorPublisher():
 
     def empty_handler(self, data):
         pass
+
+
+    def __del__(self):
+        self.rvr.sensor_control.clear()
     
     
 if __name__ == '__main__':
     try:
-        rospy.init_node('sensor_publisher')
+        rospy.init_node('sphero_sensor_publisher')
     
         rvr = SpheroRvrObserver()
         rvr.wake()
@@ -163,7 +165,7 @@ if __name__ == '__main__':
         rospy.sleep(2)
 
         rvr.reset_yaw()
-        sensor_pub = SensorPublisher(rvr)
+        sensor_pub = SpheroSensorPublisher(rvr)
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
