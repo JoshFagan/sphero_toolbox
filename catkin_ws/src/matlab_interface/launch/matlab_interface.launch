@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="matlab_interface"
+          type="matlab_interface.py"
+          name="matlab_interface"
+          output="screen" />
+</launch>
