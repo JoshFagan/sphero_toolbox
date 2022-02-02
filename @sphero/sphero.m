@@ -48,9 +48,6 @@ classdef sphero < handle
                                   'RV_D5C2', '192.168.1.249', ...
                                   'RV_83BA', '192.168.1.242'); % IP for EFD Roomba Linksys
         matlab_ip_address = ''; % IP Address of local computer running MATLAB
-
-        % ROS action clients
-        drive_control_ac = [];  % Action client for driving raw motors
         
         % ROS messages
         drive_control_m = []; % Message for drive control action client
@@ -58,6 +55,7 @@ classdef sphero < handle
 
         % ROS publishers
         request_data_pub = [];
+        drive_control_pub        = [];
         
         % ROS subscribers
         ambient_light_sub = [];
