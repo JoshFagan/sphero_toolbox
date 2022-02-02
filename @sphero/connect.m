@@ -72,15 +72,10 @@ function init_matlab_communicators(this)
     disp( 'Initializing ROS publishers and subscribers.' );
     disp( 'This should take less than 1 minute.' );
 
-    % ROS action clients
-    [this.drive_control_ac, this.drive_control_m] = rosactionclient('/drive_control', "DataFormat","struct");
-    this.drive_control_ac.ActivationFcn = [];
-    this.drive_control_ac.FeedbackFcn   = [];
-    this.drive_control_ac.ResultFcn     = [];
-
     % ROS publishers
     [this.request_data_pub, this.request_data_m] = rospublisher('/sphero_sensors/request_data');
     
+    [this.drive_control_pub, this.drive_control_m] = rospublisher('/matlab_interface/drive_command');
     % ROS subscribers
     this.color_detect_sub  = rossubscriber('/sphero_sensors/color_detected');
     this.ambient_light_sub = rossubscriber('/sphero_sensors/ambient_light');
