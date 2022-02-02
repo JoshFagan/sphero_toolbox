@@ -1,6 +1,5 @@
 function connect(this)
     % Initialize communication with robot
-
     init_pi(this);
     init_ros(this);
     init_pi_communicators(this);
@@ -9,7 +8,6 @@ end % Coonnect method
 
 function init_pi(this)
     % Create Pi object
-
     disp( 'Connecting to Pi.' );
     disp( 'This can take 1-2 minutes.' );
 
@@ -29,8 +27,7 @@ end % Initialize pi method
 
 function init_ros(this)
     % Initialize ROS environment
-
-    disp( 'Initializing ROS.' );
+    disp( 'Initializing MATLAB ROS host.' );
     disp( 'This should take less than 1 minute.' );
 
     % Make sure a ROS master node is not already running
@@ -41,13 +38,12 @@ function init_ros(this)
     setenv('ROS_IP',this.matlab_ip_address);
     rosinit;
 
-    disp('Finished initializing ROS.');
+    disp('Finished initializing MATLAB ROS host.');
 end % Initialize ROS method
 
 function init_pi_communicators(this)
     % Initialize ROS action servers, publishers, and subscribers on the Pi
-
-    disp( 'Initializing ROS topics.' );
+    disp( 'Initializing Raspberry Pi ROS communicators.' );
     disp( 'This can take 1-2 minutes.' );
 
     % Launch ROS nodes on Pi
@@ -63,13 +59,12 @@ function init_pi_communicators(this)
         [num_topics, ~] = size(topics);
     end
 
-    disp( 'Finished initializing ROS topics.' );
+    disp( 'Finished initializing Raspberry Pi ROS communicators.' );
 end % Initialize ROS topics method
 
 function init_matlab_communicators(this)
-    % Initialize ROS action servers, publishers, and subscribers in Matlab
-
-    disp( 'Initializing ROS publishers and subscribers.' );
+    % Initialize ROS publishers, and subscribers in Matlab
+    disp( 'Initializing MATLAB ROS communicators.' );
     disp( 'This should take less than 1 minute.' );
 
     % ROS publishers
@@ -87,5 +82,5 @@ function init_matlab_communicators(this)
     this.imu_sub           = rossubscriber('/sphero_sensors/imu');
     this.image_sub         = rossubscriber('/rpi_sensors/image');
 
-    disp( 'Finished initializing ROS Publishers and Subscribers.' );
+    disp( 'Finished initializing MATLAB ROS communicators.' );
 end % Initialize ROS publishers and subscribers method
