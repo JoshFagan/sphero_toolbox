@@ -10,8 +10,8 @@ function [orientation] = getOrientation(this)
 %       orientation = s.getOrientation()
 
     % Send request
-    this.request_data_m.Data = 'get_imu';
-    send(this.request_data_pub, this.request_data_m);
+    this.request_sphero_data_m.Data = 'get_imu';
+    send(this.request_sphero_data_pub, this.request_sphero_data_m);
 
     % Get responce
     msg = receive(this.imu_sub); % Wait for response from Sphero

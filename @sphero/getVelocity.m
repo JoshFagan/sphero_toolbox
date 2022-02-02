@@ -10,8 +10,8 @@ function [velocity] = getVelocity(this)
 %       v = s.getVelocity()
 
     % Send request
-    this.request_data_m.Data = 'get_velocity';
-    send(this.request_data_pub, this.request_data_m);
+    this.request_sphero_data_m.Data = 'get_velocity';
+    send(this.request_sphero_data_pub, this.request_sphero_data_m);
 
     % Get responce
     msg = receive(this.velocity_sub); % Wait for response from Sphero
