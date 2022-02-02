@@ -73,17 +73,19 @@ function init_matlab_communicators(this)
     disp( 'This should take less than 1 minute.' );
 
     % ROS publishers
-    [this.request_data_pub, this.request_data_m] = rospublisher('/sphero_sensors/request_data');
-    
     [this.drive_control_pub, this.drive_control_m] = rospublisher('/matlab_interface/drive_command');
+    [this.request_rpi_data_pub, this.request_rpi_data_m] = rospublisher('/rpi_sensors/request_data');
+    [this.request_sphero_data_pub, this.request_sphero_data_m] = rospublisher('/sphero_sensors/request_data');
+
     % ROS subscribers
     this.color_detect_sub  = rossubscriber('/sphero_sensors/color_detected');
+    this.distance_sub      = rossubscriber('/rpi_sensors/distance');
     this.ambient_light_sub = rossubscriber('/sphero_sensors/ambient_light');
     this.position_sub      = rossubscriber('/sphero_sensors/position');
     this.velocity_sub      = rossubscriber('/sphero_sensors/velocity');
     this.speed_sub         = rossubscriber('/sphero_sensors/speed');
     this.imu_sub           = rossubscriber('/sphero_sensors/imu');
-    this.image_sub         = rossubscriber('/sphero_sensors/image');
+    this.image_sub         = rossubscriber('/rpi_sensors/image');
 
     disp( 'Finished initializing ROS Publishers and Subscribers.' );
 end % Initialize ROS publishers and subscribers method
