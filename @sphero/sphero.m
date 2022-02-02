@@ -66,9 +66,6 @@ classdef sphero < handle
         imu_sub           = [];
         image_sub         = [];
         
-        % Misc ROS properties
-        rate = 4;   % Frequency of communications in Hz
-        
         mypi;  % Connection to Raspberry Pi object
     end % Private properties
     
