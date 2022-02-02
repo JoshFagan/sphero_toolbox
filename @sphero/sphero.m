@@ -61,6 +61,7 @@ classdef sphero < handle
         
         % ROS subscribers
         ambient_light_sub = [];
+        distance_sub      = [];
         color_detect_sub  = [];
         position_sub      = [];
         speed_sub         = [];
@@ -124,6 +125,7 @@ classdef sphero < handle
         
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
+        [distance]          = getDistance(this)
         [position]          = getPosition(this)
         [velocity]          = getVelocity(this)
         [speed]             = getSpeed(this)
