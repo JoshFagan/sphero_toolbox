@@ -38,6 +38,7 @@ function init_ros(this)
     setenv('ROS_IP',this.matlab_ip_address);
     try
         rosinit;
+    catch E
     end
 
     disp('Finished initializing MATLAB ROS host.');
