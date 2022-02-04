@@ -31,12 +31,14 @@ function init_ros(this)
     disp( 'This should take less than 1 minute.' );
 
     % Make sure a ROS master node is not already running
-    rosshutdown;
+    %rosshutdown;
 
     % Iitialize new ROS master node
     setenv('ROS_MASTER_URI','http://localhost:11311');
     setenv('ROS_IP',this.matlab_ip_address);
-    rosinit;
+    try
+        rosinit;
+    end
 
     disp('Finished initializing MATLAB ROS host.');
 end % Initialize ROS method
