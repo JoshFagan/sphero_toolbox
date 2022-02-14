@@ -2,8 +2,7 @@ function connect(this)
     % Initialize communication with robot
     init_pi(this);
     init_ros(this);
-    pause
-    %init_pi_communicators(this);
+    init_pi_communicators(this);
     init_matlab_communicators(this);
 end % Coonnect method
 
