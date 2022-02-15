@@ -61,16 +61,20 @@ class DriveControlServer():
 
         while True:
             if self.server.is_preempt_requested():
-                    self.server.set_preempted()
-                    break
+                self.server.set_preempted()
+                break
+                
             self.rvr.raw_motors(
                 left_mode=left_mode,
                 left_speed=abs(left_speed),
                 right_mode=right_mode,
-                right_speed=abs(right_speed)
-            )
+                right_speed=abs(right_speed))
 
-            rospy.sleep(0.1)
+            rospy.sleep(1)
+            
+            if left_speed == 0 and right_speed == 0:
+                break
+            
         
 if __name__ == '__main__':
     try:
