@@ -30,6 +30,7 @@ class DriveControlServer():
         
       
     def execute_cb(self, goal_msg):
+        self.rvr.wake()
         print(goal_msg)
         if goal_msg.command == 'stop':
             self.drive_raw_motors(0, 0)
