@@ -3,7 +3,10 @@ addpath('.');
 savepath;
 
 % Set python environemnt path
-pyenv('Version','2.7');
+if ispc
+    pyenv('Version','2.7');
+end
+
 % Add startup if on pc and space in userpath
 if ispc && any(isspace(userpath))
     % Open startup.m file in default Documents/MATLAB
