@@ -129,6 +129,7 @@ classdef sphero < handle
         stop(this)
         turnAngle(this, degrees)
         resetHeading(this)
+        wake(this)
         
         [light_level]       = getAmbientLight(this)
         [color, confidence] = getDetectedColor(this)
