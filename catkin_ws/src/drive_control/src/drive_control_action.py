@@ -49,6 +49,10 @@ class DriveControlServer():
                                                      amount=goal_msg.angle)
         elif goal_msg.command == 'reset_heading':
             self.rvr.drive_control.reset_heading()
+        elif goal_msg.command == 'wake':
+            # Not needed right now since wake is at top of function. 
+            # This is here for robustness for future changes.
+            self.rvr.wake() 
 
         self.server.set_succeeded(self.result)
 
