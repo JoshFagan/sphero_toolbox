@@ -23,6 +23,7 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 - [ ] songPlay
 - [ ] setLEDs
 #### Native Functionality in Sphero
+- [ ] Update firmware and add new functionality
 - [ ] Sensor Readings
     - [ ] Reset Locator X And Y
     - [x] Color sensor
