@@ -56,6 +56,7 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 - [x] Create manager action server to schedule conflicting motor actions
     * E.x. going forward for N seconds, but performing a turn angle when client specifies
 ### Low Level Developemental Steps
+- [ ] Reinitialize specified sensor
 - [ ] Put bot IDs in separate file and have it imported from sphero.m
 - [x] Convert from ROS subscribers/publishers to ROS services/clients where applicable
     - [x] Convert to action servers for calls that make the Sphero move
