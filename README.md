@@ -38,6 +38,9 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
         * Current direction is now considered forward
     - [x] Drive With Heading
     - [x] Drive for N seconds
+- [ ] Make noice
+- [ ] setLEDs
+- [ ] IR follow other bots
 #### Raspberry Pi Functionality
 - [ ] Use LCD display
 - [ ] Pan/tilt camera
