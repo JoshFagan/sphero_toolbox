@@ -2,21 +2,21 @@
 This repo implements a ROS bridge to communicate between Matlab and the Raspberry Pi running on an RVR Sphero.
 
 ## To Do
-### High Level Developmental Steps
+### High Level Developemental Steps
 #### Port Over from Roomba
 - [ ] Sensor Readings
     - [ ] getAllSensors
     - [ ] getAngle
     - [ ] getBatteryInfo
     - [ ] getDistance	
-    - [x] getImage
     - [ ] showCamera
     - [ ] testSensors
+    - [x] getImage
 - [ ] Motor Control
-    - [x] setDriveVelocity
     - [ ] setDriveVelocityRadius
     - [ ] moveDistance
     - [ ] setTurnVelocity
+    - [x] setDriveVelocity
     - [x] stop
     - [x] turnAngle
 - [ ] Beep
@@ -24,8 +24,8 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 - [ ] setLEDs
 #### Native Functionality in Sphero
 - [ ] Sensor Readings
-    - [x] Color sensor
     - [ ] Reset Locator X And Y
+    - [x] Color sensor
     - [x] Get Ambient Light Sensor Value
     - [x] IMU
     - [x] Accelerometer
@@ -37,8 +37,14 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
         * Current direction is now considered forward
     - [x] Drive With Heading
     - [x] Drive for N seconds
+#### Raspberry Pi Functionality
+- [ ] Use LCD display
 - [ ] Pan/tilt camera
+- [x] Get distance
+- [x] Get image
+- [x] Run on Pi
 ### Mid Level Developemental Steps
+- [ ] Allow for limited capabilities and report what capabilitties are/not avaiable
 - [x] Motor Control
     - [x] Make setDriveVelocity drive forever (currently stops after a couple seconds)
     - [x] Account for negative velocities in setDriveVelocity
@@ -46,6 +52,7 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 - [x] Create manager action server to schedule conflicting motor actions
     * E.x. going forward for N seconds, but performing a turn angle when client specifies
 ### Low Level Developemental Steps
+- [ ] Put bot IDs in separate file and have it imported from sphero.m
 - [x] Convert from ROS subscribers/publishers to ROS services/clients where applicable
     - [x] Convert to action servers for calls that make the Sphero move
         - [x] Use system calls to update paths
@@ -53,15 +60,16 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
             * [Paths to update](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
 ### Documentation
 - [ ] Organize documentation
+    - [ ] Update installation documentation
     - [ ] Contents of directory
     - [ ] How to run the Sphero
         - [ ] Getting Started Demo
         - [ ] API
-    - [x] One time admin installation instructions for Pi
-    - [x] Installation every student needs to do on their local machine
     - [ ] Dev documentation
         - [ ] How to add more actions
         - [ ] How to report more sensors
         - [ ] Using Linux for action message generation
+    - [x] One time admin installation instructions for Pi
+    - [x] Installation every student needs to do on their local machine
 - [ ] Add more descriptive comments
     - [ ] Especially to nontransparent system calls
