@@ -80,7 +80,7 @@ classdef sphero < handle
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 18; % Total number of ROS nodes that should be created
+        NUM_TOPICS = 21; % Total number of ROS nodes that should be created
     end % Private, constant properties
     
     methods (Access=public)
