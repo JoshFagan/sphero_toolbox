@@ -30,6 +30,7 @@ class DriveControlServer():
         
       
     def execute_cb(self, goal_msg):
+        self.rvr.wake()
         print(goal_msg)
         if goal_msg.command == 'stop':
             self.drive_raw_motors(0, 0)
@@ -48,6 +49,10 @@ class DriveControlServer():
                                                      amount=goal_msg.angle)
         elif goal_msg.command == 'reset_heading':
             self.rvr.drive_control.reset_heading()
+        elif goal_msg.command == 'wake':
+            # Not needed right now since wake is at top of function. 
+            # This is here for robustness for future changes.
+            self.rvr.wake() 
 
         self.server.set_succeeded(self.result)
 
@@ -60,16 +65,20 @@ class DriveControlServer():
 
         while True:
             if self.server.is_preempt_requested():
-                    self.server.set_preempted()
-                    break
+                self.server.set_preempted()
+                break
+                
             self.rvr.raw_motors(
                 left_mode=left_mode,
                 left_speed=abs(left_speed),
                 right_mode=right_mode,
-                right_speed=abs(right_speed)
-            )
+                right_speed=abs(right_speed))
 
-            rospy.sleep(0.1)
+            rospy.sleep(1)
+            
+            if left_speed == 0 and right_speed == 0:
+                break
+            
         
 if __name__ == '__main__':
     try:

@@ -10,6 +10,7 @@ project(sphero_msgs)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  sensor_msgs
   message_generation
   actionlib_msgs
 )
@@ -55,11 +56,12 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+ add_service_files(
+   DIRECTORY
+   srv
+   FILES
+   GetPicameraImage.srv
+ )
 
 ## Generate actions in the 'action' folder
 add_action_files(
@@ -73,6 +75,7 @@ add_action_files(
 generate_messages(
   DEPENDENCIES
   actionlib_msgs
+  sensor_msgs
   std_msgs  # Or other packages containing msgs
 )
 
@@ -108,7 +111,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES sphero_msgs
-  CATKIN_DEPENDS rospy std_msgs message_runtime actionlib_msgs
+  CATKIN_DEPENDS rospy std_msgs sensor_msgs message_runtime actionlib_msgs
 #  DEPENDS system_lib
 )
 
