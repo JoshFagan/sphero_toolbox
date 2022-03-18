@@ -74,6 +74,7 @@ function init_matlab_communicators(this)
     [this.drive_control_pub, this.drive_control_m] = rospublisher('/matlab_interface/drive_command');
     [this.request_rpi_data_pub, this.request_rpi_data_m] = rospublisher('/rpi_sensors/request_data');
     [this.request_sphero_data_pub, this.request_sphero_data_m] = rospublisher('/sphero_sensors/request_data');
+    [this.control_rpi_io_pub, this.control_rpi_io_m] = rospublisher('/matlab_interface/rpi_io');
 
     % ROS subscribers
     this.color_detect_sub  = rossubscriber('/sphero_sensors/color_detected');

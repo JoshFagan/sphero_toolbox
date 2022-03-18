@@ -63,11 +63,13 @@ classdef sphero < handle
         drive_control_m; % Message for drive control action client
         request_sphero_data_m;
         request_rpi_data_m;
+        control_rpi_io_m;
 
         % ROS publishers
         drive_control_pub;
         request_rpi_data_pub;
         request_sphero_data_pub;
+        control_rpi_io_pub;
         
         % ROS subscribers
         ambient_light_sub;
@@ -83,7 +85,7 @@ classdef sphero < handle
     end % Private properties
     
     properties (Access=private, Constant)
-        NUM_TOPICS = 21; % Total number of ROS nodes that should be created
+        NUM_TOPICS = 23; % Total number of ROS nodes that should be created
     end % Private, constant properties
     
     methods (Access=public)
@@ -144,6 +146,7 @@ classdef sphero < handle
         [angular_vel]       = getAngularVelocity(this)
         [acceleration]      = getAcceleration(this)
         [pi_image]          = getImage(this)
+        []                  = setOLED(this, text, row, col)
     end % Public methods
     
     methods (Access=private)
