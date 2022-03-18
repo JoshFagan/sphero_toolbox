@@ -8,11 +8,11 @@ roslib.load_manifest('io_control')
 from sphero_msgs.msg import OledInput 
 
 
-class UpdateRpiOLED():
+class UpdateRPiOLED():
     def __init__(self):
         self.oled = qwiic.QwiicMicroOled()
         self.oled.begin()
-        self.oled.clear(oled.ALL)
+        self.oled.clear(self.oled.ALL)
 
         # Subscribers
         rospy.Subscriber("/rpi_io/oled_input", 
@@ -20,14 +20,14 @@ class UpdateRpiOLED():
 
 
     def request_handler(self, request):
-        self.oled.clear(oled.PAGE)
+        self.oled.clear(self.oled.PAGE)
         self.oled.set_cursor(request.row, request.col)
         self.oled.print(reqest.text)
         self.oled.display()
 
 
     def __del__(self):
-        self.oled.clear(oled.PAGE)
+        self.oled.clear(self.oled.PAGE)
         self.oled.display()
     
     
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     try:
         rospy.init_node('update_rpi_oled')
     
-        oled_sub = UpdateRpiOLED()
+        oled_sub = UpdateRPiOLED()
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
