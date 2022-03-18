@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="io_control"
+          type="update_rpi_lcd.py"
+          name="update_rpi_lcd"
+          output="screen" >
+    </node>
+</launch>

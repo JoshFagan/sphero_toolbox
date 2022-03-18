@@ -3,4 +3,9 @@
           type="matlab_interface.py"
           name="matlab_interface"
           output="screen" />
+
+    <node pkg="matlab_interface"
+          type="rpi_io_interface.py"
+          name="rpi_io_interface"
+          output="screen" />
 </launch>
