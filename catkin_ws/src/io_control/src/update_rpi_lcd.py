@@ -22,7 +22,7 @@ class UpdateRPiOLED():
     def request_handler(self, request):
         self.oled.clear(self.oled.PAGE)
         self.oled.set_cursor(request.row, request.col)
-        self.oled.print(reqest.text)
+        self.oled.print(request.text)
         self.oled.display()
 
 

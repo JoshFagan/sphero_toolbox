@@ -15,7 +15,7 @@ class RPiIOInterface():
         self.ap = argparse.ArgumentParser()
         self.ap.add_argument("--device", type=str, default='oled',
                              help="Device to interace with")
-        self.ap.add_argument("--text", type=str, default='',
+        self.ap.add_argument("--text", type=str, default='', nargs='+',
                              help="Text to display on OLED")
         self.ap.add_argument("--row", type=int, default=0,
                              help="Row to place cursor on")
@@ -33,13 +33,12 @@ class RPiIOInterface():
 
     def command_handler(self, args):
         print(args)
-        print(self.goal_msg)
         args = args.data.split()
         args = self.ap.parse_args(args)
 
         if args.device == 'oled': 
             oled_msg = OledInput()
-            oled_msg.text = args.text
+            oled_msg.text = ' '.join(args.text)
             oled_msg.row  = args.row
             oled_msg.col  = args.col
             self.oled_pub.publish(oled_msg)

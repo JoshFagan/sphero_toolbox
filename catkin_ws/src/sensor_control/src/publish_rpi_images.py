@@ -35,15 +35,19 @@ class ImagePublisher():
 
 
     def request_handler(self, request):
+        print('Request recieved')
         if request.data == 'get_image':
             # Update image
             self.camera.capture(self.image_data, 'rgb')
+            print('Image Captured')
     
             self.image_msg.header.stamp = rospy.Time.now()
             self.image_msg.data = self.image_data.tobytes()
     
+            print('Sending Image')
             # Publish image
             self.image_pub.publish(self.image_msg)
+            print('Image Sent')
 
 
     def __del__(self):
