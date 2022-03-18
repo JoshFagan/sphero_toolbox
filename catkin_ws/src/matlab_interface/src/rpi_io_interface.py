@@ -6,11 +6,11 @@ import rospy
 
 import argparse
 
-from sphero_msgs.srv import OledInput 
+from sphero_msgs.msg import OledInput 
 from std_msgs.msg import String
 
 
-class RPiOIInterface():
+class RPiIOInterface():
     def __init__(self):
         self.ap = argparse.ArgumentParser()
         self.ap.add_argument("--device", type=str, default='oled',
@@ -37,7 +37,7 @@ class RPiOIInterface():
         args = args.data.split()
         args = self.ap.parse_args(args)
 
-        if args.device == 'oled' 
+        if args.device == 'oled': 
             oled_msg = OledInput()
             oled_msg.text = args.text
             oled_msg.row  = args.row
@@ -48,7 +48,7 @@ class RPiOIInterface():
 if __name__ == '__main__':
     rospy.init_node('matlab_interface')
 
-    matlab_interface = MatlabInterface()
+    rpi_io_interface = RPiIOInterface()
 
     try:
         rospy.spin()
