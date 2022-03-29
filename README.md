@@ -42,7 +42,7 @@ This repo implements a ROS bridge to communicate between Matlab and the Raspberr
 - [ ] setLEDs
 - [ ] IR follow other bots
 #### Raspberry Pi Functionality
-- [ ] Use LCD display
+- [x] Use LCD display
 - [ ] Pan/tilt camera
 - [x] Get distance
 - [x] Get image
