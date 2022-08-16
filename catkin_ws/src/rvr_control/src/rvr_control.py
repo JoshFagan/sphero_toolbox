@@ -14,13 +14,26 @@ from publish_sphero_sensors import SpheroSensorPublisher
 
 from sphero_sdk import SpheroRvrObserver
 
+
+
+def will_sleep_handler():
+    print('RVR is about to sleep...')
+    rvr.wake()
+    
         
 if __name__ == '__main__':
+    global rvr 
+
     try:
         rospy.init_node('rvr_controller')
+        stay_awake = rospy.get_param('rvr_control/stay_awake')
+
         rvr = SpheroRvrObserver()
         rvr.wake()
         rospy.sleep(2)
+
+        if stay_awake:
+            rvr.on_will_sleep_notify(will_sleep_handler)
     
         sphero_sensor_pub = SpheroSensorPublisher(rvr)
         drive_control     = DriveControlServer(rvr)

@@ -1,8 +1,10 @@
 <launch>
     <arg name="rate" value="5.0"/>
+    <arg name="stay_awake" value="True"/>
 
     <include file="$(find rvr_control)/launch/rvr_control.launch">
         <arg name="rate" value="$(arg rate)"/>
+        <arg name="stay_awake" value="$(arg stay_awake)"/>
     </include>
 
     <include file="$(find sensor_control)/launch/publish_rpi_sensors.launch"/>

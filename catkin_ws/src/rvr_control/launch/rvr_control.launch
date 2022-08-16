@@ -1,8 +1,12 @@
 <launch>
     <arg name="rate" default="5.0"/>
+    <arg name="stay_awake" default="True"/>
 
     <param name="drive_control/status_frequency"
            value="$(arg rate)" />
+
+    <param name="rvr_control/stay_awake"
+           value="$(arg stay_awake)" />
 
     <node pkg="rvr_control"
           type="rvr_control.py"
