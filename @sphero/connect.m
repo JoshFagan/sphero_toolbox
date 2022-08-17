@@ -11,17 +11,15 @@ function init_pi(this)
     disp( 'Connecting to Pi.' );
     disp( 'This can take 1-2 minutes.' );
 
-    username  = 'pi';
-    password  = 'raspberry';%'EF230SpheroRVR';
-    this.mypi = raspi(this.bot_ip_address, username, password);
+    this.mypi = raspi(this.pi_ip_address, this.pi_user, this.pi_pass);
 
     % Set ROS master uri on Pi to local IP address
 
     system(this.mypi, strcat('echo export ROS_MASTER_URI=http://', ...
            this.matlab_ip_address, ':11311 > ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
-    system(this.mypi, strcat('export ROS_IP=', this.bot_ip_address));
+    system(this.mypi, strcat('export ROS_IP=', this.pi_ip_address));
     system(this.mypi, strcat('echo export ROS_IP=', ...
-           this.bot_ip_address, ' >> ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
+           this.pi_ip_address, ' >> ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
     disp('Finished connecting to Pi.');
 end % Initialize pi method
 
