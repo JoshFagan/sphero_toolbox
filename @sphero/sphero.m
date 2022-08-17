@@ -71,20 +71,8 @@ classdef sphero < handle
             end
             
             % Get IP address of local computer running MATLAB 
-            % (command works for Macs, not tested on other systems)
-            if ismac
-                [~, ip_address] = system('ipconfig getifaddr en1');
-                if isempty(ip_address)
-                    [~, ip_address] = system('ipconfig getifaddr en0');
-                end
-            elseif ispc
-                [~, ip_address] = system('ipconfig | findstr /i "ipv4"');
-                ip_address = split(ip_address,':');
-                ip_address = ip_address{2};
-            else
-                [~, ip_address] = system('hostname -I');
-            end
-            this.matlab_ip_address = strtrim(ip_address);
+            [~, hostname] = system('hostname')
+            this.matlab_ip_address = resolvehost(strtrim(hostname), 'address')
 
             this.connect();
 
