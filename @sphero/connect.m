@@ -14,12 +14,12 @@ function init_pi(this)
     this.mypi = raspi(this.pi_ip_address, this.pi_user, this.pi_pass);
 
     % Set ROS master uri on Pi to local IP address
-
     system(this.mypi, strcat('echo export ROS_MASTER_URI=http://', ...
            this.matlab_ip_address, ':11311 > ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
-    system(this.mypi, strcat('export ROS_IP=', this.pi_ip_address));
+    % Set ROS IP on Pi to Pi IP address
     system(this.mypi, strcat('echo export ROS_IP=', ...
            this.pi_ip_address, ' >> ~/sphero_toolbox/system_files/set_ros_master_uri.bash'));
+    
     disp('Finished connecting to Pi.');
 end % Initialize pi method
 
@@ -49,13 +49,13 @@ function init_pi_communicators(this)
 
     % Launch ROS nodes on Pi
     system(this.mypi, ...
-           'roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > .ros/log/temp.log &');
+           'source ~/sphero_toolbox/system_files/set_ros_master_uri.bash; roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > .ros/log/temp.log &');
 
      % Stall until topics have been created on Pi
     topics = rostopic('list');
     [num_topics, ~] = size(topics);
     while num_topics < this.NUM_TOPICS
-        pause(0.5);
+        pause(1);
         topics = rostopic('list');
         [num_topics, ~] = size(topics);
     end
