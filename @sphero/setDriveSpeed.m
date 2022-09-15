@@ -8,7 +8,7 @@ function setDriveSpeed(this, left_wheel_speed, right_wheel_speed)
 %   Examples:
 %       s.setDriveSpeed(10) % Set both wheel speeds to 10 meters/second
 %       s.setDriveSpeed(10, 20) % Set the left wheel speed to 10 and the
-%                               % right wheel speed to 20 meters/second                                
+%                               % right wheel speed to 20 meters/second                             
 
     if nargin == 2
         right_wheel_speed = left_wheel_speed;
@@ -21,11 +21,12 @@ function setDriveSpeed(this, left_wheel_speed, right_wheel_speed)
         warning('Numeric wheel speeds required.');
         return
     end
-    
-%     this.drive_control_m.Command    = 'drive_raw_motors';
-%     this.drive_control_m.LeftSpeed  = left_wheel_speed;
-%     this.drive_control_m.RightSpeed = right_wheel_speed;
 
+    % Cap wheel speed at 100
+    left_wheel_speed = min(left_wheel_speed, 100);
+    right_wheel_speed = min(right_wheel_speed, 100);
+    left_wheel_speed = max(left_wheel_speed, -100);
+    right_wheel_speed = max(right_wheel_speed, -100);
 
     args = sprintf('--command drive_raw_motors --left_speed %d --right_speed %d', ...
                    left_wheel_speed, right_wheel_speed);
