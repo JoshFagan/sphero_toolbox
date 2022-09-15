@@ -1,5 +1,5 @@
 function [] = setOLED(this, text, row, col)
-% SETDRIVESPEED Set the speed at which the robot's wheels move.
+% SETOLED Set the text to display on the OLED screen.
 %   Input:
 %       text: Text to display on OLED 
 %       row: Row of OLED to set cursor on  
