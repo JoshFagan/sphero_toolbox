@@ -4,7 +4,7 @@ savepath;
 
 % Set python environemnt path
 if ispc
-    pyenv('Version','2.7');
+    pyenv('Version','C:\Python\Python39\python')
 end
 
 % Add startup if on pc and space in userpath

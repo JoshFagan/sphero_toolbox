@@ -1,6 +1,6 @@
 classdef sphero < handle
     % A MATLAB class file containing all necessary functions to communicate
-    % with and control the RVR Sphero.
+    % with and control the Sphero RVR.
     %
     % SCROLL DOWN to Method Summary to see the list of commands
     %
@@ -49,7 +49,7 @@ classdef sphero < handle
     
     methods (Access=public)
         function this = sphero(varargin)
-            % s = SPHERO(robot_id) Create an object used to reference the RVR Sphero
+            % s = SPHERO(robot_id) Create an object used to reference the Sphero RVR.
             
             disp('Creating Sphero object.');            
             
