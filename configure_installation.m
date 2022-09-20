@@ -13,10 +13,10 @@ if ispc && any(isspace(userpath))
     fileID = fopen(fullfile(userpath,'startup.m'),'w');
 
     % Print setenv to make change persistent across MATLAB sessions
-    envtext = "setenv('MY_PYTHON2_VENV', 'C:\Matlab_Python_Env')";
+    envtext = "setenv('MY_PYTHON_VENV', 'C:\Matlab_Python_Env')";
     fprintf(fileID,'%s',envtext);
 
     % Close file and run setenv so user doesn't need to restart
     fclose(fileID);
-    setenv('MY_PYTHON2_VENV', 'C:\Matlab_Python_Env')
+    setenv('MY_PYTHON_VENV', 'C:\Matlab_Python_Env')
 end
