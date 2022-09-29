@@ -72,6 +72,9 @@ classdef sphero < handle
             
             % Get IP address of local computer running MATLAB 
             [~, hostname] = system('hostname');
+            if ismac
+                [~, hostname] = system('Curl ifconfig.me');
+            end
             this.matlab_ip_address = resolvehost(strtrim(hostname), 'address');
 
             this.connect();
