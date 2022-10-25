@@ -9,6 +9,20 @@ function [acceleration] = getAcceleration(this)
 %   Examples:
 %       acceleration = s.getAcceleration()
 
+    % Check to see if backend service topics have been created
+    try
+        rostopic('info', '/matlab_interface/drive_command');
+    catch E
+        warning('Cannot execute command "turnAngle" as the drive control systems are not online yet.')
+    end
+
+    % Check to see if sphero sensor request topic has been subscribed to          
+    if isempty(rostopic('info', '/sphero_sensors/request_data').Subscribers) || ...
+       isempty(rostopic('info', '/sphero_sensors/imu').Publishers)
+        warning('Cannot execute command "getAcceleration" as the IMU not online yet.')
+        return
+    end
+
     % Send request
     this.request_sphero_data_m.Data = 'get_imu';
     send(this.request_sphero_data_pub, this.request_sphero_data_m);

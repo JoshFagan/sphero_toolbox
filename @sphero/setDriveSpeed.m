@@ -31,5 +31,18 @@ function setDriveSpeed(this, left_wheel_speed, right_wheel_speed)
     args = sprintf('--command drive_raw_motors --left_speed %d --right_speed %d', ...
                    left_wheel_speed, right_wheel_speed);
     this.drive_control_m.Data = args;
-    send(this.drive_control_pub, this.drive_control_m);
+
+    % Check to see if backend service topics have been created
+    try
+        rostopic('info', '/matlab_interface/drive_command');
+    catch E
+        warning('Cannot execute command "setDriveSpeed" as the drive control systems are not online yet.')
+    end
+
+    % Check to see if matlab interface topics have been subscribed to          
+    if isempty(rostopic('info', '/matlab_interface/drive_command').Subscribers)
+        warning('Cannot execute command "setDriveSpeed" as the drive control systems are not online yet.')
+    else
+        send(this.drive_control_pub, this.drive_control_m);
+    end
 end
