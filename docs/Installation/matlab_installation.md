@@ -1,3 +1,10 @@
+---
+layout: default
+title: Install for MATLAB
+parent: Installation
+nav_order: 1
+---
+
 # Toolbox Installation for Matlab 
 
 ## ***Important Notes:***
