@@ -1,6 +1,8 @@
 # Sphero Toolbox
 This repo implements a ROS bridge to communicate between Matlab and the Raspberry Pi running on an RVR Sphero.
 
+Documentation website can be found [here](https://joshfagan.github.io/sphero_toolbox/).
+
 ## To Do
 ### High Level Developemental Steps
 #### Port Over from Roomba
