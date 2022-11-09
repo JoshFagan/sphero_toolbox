@@ -1,6 +1,7 @@
 title: YOUR TITLE
 description: YOUR DESCRIPTION
-remote_theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
+
 
 url: https://joshfagan.github.io/sphero_toolbox
 
