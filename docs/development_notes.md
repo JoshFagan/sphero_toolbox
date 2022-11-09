@@ -1,3 +1,9 @@
+---
+layout: default
+title: Development Notes
+nav_order: 99
+---
+
 # Development Notes
 A document dedicated to important and helpful information related to adding functionality to this toolbox.
 
