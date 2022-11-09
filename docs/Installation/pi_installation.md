@@ -1,3 +1,10 @@
+---
+layout: default
+title: Install for Raspberry Pi
+parent: Installation
+nav_order: 2
+---
+
 # Toolbox Installation for Raspberry Pi Running on RVR Sphero  
 
 ## Raspberry Pi Configuration
