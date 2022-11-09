@@ -22,7 +22,7 @@ Just the Docs gives your documentation a jumpstart with a responsive Jekyll them
 
 Just the Docs is a theme for generating static websites with [Jekyll]. You can write source files for your web pages using [Markdown], the [Liquid] templating language, and HTML.[^1] Jekyll builds your site by converting all files that have [front matter] to HTML. Your [Jekyll configuration] file determines which theme to use, and sets general parameters for your site, such as the URL of its home page.
 
-Jekyll builds this Just the Docs theme docs website using the theme itself. These web pages show how your web pages will look *by default* when you use this theme. But you can easily *[customize]* the theme to make them look completely different!
+Jekyll builds this Just the Docs theme docs website using the theme itself. These web pages show how your web pages will look *by default* when you use this theme. But you can easily the theme to make them look completely different!
 
 Browse the docs to learn more about how to use this theme.
 
@@ -79,5 +79,4 @@ email, or any other method with the owners of this repository before making a ch
 [GitHub Pages]: https://pages.github.com/
 [Template README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
 [GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[customize]: {{ site.baseurl }}{% link docs/customization.md %}
 [use the template]: https://github.com/just-the-docs/just-the-docs-template/generate
