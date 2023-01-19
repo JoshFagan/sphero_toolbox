@@ -79,7 +79,7 @@ classdef sphero < handle
 
             this.connect();
 
-            disp( 'Finished creating Sphero object.' );
+            disp('Finished creating Sphero object.');
         end % Sphero constructor method
 
         setDriveSpeed(this, left_wheel_vel, right_wheel_vel)

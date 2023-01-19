@@ -8,8 +8,8 @@ end % Coonnect method
 
 function init_pi(this)
     % Create Pi object
-    disp( 'Connecting to Pi.' );
-    disp( 'This can take 1-2 minutes.' );
+    disp('Connecting to Pi.');
+    disp('This can take 1-2 minutes.');
 
     this.mypi = raspi(this.pi_ip_address, this.pi_user, this.pi_pass);
 
@@ -25,8 +25,8 @@ end % Initialize pi method
 
 function init_ros(this)
     % Initialize ROS environment
-    disp( 'Initializing MATLAB ROS host.' );
-    disp( 'This should take less than 1 minute.' );
+    disp('Initializing MATLAB ROS host.');
+    disp('This should take less than 1 minute.');
 
     % Make sure a ROS master node is not already running
     %rosshutdown;
@@ -44,8 +44,8 @@ end % Initialize ROS method
 
 function init_matlab_communicators(this)
     % Initialize ROS publishers, and subscribers in Matlab
-    disp( 'Initializing MATLAB ROS communicators.' );
-    disp( 'This should take less than 1 minute.' );
+    disp('Initializing MATLAB ROS communicators.');
+    disp('This should take less than 1 minute.');
 
     % ROS publishers
     [this.drive_control_pub, this.drive_control_m] = rospublisher('/matlab_interface/drive_command', ...
@@ -75,17 +75,17 @@ function init_matlab_communicators(this)
     this.imu_sub           = rossubscriber('/sphero_sensors/imu', ...
                                            'sensor_msgs/Imu');
 
-    disp( 'Finished initializing MATLAB ROS communicators.' );
+    disp('Finished initializing MATLAB ROS communicators.');
 end % Initialize ROS communicators in MATLAB function 
 
 function init_pi_communicators(this)
     % Initialize ROS action servers, publishers, and subscribers on the Pi
-    disp( 'Initializing Raspberry Pi ROS communicators.' );
-    disp( 'This can take 1-2 minutes.' );
+    disp('Initializing Raspberry Pi ROS communicators.');
+    disp('This can take 1-2 minutes.');
 
     % Launch ROS nodes on Pi
     system(this.mypi, ...
            'source ~/sphero_toolbox/system_files/set_ros_master_uri.bash; roslaunch --log /home/pi/sphero_toolbox/catkin_ws/launch/sphero.launch > .ros/log/temp.log &');
 
-    disp( 'Finished initializing Raspberry Pi ROS communicators.' );
+    disp('Finished initializing Raspberry Pi ROS communicators.');
 end % Initialize ROS communicators in Pi function 
