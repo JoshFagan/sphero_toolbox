@@ -11,12 +11,12 @@ function delete(this)
     
     % Remove unneeded output file from Pi
     if ~isempty(this.mypi)
-        system( this.mypi, 'rm -f ~/.ros/log/*.log');
-        system( this.mypi, 'rm -rf ~/.ros/log/*' );
+        system(this.mypi, 'rm -f ~/.ros/log/*.log');
+        system(this.mypi, 'rm -rf ~/.ros/log/*');
 
         % Restart Pi, terminating all processes being run on Pi
         try
-            system( this.mypi, 'sudo reboot +0.2' );
+            system(this.mypi, 'sudo reboot +0.2');
         catch E
         end
         clear this.mypi;
