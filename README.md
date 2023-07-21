@@ -1,5 +1,5 @@
 # Sphero Toolbox
-This repo implements a ROS bridge to communicate between Matlab and the Raspberry Pi running on an RVR Sphero.
+This repo implements a ROS bridge to communicate between MATLAB and the Raspberry Pi running on an RVR Sphero.
 
 Documentation website can be found [here](https://joshfagan.github.io/sphero_toolbox/).
 
@@ -59,7 +59,7 @@ Documentation website can be found [here](https://joshfagan.github.io/sphero_too
     * E.x. going forward for N seconds, but performing a turn angle when client specifies
 ### Low Level Developemental Steps
 - [ ] Clear OLED after "clear all"
-- [ ] Make getting sensor information happen with service and matlab interface
+- [ ] Make getting sensor information happen with service and MATLAB interface
 - [ ] Update input validation (setdrivespeed at least) to require integer
 - [ ] Reinitialize specified sensor
 - [ ] Put bot IDs in separate file and have it imported from sphero.m
