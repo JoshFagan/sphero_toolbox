@@ -43,7 +43,7 @@ function init_ros(this)
 end % Initialize ROS method
 
 function init_matlab_communicators(this)
-    % Initialize ROS publishers, and subscribers in Matlab
+    % Initialize ROS publishers, and subscribers in MATLAB
     disp('Initializing MATLAB ROS communicators.');
     disp('This should take less than 1 minute.');
 

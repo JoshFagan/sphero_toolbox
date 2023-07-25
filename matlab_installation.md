@@ -1,14 +1,14 @@
-# Toolbox Installation for Matlab 
+# Toolbox Installation for MATLAB 
 
 ## ***Important Notes:***
 * Do not edit any of the files in the `sphero_toolbox`
     * These files provide prebuilt functions for you to use, if you edit them they will no longer work as intended
-* Do not give your own Matlab files the same name as any file in `sphero_toolbox`
-    * If you do, Matlab will use your file instead of the files defined in `sphero_toolbox`
+* Do not give your own MATLAB files the same name as any file in `sphero_toolbox`
+    * If you do, MATLAB will use your file instead of the files defined in `sphero_toolbox`
       <details>
       <summary>Recommended Best Practices Tip</summary>
   
-      Before naming a file, check to make sure a file with that name does not already exist in Matlab's environment. We can check for the existance of a file/function called `hello_world` by running the command `which hello_world`. If any result other than "'hello_world' not found." is displayed then the file/function already exists and you should choose a different name.
+      Before naming a file, check to make sure a file with that name does not already exist in MATLAB's environment. We can check for the existance of a file/function called `hello_world` by running the command `which hello_world`. If any result other than "'hello_world' not found." is displayed then the file/function already exists and you should choose a different name.
       </details>
 * Do not do any developement in the `sphero_toolbox`
     * The `sphero_toolbox` should be saved in an out of the way, appropriate location (see below instructions) and developement (creation of new files) should be done in a separate location. **You should not be creating files for your EF230 projects in the sphero_toolbox folder.**
@@ -98,14 +98,14 @@
    
       **While running the installer for Visual Studio, make sure that the "Desktop development with C++" workload is selected.**
    </details>
-2. Restart Matlab if you already have it open
-3. Ensure the following Matlab Support Packages are installed
+2. Restart MATLAB if you already have it open
+3. Ensure the following MATLAB Support Packages are installed
     * MATLAB Support Package for Raspberry Pi Hardware
     * ROS Toolbox
       <details>
       <summary>Instructions for Checking and Installing Support Packages</summary>
   
-      1. In Matlab, click on the "Home" tab
+      1. In MATLAB, click on the "Home" tab
       2. Click on the 3 stacked cubes icon above "Add-Ons"
       3. Search for the support package of interest
           * You will either see that it is installed, or you can click on it to install it
@@ -135,7 +135,7 @@
 5. **For PCs only** (Mac and Linux users can skip to step 6)
    
    Follow [these instructions](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) to add the `Windows_Alias` folder in the `sphero_toolbox` to your system path. This folder (`Windows_Alias`) already exists in this toolbox (`sphero_toolbox`), all you need to do is add it to your system path. One helpful note when you are following those instructions, after you select "New" you can also select "Browse" to bring up a dialog box to find the `Windows_Alias` folder, instead of having the type the path out by hand.
-6. In Matlab open and run the file "configure_installation.m". **If you run into errors, check the troubleshooting tabs below to see if there is a solution already.**
+6. In MATLAB open and run the file "configure_installation.m". **If you run into errors, check the troubleshooting tabs below to see if there is a solution already.**
       <details>
       <summary>Troubleshooting Mac</summary>
   
@@ -155,9 +155,9 @@
       2. Paste and run the resulting output in the MATLAB command window
       3. Rerun the configuration script
       </details>
-7. Run the commands indicated by Matlab in the command window
+7. Run the commands indicated by MATLAB in the command window
    
-8. Test to make sure everything worked properly by executing the following command in the matlab command window:
+8. Test to make sure everything worked properly by executing the following command in the MATLAB command window:
    
    `m = rosmessage('sphero_msgs/DriveControlAction')`
    

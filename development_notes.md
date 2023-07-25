@@ -18,20 +18,20 @@ Currently implemented ROS action services:
 * Link to [instructions online](https://roboticsbackend.com/ros-create-custom-action/)
 * Project convention means this file should be in 'sphero_toolbox/catkin_ws/src/sphero_msgs/action'
 
-### Generating Matlab Messages from Custom ROS Action Messages 
+### Generating MATLAB Messages from Custom ROS Action Messages 
 This step did not work on my mac, but did work on my linux machine. It still works to copy the generated files over to my Mac system and use them there. 
-* [Instructions for importing custom messages into Matlab](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
+* [Instructions for importing custom messages into MATLAB](https://www.mathworks.com/help/ros/ug/ros-custom-message-support.html)
 1. Ensure you have the "ROS Toolbox Interface for ROS Custom Messages"
 2. Make sure the most recent version of `sphero_msgs` is in the directory `msg_gen`
     1. In the terminal, navigate to `sphero_toolbox/catkin_ws/src`
     2. `cp -r sphero_msgs ../../msg_gen/`
-3. Remove old Matlab generated messages
+3. Remove old MATLAB generated messages
     1. In the terminal, navigate to `sphero_toolbox/msg_gen`
     2. Execute the command: `rm -r matlab_gen`
-3. In Matlab, navigate to `sphero_toolbox`
-4. In the Matlab command window execute the command: `rosgenmsg('msg_gen')`
+3. In MATLAB, navigate to `sphero_toolbox`
+4. In the MATLAB command window execute the command: `rosgenmsg('msg_gen')`
 5. Rerun the script "configure_installation.m"
-6. Restart Matlab
+6. Restart MATLAB
 7. You can use `rosmsg list` and `rosmsg info <new or altered message>` to make sure the new or changed messages are recognized
 
-### Creating Matlab Action Client
+### Creating MATLAB Action Client

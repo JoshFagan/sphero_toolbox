@@ -18,7 +18,7 @@ function stop(this)
         warning('Cannot execute command "stop" as the drive control systems are not online yet.')
     end
 
-    % Check to see if matlab interface topics have been subscribed to          
+    % Check to see if MATLAB interface topics have been subscribed to          
     if isempty(rostopic('info', '/matlab_interface/drive_command').Subscribers)
         warning('Cannot execute command "stop" as the drive control systems are not online yet.')
     else
